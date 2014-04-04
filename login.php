@@ -72,4 +72,3 @@
 
 
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/bottombar.php'; ?> 
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/footer.php'; ?>
