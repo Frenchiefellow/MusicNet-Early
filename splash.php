@@ -7,7 +7,7 @@
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/navbarSplash.php'; ?> 
 
 <?php
-  $connection = mysql_connect("cs445sql", "pcalderw", "EL827pca");
+  $connection = mysql_connect(/*removed*/);
   if (!$connection){
     die ("Couldn't connect to mysql server!<br>The error was: " . mysql_error());
   }
