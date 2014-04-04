@@ -1,7 +1,9 @@
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/headerNoNav.php'; ?> 
+
 <style>
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/splash.css'; ?>
 </style> 
+
 <div>
 
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/navbarSplash.php'; ?> 
@@ -23,9 +25,8 @@
         <p><a class="btn btn-warning btn-lg" role="button" href="http://cs445.cs.umass.edu/php-wrapper/clp/login.php" style="">Sign Up!</a></p>
       </div>
 </div> 
-	<div class="container">
 
-	</div>
+<div class="container"></div>
 
 
 
