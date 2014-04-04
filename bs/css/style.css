@@ -37,9 +37,11 @@ html, body {
 
 }
 
-.introsu{	text-align: center;
+.introsu{	
+	text-align: center;
 	font-weight:bold;
 }
+
 #mainSpace{
 	padding-bottom: 15px;
 }
