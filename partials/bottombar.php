@@ -13,8 +13,4 @@
 </div>
 
 </body>
-<<<<<<< HEAD
-</html>
-=======
-</html>
->>>>>>> ff8d9f6dba0ced598d4c578f37eff30825bb9319
+
