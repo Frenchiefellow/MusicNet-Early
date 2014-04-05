@@ -10,19 +10,5 @@ $connection = mysql_connect(/*Removed*/);
     die ("Couldn't select a database!<br> Error: " . mysql_error());
   else
     echo "Database selected successfully.<br>\n";
-	
-	/*$db = 'clp';
-	$sql = "SHOW TABLES FROM $db";
-	$result = mysql_query($sql);
-if (!$result) {
-    echo "DB Error, could not list tables\n";
-    echo 'MySQL Error: ' . mysql_error();
-    exit;
-}
 
-while ($row = mysql_fetch_row($result)) {
-    echo "Table: {$row[0]}\n";
-}
-
-mysql_free_result($result);*/
 ?>
