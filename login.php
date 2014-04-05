@@ -87,4 +87,7 @@
 
 
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/bottombar.php'; ?> 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ff8d9f6dba0ced598d4c578f37eff30825bb9319
