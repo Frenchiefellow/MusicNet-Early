@@ -8,18 +8,6 @@
 
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/navbarSplash.php'; ?> 
 
-<<<<<<< HEAD
-=======
-<?php
-  $connection = mysql_connect(/*removed*/);
-  if (!$connection){
-    die ("Couldn't connect to mysql server!<br>The error was: " . mysql_error());
-  }
-  else{
-    echo "Connection successful!<br>\n";
-  }
-?>
->>>>>>> ff8d9f6dba0ced598d4c578f37eff30825bb9319
 
 <div class="jumbotron" id= "welcome" style="background-color: rgba(128, 128, 128, .5);">
       <div id = "splashContainer" class="container">
