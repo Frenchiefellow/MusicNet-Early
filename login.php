@@ -2,13 +2,20 @@
 <div class="entire">
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/navbarPlain.php'; ?>
 
-<div class="jumbotron" style="padding-top: 3%;">
-      <div class="container">
-	<div style="text-align:center; font-weight: bold; font-size: 250%">
-	Join a community of millions of music lovers!
+
+<style>
+<?php include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/splash.css'; ?>
+</style> 
+<div class="jumbotron" id= "welcome" style="background-color: rgba(128, 128, 128, .85);">
+    <div class="container">
+
+    <div class = 'titlecontainer' style= 'padding-top: 25px;'>
+	<div id = 'mtitle'>
+	Join a community of music lovers!
 	</div>
-	<div style="text-align:center; font-weight: bold; font-size: 250%">
+	<div id= 'mtitle'>
 	Sign Up with MusicNet now!
+	</div>
 	</div>
 
 
@@ -18,26 +25,12 @@
 		<tbody>
 		<tr>
 			<td class="ss" >
-				<form style="padding-right: 20pt;" action="/signup" method="post">
+				<form style="padding-right: 20pt;" action="adduser.php" method="post">
+
 					<div class="form-group">
 						<label for="username">Username</label>
 						<input type="text" required="required" class="form-control" id="username" name="username"
 						       placeholder="Enter Username" />
-					</div>
-					<div class="form-group">
-						<label for="first-name">First Name</label>
-						<input type="text" required="required" class="form-control" id="first-name" name="first-name"
-						       placeholder="Enter First Name" />
-					</div>
-					<div class="form-group">
-						<label for="last-name">Last Name</label>
-						<input type="text" required="required" class="form-control" id="last-name" name="last-name"
-						       placeholder="Enter Last Name" />
-					</div>
-					<div class="form-group">
-						<label for="signup-email">Email</label>
-						<input type="email" required="required" class="form-control" id="signup-email" name="signup-email"
-						       placeholder="Enter Email" />
 					</div>
 					<div class="form-group">
 						<label for="signup-password">Password</label>
@@ -49,6 +42,25 @@
 						<input type="password" required="required" class="form-control" id="confirm-password"
 						       name="confirm-password" placeholder="Confirm Password" />
 					</div>
+					<div class="form-group">
+						<label for="age">Age (Between 13 and 110)(Optional)</label>
+						<input type="number"  class="form-control" id="age" name="age"
+						       placeholder="Enter Age" min="13" max="110" />
+					</div>
+					<div class="form-group">
+						<label for="location">Location (Optional)</label>
+						<input type="text"  class="form-control" id="location" name="location"
+						       placeholder="Enter Location (e.g. Boston)" />
+					</div>
+					<div class="form-group">
+						<label for="gender">Gender (Optional)</label>
+						<select name="Gender">
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+						<option value="na">Prefer not to answer.</option>
+						</select>					
+					</div>
+					
 					<div class="error">
 						<!--ERROR MESSAGES HERE -->
 					</div>
@@ -61,15 +73,18 @@
 </div>
 </div>
 
+<div class = 'holder'>
 <div class = 'imcontainer'>
-<img src="http://i.telegraph.co.uk/multimedia/archive/01252/Michael_Rosen_1252427c.jpg">
-<img src="http://www2.warwick.ac.uk/services/communications/medialibrary/images/january10/michael_rosen_4_warwick_prize_for_writing_210110.jpg">
-<img src="http://calverleyparkside.pbworks.com/f/rosen460.jpg">
-<img src="http://www.hackneygazette.co.uk/polopoly_fs/hg_wk46_workshop_arcola_theatre_3_1_1801745!image/2163885511.jpg_gen/derivatives/landscape_630/2163885511.jpg">
+<img src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/guitar_2.jpg"));?>'>
+<img src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/girl.jpg"));?>'>
+<img src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/acordian_2.jpg"));?>'>
+<img src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/girl2_2.jpg"));?>'>
+</div>
 </div>
 
 
 
 
+
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/bottombar.php'; ?> 
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/footer.php'; ?>
+

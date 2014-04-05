@@ -34,13 +34,13 @@ html, body {
 	padding-bottom: 10px;
 	padding-top: 10px;
 	padding-left: 10px;
-	
-
 }
 
-.introsu{	text-align: center;
+.introsu{	
+	text-align: center;
 	font-weight:bold;
 }
+
 #mainSpace{
 	padding-bottom: 15px;
 }

@@ -6,15 +6,6 @@
 
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/navbarSplash.php'; ?> 
 
-<?php
-  $connection = mysql_connect("cs445sql", "pcalderw", "EL827pca");
-  if (!$connection){
-    die ("Couldn't connect to mysql server!<br>The error was: " . mysql_error());
-  }
-  else{
-    echo "Connection successful!<br>\n";
-  }
-?>
 
 <div class="jumbotron" id= "welcome" style="background-color: rgba(128, 128, 128, .5);">
       <div id = "splashContainer" class="container">
@@ -33,4 +24,4 @@
 
 </div>
 
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/footer.php'; ?> 
+

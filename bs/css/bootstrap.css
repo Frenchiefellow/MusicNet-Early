@@ -5806,18 +5806,52 @@ button.close {
   }
 }
 
+/* MusicNet Additions */
+
 .imcontainer{
- padding-left: 1%;
-padding-right: 1%;
+display: table;
+border: 2px solid;
+border-radius: 25px;
+overflow : hidden;
+background-color: black;
+z-index = -1;
+
 }
 
 .imcontainer img{
+ display: table-cell;
   position: relative;
     float: left;
     width: 25%;
-    height: 100%;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
+
+
+}
+
+.holder {
+padding-left: 1%;
+padding-right: 1%;
+}
+
+
+
+#mtitle{
+text-align:center; 
+font-weight: bold; 
+font-size: 250%;
+width: 100%;
+height: 40%
+}
+
+.user{
+font-weight: bold;
+text-align: center;
+color: black;
+
+
+}
+
+label {
+font-weight: bold;
+font-size: 125%;
 }
 /*# sourceMappingURL=bootstrap.css.map */

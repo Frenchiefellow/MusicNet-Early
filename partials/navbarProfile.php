@@ -20,7 +20,7 @@
             <input type="text" class="form-control" placeholder="Search Everything!">
           </form>
 
-        
+	</div>        
       </div>
     </div> 
   
