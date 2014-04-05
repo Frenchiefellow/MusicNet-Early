@@ -17,7 +17,6 @@ $connection = mysql_connect(/*removed*/);
 	$result = mysql_query($sql);
 
 if (!$result) {
-    echo "User does not exist\n";
     echo 'MySQL Error: ' . mysql_error();
     exit;
 }
