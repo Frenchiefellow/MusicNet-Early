@@ -5854,4 +5854,13 @@ label {
 font-weight: bold;
 font-size: 125%;
 }
+
+.imhold{
+display: table;
+margin: auto;
+width: 75%;
+height: inherit;
+
+}
+
 /*# sourceMappingURL=bootstrap.css.map */
