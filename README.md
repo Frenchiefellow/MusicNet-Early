@@ -15,5 +15,5 @@ The code and styles are subject to change and are not currently final.
 <li>adduser.php added to handle data from Sign up page for inserting to DB; highly incomplete</li>
 <li>Login will correctly pass data to auth.php and will query database for user information</li>
 <li>Username is stored as session variable for easy access in the user's profile page(s)</li>
-<li>Profile page has been expanded and now all pages of the sidebar have pages</li>
+<li>Profile page has been expanded and now all pages of the sidebar have been represented</li>
 </ul>
