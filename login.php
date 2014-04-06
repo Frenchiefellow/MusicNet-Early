@@ -34,13 +34,13 @@
 					</div>
 					<div class="form-group">
 						<label for="signup-password">Password</label>
-						<input type="password" required="required" class="form-control" id="signup-password" name="signup-password"
+						<input type="password" required="required" class="form-control" id="password" name="password"
 						       placeholder="Enter Password" />
 					</div>
 					<div class="form-group">
 						<label for="confirm-password">Confirm Password</label>
-						<input type="password" required="required" class="form-control" id="confirm-password"
-						       name="confirm-password" placeholder="Confirm Password" />
+						<input type="password" required="required" class="form-control" id="conpassword"
+						       name="conpassword" placeholder="Confirm Password" />
 					</div>
 					<div class="form-group">
 						<label for="age">Age (Between 13 and 110)(Optional)</label>
@@ -55,9 +55,9 @@
 					<div class="form-group">
 						<label for="gender">Gender (Optional)</label>
 						<select name="Gender">
+						<option value="na">No Answer</option>
 						<option value="male">Male</option>
 						<option value="female">Female</option>
-						<option value="na">Prefer not to answer.</option>
 						</select>					
 					</div>
 					
@@ -87,3 +87,4 @@
 
 
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/bottombar.php'; ?> 
+
