@@ -9,8 +9,9 @@
           </button>
           <a class="navbar-brand" href="http://cs445.cs.umass.edu/php-wrapper/clp/splash.php" style="position:absolute; ">MusicNet</a>
         </div>
+	<?php if(isset($_SESSION['username'])){echo '
         <div class="navbar-collapse collapse">
-          <form action='http://cs445.cs.umass.edu/php-wrapper/clp/auth.php' class="navbar-form navbar-right" role="form" method="post">
+          <form action="http://cs445.cs.umass.edu/php-wrapper/clp/auth.php" class="navbar-form navbar-right" role="form" method="post">
             <div class="form-group">
               <input type="text" placeholder="Username" name="username" class="form-control">
             </div>
@@ -19,7 +20,14 @@
             </div>
             <button type="submit" class="btn btn-success" >Sign in</button>
           </form>
-        </div><!--/.navbar-collapse -->
+        </div>';} 
+	else{
+	echo '
+	 <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="http://cs445.cs.umass.edu/php-wrapper/clp/profile.php">Home</a></li>
+	   </ul>
+	</div>';}?>
       </div>
     </div>
 

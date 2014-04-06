@@ -11,10 +11,10 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="http://cs445.cs.umass.edu/php-wrapper/clp/profile.php">Home</a></li>
-            <li><a href="http://cs445.cs.umass.edu/php-wrapper/clp/discover.php">Discover</a></li>
-            <li><a href="http://cs445.cs.umass.edu/php-wrapper/clp/playlists.php">Playlists</a></li>
-            <li><a href="http://cs445.cs.umass.edu/php-wrapper/clp/about.php">About Us</a></li>
+            <li <?php $url = "$_SERVER[REQUEST_URI]"; if(strpos($url, 'profile.php')){echo 'class = "active"';} ?>><a href="http://cs445.cs.umass.edu/php-wrapper/clp/profile.php">Home</a></li>
+            <li <?php $url = "$_SERVER[REQUEST_URI]"; if(strpos($url, 'discover.php')){echo 'class = "active"';} ?>><a href="http://cs445.cs.umass.edu/php-wrapper/clp/discover.php">Discover</a></li>
+            <li <?php $url = "$_SERVER[REQUEST_URI]"; if(strpos($url, 'playlists.php')){echo 'class = "active"';} ?>><a href="http://cs445.cs.umass.edu/php-wrapper/clp/playlists.php">Playlists</a></li>
+            <li <?php $url = "$_SERVER[REQUEST_URI]"; if(strpos($url, 'about.php')){echo 'class = "active"';} ?>><a href="http://cs445.cs.umass.edu/php-wrapper/clp/about.php">About Us</a></li>
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search Everything!">
