@@ -30,4 +30,5 @@ The code and styles are subject to change and are not currently final.
 <li>Added logic to reach admin shell in bottombar.php</li>
 <li>Removed navbarPlain.php as it was no longer being used</li>
 <li>Added logic to destroy session if user is trying to sign up, but is already logged in</li>
+<li>Updated the Profile Page styling; will finished later</li>
 </ul>
