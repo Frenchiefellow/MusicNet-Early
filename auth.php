@@ -21,12 +21,6 @@ if (!$result) {
     exit;
 }
 
-while ($row = mysql_fetch_row($result)) {
-    echo "Table: {$row[0]}\n";
-    echo "Table: {$row[1]}\n";
- 
-}
-
 if(mysql_num_rows($result) > 0){
 session_start();
 $_SESSION['username'] = $user;
