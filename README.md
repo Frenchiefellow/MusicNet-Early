@@ -9,4 +9,8 @@ other than stylization.
 The code and styles are subject to change and are not currently final.
 
 <h1>UPDATES:</h1>
-4/6: Sign up page fields now correctly reflect database fields
+4/6: 
+<ul>
+<li>Sign up page fields now correctly reflect database fields</li>
+<li></li>
+</ul>
