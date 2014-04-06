@@ -29,4 +29,5 @@ The code and styles are subject to change and are not currently final.
 <li>Resolved Session Conflicts on all pages?</li>
 <li>Added logic to reach admin shell in bottombar.php</li>
 <li>Removed navbarPlain.php as it was no longer being used</li>
+<li>Added logic to destroy session if user is trying to sign up, but is already logged in</li>
 </ul>
