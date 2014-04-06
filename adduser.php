@@ -79,7 +79,7 @@ $gender = 1;
 }
 
 //Insert the tuple into the User table
-$quer ='INSERT INTO User (loginacct, username, password, age, ismale, issuper, userloc) VALUES ("$user","$user", "$password", "$a", "$gender", "$loc")';
+$quer ='INSERT INTO User (loginacct, username, password, age, ismale, issuper, userloc) VALUES ("$user","$user", "$password", "$age", "$gender", 0, "$loc")';
 if (!mysql_query($quer))
   {
   die('Error: ' . mysql_error());
