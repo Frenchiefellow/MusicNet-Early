@@ -5,4 +5,5 @@
 <div class "container-fluid">
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/sideBarProfile.php'; ?>
 <?php include  '/courses/cs400/cs445/php-dirs/clp/www/partials/Dash_Modules/innerDashStats.php'; ?>
+</div>
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/bottombar.php'; ?>
