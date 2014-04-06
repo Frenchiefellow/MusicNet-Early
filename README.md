@@ -8,4 +8,5 @@ other than stylization.
 
 The code and styles are subject to change and are not currently final.
 
-Many of 4/5/14 changes reflect the final schema of the database. 
+<h1>UPDATES:</h1>
+4/6: Sign up page fields now correctly reflect database fields
