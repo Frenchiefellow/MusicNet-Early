@@ -26,4 +26,7 @@ The code and styles are subject to change and are not currently final.
 <li>Splash now detects if user is logged on or not (determines placement of login options)</li>
 <li>Added logout.php to allow users to log off.</li>
 <li>Implemented Logout button on Splash.php (if logged in) and Profile (if logged in)</li>
+<li>Resolved Session Conflicts on all pages?</li>
+<li>Added logic to reach admin shell in bottombar.php</li>
+<li>Removed navbarPlain.php as it was no longer being used</li>
 </ul>
