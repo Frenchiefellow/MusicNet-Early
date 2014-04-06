@@ -2,7 +2,7 @@ MusicNet-Early
 ==============
 This is an early version of the MusicNet Project. 
 
-The database direly needs to be optimized as queries take 2+ minutes to return, ~~We are currently in the process of fixing and moving our database~~, so there is not a lot in the way of function code,
+The database direly needs to be optimized as queries take 2+ minutes to return, ~~We are currently in the process of fixing and moving our database~~, so there is not a lot in the way of functional code,
 other than stylization. 
 
 
@@ -24,5 +24,6 @@ The code and styles are subject to change and are not currently final.
 <li>Minor adjustments to Login.php to aid the processes in adduser.php</li>
 <li>Profile navbar now appropriately highlights on respective pages</li>
 <li>Splash now detects if user is logged on or not (determines placement of login options)</li>
-<li>Added logout.php to allow users to log off. Implemented in Splash.php currrently</li>
+<li>Added logout.php to allow users to log off.</li>
+<li>Implemented Logout button on Splash.php (if logged in) and Profile (if logged in)</li>
 </ul>
