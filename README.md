@@ -20,4 +20,6 @@ The code and styles are subject to change and are not currently final.
 4/6: 
 <ul>
 <li>Profile sidebar now appropriately highlights on respective pages</li>
+<li>Added logic in adduser.php for adding users to DB from Login.php</li>
+<li>Minor adjustments to Login.php to aid the processes in adduser.php</li>
 </ul>
