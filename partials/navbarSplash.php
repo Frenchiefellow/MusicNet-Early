@@ -10,7 +10,7 @@
           </button>
           <a class="navbar-brand" href="http://cs445.cs.umass.edu/php-wrapper/clp/splash.php" style="position:absolute; ">MusicNet</a>
         </div>
-	<?php if(!isset($_SESSION['username'])){echo'
+	<?php if(!isset($_SESSION['username'])){echo '
         <div class="navbar-collapse collapse">
           <form action="http://cs445.cs.umass.edu/php-wrapper/clp/auth.php" class="navbar-form navbar-right" role="form" method="post">
             <div class="form-group">
