@@ -24,4 +24,5 @@ The code and styles are subject to change and are not currently final.
 <li>Minor adjustments to Login.php to aid the processes in adduser.php</li>
 <li>Profile navbar now appropriately highlights on respective pages</li>
 <li>Splash now detects if user is logged on or not (determines placement of login options)</li>
+<li>Added logout.php to allow users to log off. Implemented in Splash.php currrently</li>
 </ul>
