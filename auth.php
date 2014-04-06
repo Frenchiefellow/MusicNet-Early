@@ -12,7 +12,7 @@ $connection = mysql_connect(/*removed*/);
     die ("Couldn't select a database!<br> Error: " . mysql_error());
   else
     echo "Database selected successfully.<br>\n";
-	$db = 'clp';
+	$db = '/*removed*/';
 	$sql = "SELECT username, password FROM User WHERE username = '$user' AND password = '$pass'";
 	$result = mysql_query($sql);
 
