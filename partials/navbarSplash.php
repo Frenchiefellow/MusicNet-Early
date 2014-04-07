@@ -22,7 +22,7 @@
             </div>
             <button type="submit" class="btn btn-success" >Sign in</button>
           </form>'; ?>
-	   <?php if(isset($_GET['err'])){ echo '<div class ="navbar-brand2" style="position: absolute; color: white;">';if($_GET['err'] == 1){echo 'Incorrect Credentials!';} else{ echo 'User Not Found!';} echo '</div>'; } ?>
+	   <?php if(isset($_GET['err'])){ echo '<div class ="navbar-brand2" style="position: absolute; color: white;">'; if($_GET['err'] == 1){echo 'Incorrect Credentials!';} else if($_GET['err'] == 2){ echo 'User Not Found!';} echo '</div>'; } ?>
 	   <?php echo '
         </div>';} 
 	else{
@@ -31,8 +31,11 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="'; $url = "http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=" . $_SESSION['username']; echo $url; echo '">Home</a></li>
 	     <li><a href="http://cs445.cs.umass.edu/php-wrapper/clp/logout.php">Log Out</a></li>
-	   </ul>
+	   </ul>'; ?>
+   <?php if(isset($_GET['err'])){ echo '<div class ="navbar-brand2" style="position: absolute; color: white;">'; if($_GET['err'] == 1){echo 'Incorrect Credentials!';} else if($_GET['err'] == 2){ echo 'User Not Found!';} echo '</div>'; } ?>
+	  <?php echo '
 	</div>';}?>
+
       </div>
     </div>
 
