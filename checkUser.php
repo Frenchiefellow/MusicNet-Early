@@ -1,4 +1,5 @@
 <?php
+session_start();
 $name = $_GET['user'];
 $connection = mysql_connect(/*removed*/));
   if (!$connection){
@@ -25,8 +26,15 @@ if(mysql_num_rows($result) > 0){
 
 }
 else{
+if(isset($_SESSION)){
+header("Location: refer.php?friend=" .  $name);
+die();
+}
+else{
 header("Location: splash.php?err=2");
 die();
+}
+
 
 }
 mysql_free_result($result);
