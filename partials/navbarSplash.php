@@ -10,12 +10,11 @@
           </button>
           <a class="navbar-brand" href="http://cs445.cs.umass.edu/php-wrapper/clp/splash.php" style="position:absolute; ">MusicNet</a>
         </div>
-  <?php if(!isset($_SESSION['username'])){echo '
-
+	<?php if(!isset($_SESSION['username'])){echo'
         <div class="navbar-collapse collapse">
           <form action="http://cs445.cs.umass.edu/php-wrapper/clp/auth.php" class="navbar-form navbar-right" role="form" method="post">
             <div class="form-group">
-              <input type="text" placeholder="Username" name="username" class="form-control">
+              <input type="text" placeholder="Login Account" name="username" class="form-control">
             </div>
             <div class="form-group">
               <input type="password" placeholder="Password" name="pass" class="form-control">
@@ -23,14 +22,21 @@
             <button type="submit" class="btn btn-success" >Sign in</button>
           </form>
         </div>';} 
-  else{
-  echo '
-   <div class="collapse navbar-collapse">
+	else{
+	echo '
+	 <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://cs445.cs.umass.edu/php-wrapper/clp/profile.php">Home</a></li>
-       <li><a href="http://cs445.cs.umass.edu/php-wrapper/clp/logout.php">Log Out</a></li>
-     </ul>
-  </div>';}?>
+
+
+            <li><a href="'; $url = "http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=" . $_SESSION['username']; echo $url; echo '">Home</a></li>
+
+
+	     
+
+		
+	     <li><a href="http://cs445.cs.umass.edu/php-wrapper/clp/logout.php">Log Out</a></li>
+	   </ul>
+	</div>';}?>
       </div>
     </div>
 

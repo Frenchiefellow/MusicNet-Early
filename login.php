@@ -26,11 +26,15 @@
 		<tr>
 			<td class="ss" >
 				<form style="padding-right: 20pt;" action="adduser.php" method="post">
-
 					<div class="form-group">
-						<label for="username">Username</label>
+						<label for="loginacct">Login Account</label>
+						<input type="text" required="required" class="form-control" id="loginacct" name="loginacct"
+						       placeholder="Enter Login Account" />
+					</div>
+					<div class="form-group">
+						<label for="username">Your Name</label>
 						<input type="text" required="required" class="form-control" id="username" name="username"
-						       placeholder="Enter Username" />
+						       placeholder="Enter Your Name" />
 					</div>
 					<div class="form-group">
 						<label for="signup-password">Password</label>
