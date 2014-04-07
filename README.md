@@ -39,4 +39,6 @@ The code and styles are subject to change and are not currently final.
 <li>Alerts have been rescripted from JavaScript to PHP</li>
 <li>New User insertion to database appears to be working correctly and handles sessions appropriately</li>
 <li>Readded navbarPlain.php as it was actually being used. </li>
+<li>Added Search.php and have "enabled" searching from search bars </li>
+<li>Profile design updated. Better reflects my envisioning of our profiles</li>
 </ul>
