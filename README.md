@@ -2,7 +2,7 @@ MusicNet-Early
 ==============
 This is an early version of the MusicNet Project. 
 
-The database direly needs to be optimized as queries take 2+ minutes to return, ~~We are currently in the process of fixing and moving our database~~, so there is not a lot in the way of functional code,
+The database is currently being ~~direly needs to be~~ optimized ~~as queries take 2+ minutes to return~~, ~~We are currently in the process of fixing and moving our database~~, so there is not a lot in the way of functional code,
 other than stylization. 
 
 
@@ -36,6 +36,6 @@ The code and styles are subject to change and are not currently final.
 </ul>
 4/6: 
 <ul>
-<li>Alerts have been rescripts from JavaScript to PHP</li>
+<li>Alerts have been rescripted from JavaScript to PHP</li>
 <li>New User insertion to database appears to be working correctly (?)</li>
 </ul>
