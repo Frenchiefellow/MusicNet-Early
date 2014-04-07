@@ -34,3 +34,8 @@ The code and styles are subject to change and are not currently final.
 <li>Removed Singleton Profile. Many small changes made to reflect this on the profile pages</li>
 <li>Added userCheck.php to make sure the profiles are real</li>
 </ul>
+4/6: 
+<ul>
+<li>Alerts have been rescripts from JavaScript to PHP</li>
+<li>New User insertion to database appears to be working correctly (?)</li>
+</ul>
