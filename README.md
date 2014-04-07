@@ -45,4 +45,6 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Readded navbarPlain.php as it was actually being used. </li>
 <li>Added Search.php and have "enabled" searching from search bars </li>
 <li>Profile design updated. Better reflects my envisioning of our profiles</li>
+<li>Added refer.php so users can refer friends</li>
+<li>Users are no longer redirected to splash if they are logged in and query for a fake user</li>
 </ul>
