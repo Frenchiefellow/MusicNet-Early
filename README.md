@@ -38,4 +38,5 @@ The code and styles are subject to change and are not currently final.
 <ul>
 <li>Alerts have been rescripted from JavaScript to PHP</li>
 <li>New User insertion to database appears to be working correctly and handles sessions appropriately</li>
+<li>Readded navbarPlain.php as it was actually being used. </li>
 </ul>
