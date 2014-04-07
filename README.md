@@ -37,7 +37,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Removed Singleton Profile. Many small changes made to reflect this on the profile pages</li>
 <li>Added userCheck.php to make sure the profiles are real</li>
 </ul>
-4/6: 
+4/7: 
 <ul>
 <li>Alerts have been rescripted from JavaScript to PHP</li>
 <li>New User insertion to database appears to be working correctly and handles sessions appropriately</li>
