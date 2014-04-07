@@ -47,4 +47,8 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Profile design updated. Better reflects my envisioning of our profiles</li>
 <li>Added refer.php so users can refer friends</li>
 <li>Users are no longer redirected to splash if they are logged in and query for a fake user (now refer.php)</li>
+<li>Refer.php moved onto profile page</li>
+<li>Refer option added to sidebarProfile.php</li>
+<li>checkUser.php now reroutes to refer.php with fake user's name (from querystring)</li>
+<li>All profile pages check user name against DB (checkUser.php) to confirm authenticity</li>
 </ul>
