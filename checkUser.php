@@ -1,17 +1,17 @@
 <?php
 $name = $_GET['user'];
-$connection = mysql_connect(/*removed*/);
+$connection = mysql_connect("cs445sql", "crpeters", "EL159crp");
   if (!$connection){
     die ("Couldn't connect to mysql server!<br>The error was: " . mysql_error());
   }
   else{
     echo "Connection successful!<br>\n";
   }
-   if (!mysql_select_db(/*removed*/))
+   if (!mysql_select_db("clp"))
     die ("Couldn't select a database!<br> Error: " . mysql_error());
   else
     echo "Database selected successfully.<br>\n";
-	$db = /*removed*/;
+	$db = 'clp';
 	$sql = "SELECT loginacct FROM User WHERE loginacct = '$name'";
 	$result = mysql_query($sql);
 
@@ -25,14 +25,9 @@ if(mysql_num_rows($result) > 0){
 
 }
 else{
-?>
- <script type="text/javascript">
- alert("User does not exist!");
-	history.back();
-</script>
-<?php
-header('Location: splash.php');
+header("Location: splash.php?err=2");
 die();
+
 }
 mysql_free_result($result);
 

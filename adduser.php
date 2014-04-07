@@ -10,7 +10,7 @@ if (ini_get("session.use_cookies")) {
     );
 }
 session_unset();
-session_destroy()
+session_destroy();
 }
 
 //Information from the form 
@@ -49,27 +49,22 @@ if (!$result) {
     exit;
 }
 
-//If we find some tuple, alert user with JavaScript Alert and redirect them to sign in page
+//If we find some tuple, alert user  and redirect them to sign in page
 if(mysql_num_rows($result) > 0){
-?>
- <script type="text/javascript">
- alert("Username taken!");
-	history.back();
-</script>
-<?php
+header('Location: login.php?err=lgnact');
+die();
+
 }
 
 else{
-//Make sure password and confirm password are the same, else JavaScript alert the user they are different
-if(strcmp($pass, $cpas) == 1){
-?>
- <script type="text/javascript">
- alert("Passwords do not match!");
-	history.back();
-</script>
-<?php
+
+//Make sure password and confirm password are the same, else alert the user they are different
+if(strcmp($pass, $cpas) !=0 ){
+header('Location: login.php?err=pass');
+die();
 }
 else{
+
 //Define the boolean for gender
 $gender;
 if($gen !== "male"){
@@ -80,7 +75,9 @@ $gender = 1;
 }
 
 //Insert the tuple into the User table
-$quer ='INSERT INTO User (loginacct, username, password, age, ismale, issuper, userloc) VALUES ("$login","$user", "$password", "$age", "$gender", 0, "$loc")';
+$quer ="INSERT INTO User".
+ 	"(loginacct, username, password, age, ismale, issuper, userloc)".
+	"VALUES ('$login' ,'$user', '$password', '$age', '$gender', 0, '$loc')";
 if (!mysql_query($quer))
   {
   die('Error: ' . mysql_error());
@@ -89,8 +86,13 @@ echo "1 record added";
 
 //start a new session, store username inside for varius purposes, and redirect to newuser.php
 session_start();
-$_SESSION['username'] = $user;
-header('Location: newuser.php');
+$_SESSION['username'] = $login;
+ob_start(); 
+$url = "newuser.php?user=" . $_SESSION['username'];
+while (ob_get_status()) {
+ob_end_clean();
+}
+header("Location: $url");
 die();
 
 }
