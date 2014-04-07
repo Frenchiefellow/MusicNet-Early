@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION)){
+session_start();
+}
 session_start();
 $name = $_GET['user'];
 $connection = mysql_connect(/*removed*/));
@@ -27,7 +30,7 @@ if(mysql_num_rows($result) > 0){
 }
 else{
 if(isset($_SESSION)){
-header("Location: refer.php?friend=" .  $name);
+header("Location: refer.php?user=" .$_SESSION['username'] . "&friend=" .  $name);
 die();
 }
 else{

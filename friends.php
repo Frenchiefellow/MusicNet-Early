@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php include '/courses/cs400/cs445/php-dirs/clp/www/checkUser.php'; ?>
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/header.php'; ?>
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/navbarProfile.php'; ?>
 
