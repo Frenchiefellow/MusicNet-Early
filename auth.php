@@ -42,7 +42,7 @@ die();
 
 else{
 header("Location: splash.php?err=1");
-die("INCORRECT");
+die("Incorrect Info!");
 }
 
 mysql_free_result($result);

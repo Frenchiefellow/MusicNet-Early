@@ -1,17 +1,17 @@
 <?php
 $name = $_GET['user'];
-$connection = mysql_connect("cs445sql", "crpeters", "EL159crp");
+$connection = mysql_connect(/*removed*/));
   if (!$connection){
     die ("Couldn't connect to mysql server!<br>The error was: " . mysql_error());
   }
   else{
     echo "Connection successful!<br>\n";
   }
-   if (!mysql_select_db("clp"))
+   if (!mysql_select_db(/*removed*/))
     die ("Couldn't select a database!<br> Error: " . mysql_error());
   else
     echo "Database selected successfully.<br>\n";
-	$db = 'clp';
+	$db = /*removed*/;
 	$sql = "SELECT loginacct FROM User WHERE loginacct = '$name'";
 	$result = mysql_query($sql);
 
