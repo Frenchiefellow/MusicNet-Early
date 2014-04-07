@@ -37,5 +37,5 @@ The code and styles are subject to change and are not currently final.
 4/6: 
 <ul>
 <li>Alerts have been rescripted from JavaScript to PHP</li>
-<li>New User insertion to database appears to be working correctly (?)</li>
+<li>New User insertion to database appears to be working correctly and handles sessions appropriately</li>
 </ul>
