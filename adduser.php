@@ -23,7 +23,7 @@ $loc = $_POST['location'];
 $gen = $_POST['Gender'];
 
 //Test connection to my Database
-$connection = mysql_connect("cs445sql", "crpeters", "EL159crp");
+$connection = mysql_connect(/*removed*/);
   if (!$connection){
     die ("Couldn't connect to mysql server!<br>The error was: " . mysql_error());
   }
@@ -32,13 +32,13 @@ $connection = mysql_connect("cs445sql", "crpeters", "EL159crp");
   }
 
 //Test connect to Project Database
-   if (!mysql_select_db("clp"))
+   if (!mysql_select_db(/*removed*/))
     die ("Couldn't select a database!<br> Error: " . mysql_error());
   else
     echo "Database selected successfully.<br>\n";
 
 //Define the query; Searches for Users with desired input
-	$db = 'clp';
+	$db = /*removed*/;
 	$sql = "Select * From User where loginacct = '$login'";
 	$result = mysql_query($sql);
 
@@ -77,7 +77,7 @@ $gender = 1;
 //Insert the tuple into the User table
 $quer ="INSERT INTO User".
  	"(loginacct, username, password, age, ismale, issuper, userloc)".
-	"VALUES ('$login' ,'$user', '$password', '$age', '$gender', 0, '$loc')";
+	"VALUES ('$login' ,'$user', '$pass', '$age', '$gender', 0, '$loc')";
 if (!mysql_query($quer))
   {
   die('Error: ' . mysql_error());
