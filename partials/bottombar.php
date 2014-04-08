@@ -12,7 +12,7 @@
 	   if(isset($_SESSION['username'])){
 	     if($_SESSION['username'] == 'admin'){
 		 echo '
-	   		<a class="navbar-brand" href="http://cs445.cs.umass.edu/php-wrapper/clp/admin.php" style="position:absolute;">ADMIN</a>';}} ?>
+	   		<a class="navbar-brand" href="'; $si = session_id(); $url = "http://cs445.cs.umass.edu/php-wrapper/clp/admin.php?id=" . $si; echo $url; echo '" style="position:absolute;">ADMIN</a>';}} ?>
 
           <a class="navbar-brand2" href="http://www.github.com/frenchiefellow" style="position:absolute; ">CLP Productions</a>
         </div>

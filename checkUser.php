@@ -4,7 +4,7 @@ session_start();
 }
 session_start();
 $name = $_GET['user'];
-$connection = mysql_connect(/*removed*/));
+$connection = mysql_connect(/*removed*/);
   if (!$connection){
     die ("Couldn't connect to mysql server!<br>The error was: " . mysql_error());
   }
