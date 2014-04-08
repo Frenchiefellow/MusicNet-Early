@@ -16,8 +16,8 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 4/8:
 <ul>
 <li>Implement search algorithm</li>
-<li>~~Add Artist and Album pages~~</li>
-<li>~~Authenticity Check for Artist, Album, Song pages~~</li>
+<li><del>Add Artist and Album pages</del></li>
+<li><del>Authenticity Check for Artist, Album, Song pages</del></li>
 <li>Implement "data drop" on Artist, Song, and Album pages</li>
 <li>Database Optimization (More so Ted) </li>
 <li>Finish Stylization of Profiles and complete Profile "data drop"</li>
