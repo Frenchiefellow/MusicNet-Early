@@ -55,4 +55,5 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 4/8
 <ul>
 <li>Admin Shell for DB queries is available from the admin account</li>
+<li>Updated the Querying Scripts to prevent SQL injections (?) </li>
 </ul>
