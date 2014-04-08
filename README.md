@@ -12,6 +12,16 @@ The code and styles are subject to change and are not currently final.
 **NOTE:**
 There are so many PHP files in the main directory as the php-wrapper that was written for our site (which we do not host) can only read PHP files from main directory. Thus is the reason for having to include CSS/JPG files awkwardly with PHP.
 
+<h1>GOALS</h1>
+4/8:
+<ul>
+<li>Implement search algorithm</li>
+<li>Add Artist and Album pages</li>
+<li>Implement "data drop" on Artist, Song, and Album pages</li>
+<li>Database Optimization (More so Ted) </li>
+<li>Finish Stylization of Profiles and complete Profile "data drop"</li>
+</ul>
+
 <h1>UPDATES:</h1>
 4/5: 
 <ul>
@@ -57,3 +67,4 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Admin Shell for DB queries is available from the admin account</li>
 <li>Updated the Querying Scripts to prevent SQL injections (?) </li>
 </ul>
+
