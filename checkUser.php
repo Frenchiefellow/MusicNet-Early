@@ -4,28 +4,25 @@ session_start();
 }
 session_start();
 $name = $_GET['user'];
-$connection = mysql_connect(/*removed*/);
+$connection = @new mysqli(/*removed*/);
   if (!$connection){
     die ("Couldn't connect to mysql server!<br>The error was: " . mysql_error());
   }
   else{
     echo "Connection successful!<br>\n";
   }
-   if (!mysql_select_db(/*removed*/))
-    die ("Couldn't select a database!<br> Error: " . mysql_error());
-  else
-    echo "Database selected successfully.<br>\n";
-	$db = /*removed*/;
-	$sql = "SELECT loginacct FROM User WHERE loginacct = '$name'";
-	$result = mysql_query($sql);
+  
+$stmt = $connection->prepare('SELECT loginacct FROM User WHERE loginacct = ?');
+$stmt->bind_param('s', $name);
 
-if (!$result) {
-    echo "User does not exist\n";
-    echo 'MySQL Error: ' . mysql_error();
-    exit;
-}
+$stmt->execute();
 
-if(mysql_num_rows($result) > 0){
+$stmt->bind_result($loginacct);
+
+
+
+if($stmt->fetch() == true){
+
 
 }
 else{
@@ -40,7 +37,7 @@ die();
 
 
 }
-mysql_free_result($result);
+$stmt->close();
 
 
 ?>

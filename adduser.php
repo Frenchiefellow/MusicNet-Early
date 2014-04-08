@@ -23,7 +23,7 @@ $loc = $_POST['location'];
 $gen = $_POST['Gender'];
 
 //Test connection to my Database
-$connection = mysql_connect(/*removed*/);
+$connection = @new mysqli(/*removed*/);
   if (!$connection){
     die ("Couldn't connect to mysql server!<br>The error was: " . mysql_error());
   }
@@ -31,26 +31,18 @@ $connection = mysql_connect(/*removed*/);
     echo "Connection successful!<br>\n";
   }
 
-//Test connect to Project Database
-   if (!mysql_select_db(/*removed*/))
-    die ("Couldn't select a database!<br> Error: " . mysql_error());
-  else
-    echo "Database selected successfully.<br>\n";
+$stmt = $connection->prepare('SELECT loginacct FROM User WHERE loginacct = ?');
+$stmt->bind_param('s', $login);
 
-//Define the query; Searches for Users with desired input
-	$db = /*removed*/;
-	$sql = "Select * From User where loginacct = '$login'";
-	$result = mysql_query($sql);
+$stmt->execute();
 
-//If we can't find a table
-if (!$result) {
-    echo "DB Error, could not list tables\n";
-    echo 'MySQL Error: ' . mysql_error();
-    exit;
-}
+$stmt->bind_result($loginacct);
+
+
 
 //If we find some tuple, alert user  and redirect them to sign in page
-if(mysql_num_rows($result) > 0){
+if($stmt->fetch() == true){
+
 header('Location: login.php?err=lgnact');
 die();
 
@@ -101,5 +93,6 @@ die();
 
 
 
-mysql_free_result($result);
+$stmt->close();
+
 ?>

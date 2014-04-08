@@ -1,7 +1,7 @@
 <?php
 $user = $_POST['username'];
 $pass = $_POST['pass'];
-$connection = mysql_connect(/*removed*/);
+$connection =  @new mysqli(/*removed*/);
   if (!$connection){
     die ("Couldn't connect to mysql server!<br>The error was: " . mysql_error());
   }
@@ -15,20 +15,17 @@ $connection = mysql_connect(/*removed*/);
 	$db = /*removed*/;
 	$sql = "SELECT loginacct, password FROM User WHERE loginacct = '$user' AND password = '$pass'";
 	$result = mysql_query($sql);
+	
+$stmt = $connection->prepare('SELECT loginacct FROM User WHERE loginacct = ? AND password = ?');
+$stmt->bind_param('ss', $user, $pass);
 
-if (!$result) {
-    echo "User does not exist\n";
-    echo 'MySQL Error: ' . mysql_error();
-    exit;
-}
+$stmt->execute();
 
-while ($row = mysql_fetch_row($result)) {
-    echo "Table: {$row[0]}\n";
-    echo "Table: {$row[1]}\n";
- 
-}
+$stmt->bind_result($loginacct);
 
-if(mysql_num_rows($result) > 0){
+
+if($stmt->fetch() == true){
+
 session_start();
 $_SESSION['username'] = $user;
 ob_start(); 
@@ -45,7 +42,8 @@ header("Location: splash.php?err=1");
 die("Incorrect Info!");
 }
 
-mysql_free_result($result);
+$stmt->close();
+$mysqli->close();
 
 
 ?>
