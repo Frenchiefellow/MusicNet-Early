@@ -66,5 +66,9 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <ul>
 <li>Admin Shell for DB queries is available from the admin account</li>
 <li>Updated the Querying Scripts to prevent SQL injections (?) </li>
+<li>Added Scripts folder for non-paged scripts</li>
+<li>Added initial logic for search page</li>
+<li>Added Artist.php and Album.php pages</li>
+<li>Added checkMusic.php to verfiy authenticity of Artist, Album, and Song pages</li>
 </ul>
 
