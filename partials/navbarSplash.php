@@ -22,7 +22,7 @@
             </div>
             <button type="submit" class="btn btn-success" >Sign in</button>
           </form>'; ?>
-	   <?php if(isset($_GET['err'])){ echo '<div class ="navbar-brand2" style="position: absolute; color: white;">'; if($_GET['err'] == 1){echo 'Incorrect Credentials!';} else if($_GET['err'] == 2){ echo 'User Not Found!';} echo '</div>'; } ?>
+	   <?php if(isset($_GET['err'])){ echo '<div class ="navbar-brand2" style="position: absolute; color: white;">'; if($_GET['err'] == 1){echo 'Incorrect Credentials!';} else if($_GET['err'] == 2){ echo 'User Not Found!';} else if($_GET['err'] == 3){ echo 'Page Not Found!';}echo '</div>'; } ?>
 	   <?php echo '
         </div>';} 
 	else{

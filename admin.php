@@ -9,7 +9,7 @@ session_start();
 if(isset($_SESSION)){
 $si = session_id();
 if(isset($_GET['id'])){
-if($_GET['id'] == $si){
+if(($_GET['id'] == $si) && ($_SESSION['username'] == 'admin')){
 echo 'Authentication: True <br>';
 if(isset($_GET['error'])){
 if($_GET['error'] == "ILLEGAL_KEYWORD"){
@@ -19,7 +19,6 @@ echo 'Illegal Keyword used in previous query. Avoid use of keywords: DELETE, INS
 if(isset($_POST['query'])){
 $words = array("drop", "delete", "insert", "show");
 if(contains($_POST['query'], $words)){
-echo "naughty";
 header('Location: admin.php?id=' . $si . '&error=ILLEGAL_KEYWORD');
 die();
 }
