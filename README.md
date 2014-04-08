@@ -51,4 +51,9 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Refer option added to sidebarProfile.php</li>
 <li>checkUser.php now reroutes to refer.php with fake user's name (from querystring)</li>
 <li>All profile pages check user name against DB (checkUser.php) to confirm authenticity</li>
+<li>Admin Shell for DB queries is available from the admin account</li>
+</ul>
+4/8
+<ul>
+<li>Admin Shell for DB queries is available from the admin account</li>
 </ul>
