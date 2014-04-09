@@ -22,7 +22,7 @@ The code and styles are subject to change and are not currently final.
 There are so many PHP files in the main directory as the php-wrapper that was written for our site (which we do not host) can only read PHP files from main directory. Thus is the reason for having to include CSS/JPG files awkwardly with PHP.
 
 <h1>DAILY/WEEKLY GOALS</h1>
-4/8-4/12:
+4/8-4/12: (DB/site down ~5:30PM on 4/9)
 <ul>
 <li>Implement search algorithm</li>
 <li><del>Add Artist and Album pages</del></li>
@@ -89,7 +89,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Stylized and added content to newuser.php so Ted can add site descritions etc. </li>
 </ul>
 
-<h1>TO BE DONE: <h1>
+<h1>TO BE DONE: </h1>
 <ul>
 <li>Finish templating all pages and "data-drop" where need be, namely profile.php.</li>
 <li>Implement full search alogrithm.</li>
