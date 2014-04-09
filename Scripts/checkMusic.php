@@ -4,7 +4,7 @@ if(!isset($_SESSION)){
 session_start();
 }
 
-$connection = @new mysqli("cs445sql", "crpeters", "EL159crp", "clp");
+$connection = @new mysqli(/*removed*/);
   if (!$connection){
     die ("Couldn't connect to mysql server!<br>The error was: " . mysql_error());
   }
