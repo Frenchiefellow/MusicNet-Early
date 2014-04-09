@@ -27,11 +27,11 @@
           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
         </div>
         <div class="col-lg-4">
-          <img class="img-circle" src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/mic.jpg"));?>' style="width: 140px; height: 140px;">
+          <img class="img-circle" src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/concert.jpg"));?>' style="width: 140px; height: 140px;">
 
 	   <!-- CONTENT INSIDE P TAG -->
-          <h2>Create Playlists!</h2>
-          <p>Something about creating and sharing playlists!</p>
+          <h2>Recommended for You!</h2>
+          <p>Something about how we recommend music for the user based on tags etc!</p>
           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
         </div>
         <div class="col-lg-4">
