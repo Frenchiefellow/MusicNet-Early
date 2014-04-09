@@ -2,14 +2,14 @@ MusicNet-Early
 ==============
 This is an early version of the MusicNet Project. 
 
-<h1>Members</h2>
+<h1>Members</h1>
 <ul>
 <li>Chris (Owner of repo): Working on the front-end of the project. Everything you currently see on this repo was done by me. </li>
 <li>Ted: Database Testing and Optimization, as well as Documentation. WIll help with the frontend when DB is set.</li>
 <li>Piers: Database Parsing, Creation, Maintence, and Optimization. Will help on frontend when DB is set.</li>
 </ul>
 
-<h1>INFO:</h2>
+<h1>INFO:</h1>
  
 The database is currently being optimized, so there is not a lot in the way of functional code,
 other than stylization. Once this has been completed appropriately, I can start making more complex queries. 
