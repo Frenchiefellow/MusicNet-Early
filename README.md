@@ -1,6 +1,6 @@
 MusicNet-Early
 ==============
-This is an early version of the MusicNet Project. 
+This is an early version of the MusicNet Project : A social network for music enthusiasts. Semester long project for CS445: Information Systems, Spring 2014.
 
 <h1>Members</h1>
 <ul>
