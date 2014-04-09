@@ -2,6 +2,15 @@ MusicNet-Early
 ==============
 This is an early version of the MusicNet Project. 
 
+<h1>Members</h2>
+<ul>
+<li>Chris (Owner of repo): Working on the front-end of the project. Everything you currently see on this repo was done by me. </li>
+<li>Ted: Database Testing and Optimization, as well as Documentation. WIll help with the frontend when DB is set.</li>
+<li>Piers: Database Parsing, Creation, Maintence, and Optimization. Will help on frontend when DB is set.</li>
+</ul>
+
+<h1>INFO:</h2>
+ 
 The database is currently being optimized, so there is not a lot in the way of functional code,
 other than stylization. Once this has been completed appropriately, I can start making more complex queries. 
 Some queries of varying complexity have taken 2+ minutes to return due to traffic on the Edlab servers, amongst other things. In addition, the Database and the Site (hosted on the same server) have often been going down for half a day at a time. This is out of our control and affects our development process.  
