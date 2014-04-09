@@ -74,6 +74,6 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 </ul>
 4/9
 <ul>
-<li>Changes to Admin.php; Mostly Formatting of results; </li>
+<li>Changes to Admin.php; Mostly Formatting of results</li>
 <li>Spending the afternoon querying the DB for optimization purposes. </li>
 </ul>
