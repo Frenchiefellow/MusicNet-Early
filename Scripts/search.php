@@ -9,7 +9,7 @@ if(isset($_GET['query'])){
 
 $query = $_GET['query'];
 
-$connection = @new mysqli("cs445sql", "crpeters", "EL159crp", "clp");
+$connection = @new mysqli(/*Removed*/);
  if (!$connection){
     die ("Couldn't connect to mysql server!<br>The error was: " . mysql_error());
   }
