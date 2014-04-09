@@ -1,6 +1,6 @@
 <?php
 
-$connection = @new mysqli("cs445sql", "crpeters", "EL159crp", "clp");
+$connection = @new mysqli(/*removed*/);
 
 if(!isset($_SESSION)){
 session_start();
