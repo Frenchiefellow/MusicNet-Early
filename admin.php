@@ -91,7 +91,7 @@ echo ' Authenication: False';
 }
 }
 }
-echo '<form action="http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user' . $_SESSION['username'] . '" class="navbar-form navbar-right" role="form" method="post">' .
+echo '<form action="http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=' . $_SESSION['username'] . '" class="navbar-form navbar-right" role="form" method="post">' .
       '<button type="submit" class="btn btn-success" >Back to Profile</button></form>'; 
 
 
