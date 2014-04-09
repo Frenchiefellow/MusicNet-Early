@@ -4,9 +4,9 @@ This is an early version of the MusicNet Project : A social network for music en
 
 <h1>Members</h1>
 <ul>
-<li>Chris (Owner of repo): Working on the front-end of the project. Everything you currently see on this repo was done by me. </li>
-<li>Ted: Database Testing and Optimization, as well as Documentation. WIll help with the frontend when DB is set.</li>
-<li>Piers: Database Parsing, Creation, Maintenance, and Optimization. Will help on frontend when DB is set.</li>
+<li>**Chris (Owner of repo):** Working on the front-end of the project. Everything you currently see on this repo was done by me. </li><br>
+<li>**Ted:** Database Testing and Optimization, as well as Documentation. WIll help with the frontend when DB is set.</li><br>
+<li>**Piers:** Database Parsing, Creation, Maintenance, and Optimization. Will help on frontend when DB is set.</li>
 </ul>
 
 <h1>INFO:</h1>
