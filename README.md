@@ -21,7 +21,7 @@ The code and styles are subject to change and are not currently final.
 **NOTE:**
 There are so many PHP files in the main directory as the php-wrapper that was written for our site (which we do not host) can only read PHP files from main directory. Thus is the reason for having to include CSS/JPG files awkwardly with PHP.
 
-<h1>GOALS</h1>
+<h1>DAILY/WEEKLY GOALS</h1>
 4/8-4/12:
 <ul>
 <li>Implement search algorithm</li>
