@@ -13,7 +13,7 @@ The code and styles are subject to change and are not currently final.
 There are so many PHP files in the main directory as the php-wrapper that was written for our site (which we do not host) can only read PHP files from main directory. Thus is the reason for having to include CSS/JPG files awkwardly with PHP.
 
 <h1>GOALS</h1>
-4/8:
+4/8-4/12:
 <ul>
 <li>Implement search algorithm</li>
 <li><del>Add Artist and Album pages</del></li>
@@ -72,4 +72,8 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Added Artist.php and Album.php pages</li>
 <li>Added checkMusic.php to verfiy authenticity of Artist, Album, and Song pages</li>
 </ul>
-
+4/9
+<ul>
+<li>Changes to Admin.php; Mostly Formatting of results; </li>
+<li>Spending the afternoon querying the DB for optimization purposes. </li>
+</ul>
