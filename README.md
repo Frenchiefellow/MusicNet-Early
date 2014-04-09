@@ -88,3 +88,13 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Stylized and added content to Splash.php so Ted can add site descritions etc. </li>
 <li>Stylized and added content to newuser.php so Ted can add site descritions etc. </li>
 </ul>
+
+<h1>TO BE DONE: <h1>
+<ul>
+<li>Finish templating all pages and "data-drop" where need be, namely profile.php.</li>
+<li>Implement full search alogrithm.</li>
+<li>Add logic for Friend relations</li>
+<li>Add logic for playlists</li>
+<li>Add logic for discover (may be random if time does not permit for logic)</li>
+<li>Add logic for recommendations</li>
+</ul>
