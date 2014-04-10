@@ -19,7 +19,9 @@ if ( isset( $_GET['query'] ) ) {
 		
 		//USER CHUNK
 		echo '<h4 class="page-header">Users</h4>';
-		$stmt = $connection->prepare( 'SELECT U.loginacct, U.username, U.userloc FROM User U WHERE U.loginacct = ?' ); //Add username, location
+
+		//SQL INJECTION PREVENTION START
+		$stmt = $connection->prepare( 'SELECT U.loginacct, U.username, U.userloc FROM User U WHERE U.loginacct = ?' );
 		if ( !$stmt ) {
 			echo $connection->error;
 		}
@@ -28,9 +30,11 @@ if ( isset( $_GET['query'] ) ) {
 		$stmt->execute();
 		$stmt->bind_result( $log, $username, $userloc );
 		
+	 	//SQL INJECTION STOP
 		
 		while ( $row = $stmt->fetch() ) {
 			printf( "%s %s %s\n", $log, $username, $userloc );
+	            // To see individual results its either row[index]; 
 		}
 		
 		

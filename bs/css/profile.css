@@ -6,6 +6,14 @@ width: 100%;
 margin-right: 8%;
 }
 
+.outlineAbout{
+border: 1px solid #eee; 
+border-radius: 5px; 
+background-color: #4990cc; 
+width: 100%;
+padding: 2px;
+
+}
 .picholder{
 border: 2px solid #808080; 
 border-radius: 5px; 
@@ -28,7 +36,19 @@ border-radius: 5px;
 background-color: #3276b1; 
 margin-left: 3%; 
 margin-top: 1%;
+margin-bottom: 3%;
 max-width: 94%;
+padding-bottom: 12px;
+}
+
+.aboutbox2{
+border: 2px solid #808080; 
+border-radius: 5px; 
+background-color: #3276b1; 
+margin-bottom: 3%;
+margin-left: 3%; 
+max-width: 94%;
+
 }
 
 .aboutitle{
@@ -38,7 +58,6 @@ text-decoration:underline; font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype
 }
 
 .listen{
-position: relative; 
 margin-top: 1%; 
 margin-left: 2%;
 }
@@ -46,4 +65,79 @@ margin-left: 2%;
 .rated{
 position: relative;
 margin-left: 2%;
+}
+
+.colHead {
+color: white;
+text-align: center; 
+text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+ 
+.colHeader {
+color: white;
+text-align: center; 
+text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+font-size: 115%;
+}
+
+.coltitle{
+color: white;
+text-align: justify;
+text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+
+.colPar{
+color: white; 
+text-align: center;
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; 
+font-size: 115%;
+}
+
+.colPara{
+color: white; 
+text-align: justify;
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; 
+font-size: 115%;
+}
+
+.profImg{ 
+width: 200px; 
+height: 200px; 
+border: 2px solid; 
+border-radius: 10px; 
+margin-top: 2%;
+margin-left: auto:
+display: inline;
+}
+
+.stupidButton{
+color: black; 
+font-weight: bold; 
+}
+
+.stupidButtonNotStupid{
+color: white; 
+font-weight: bold; 
+
+}
+
+.tuxedo{
+margin-bottom: 2%;
+margin-right: auto;
+margin-left: auto;
+
+}
+
+.desc{
+width: 99%;
+margin-right: auto; 
+margin-left: auto;
+text-align: center;
+margin-bottom: 2%;
+}
+
+.Cimg{
+width: 100px; 
+height: 100px; 
+display: inline;
 }

@@ -22,14 +22,14 @@
 
 <div class="row desc">
 
-  <div class="col-lg-4" style="margin-bottom: auto;">
+  <div class="col-lg-4" style="margin-bottom: 5%;">
           <img class="img-circle Cimg" src='data:image/png;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/home.png"));?>'>
           <h2 class="colHead">Check Out Your Profile!</h2>
           <p class="colPar">What does your music say about you? View the songs you listened to, friends you added, and playlists you created, in your profile.</p>
          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-primary" href="<?php echo 'http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=' . $_SESSION['username'];?>" role="button">Profile!</a></span>
         </div>
 
-       <div class="col-lg-4" style="margin-bottom: auto;">
+       <div class="col-lg-4" style="margin-bottom: 5%;">
           <img class="img-circle Cimg" src='data:image/png;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/play.png"));?>'>
           <h2 class="colHead">Create Playlists!</h2>
           <p class="colPar">Looking for that perfect combination of tunes to get you through your homework? 
@@ -37,7 +37,7 @@
          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-primary" href="<?php echo 'http://cs445.cs.umass.edu/php-wrapper/clp/profilePlaylists.php?user=' . $_SESSION['username'];?>" role="button">Playlists!</a></span>
         </div>
 
-      <div class="col-lg-4" style="margin-bottom: auto;">
+      <div class="col-lg-4" style="margin-bottom: 5%;">
           <img class="img-circle Cimg" src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/discover.jpg"));?>'>
           <h2 class="colHead">Discover New Music!</h2>
           <p class="colPar">You'll never have to worry about listening to the same old songs again, <?php echo ($_GET['user']); ?>!. Discover to find all sorts of new songs to listen to!</p>

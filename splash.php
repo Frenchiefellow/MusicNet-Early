@@ -20,21 +20,21 @@
 
 
 <div class="row desc">
-        <div class="col-lg-4" style="margin-bottom: auto;">
+        <div class="col-lg-4" style="margin-bottom: 5%;">
           <img class="img-circle Cimg" src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/discover.jpg"));?>'>
           <h2 class="colHead">Discover New Music!</h2>
           <p class="colPar">With MusicNet, you never have to worry about listening to the same old songs. Discover all sorts of new songs to listen to!</p>
           <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-primary" href="http://cs445.cs.umass.edu/php-wrapper/clp/discover.php" role="button">Discover!</a></span>
         </div>
 
-        <div class="col-lg-4" style="margin-bottom: auto;">
+        <div class="col-lg-4" style="margin-bottom: 5%;">
           <img class="img-circle Cimg" src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/concert.jpg"));?>'>
           <h2 class="colHead">Recommended for You!</h2>
           <p class="colPar">From the tags of songs that you liked, we crafted a list of other songs we think you might like too!</p>
           <span style="display:inline;"><a style = "padding:5px; margin:0;"  class="btn btn-primary" href="http://cs445.cs.umass.edu/php-wrapper/clp/login.php" role="button">Sign Up First!</a></span>
         </div>
 
-        <div class="col-lg-4" style="margin-bottom: auto;">
+        <div class="col-lg-4" style="margin-bottom: 5%;">
           <img class="img-circle Cimg" src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/girl.jpg"));?>'>
           <h2 class="colHead">Connect With Friends!</h2>
           <p class="colPar">What's better than listening to music? Sharing it with your friends! Click here to connect with other MusicNet patrons.</p>

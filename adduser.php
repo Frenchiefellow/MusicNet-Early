@@ -53,10 +53,12 @@ else {
 		
 		//Define the boolean for gender
 		$gender;
-		if ( $gen !== "male" ) {
+		if ( $gen == "female" ) {
 			$gender = 0;
-		} else {
+		} else if ( $gen == "male" ) {
 			$gender = 1;
+		} else {
+			$gender = 0.5;
 		}
 		
 		//Insert the tuple into the User table
