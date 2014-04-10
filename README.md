@@ -4,9 +4,9 @@ This is an early version of the MusicNet Project : A social network for music en
 
 <h1>Members</h1>
 <ul>
-<li>Chris (Owner of repo): Working on the front-end of the project. Everything you currently see on this repo was done by me. </li><br>
-<li>Ted: Database Testing and Optimization, as well as Documentation. WIll help with the frontend when DB is set.</li><br>
-<li>Piers: Database Parsing, Creation, Maintenance, and Optimization. Will help on frontend when DB is set.</li>
+<li><strong>Chris (Owner of repo):</strong> Working on the front-end of the project. Everything you currently see on this repo was done by me. </li><br>
+<li><strong>Ted:</strong> Database Testing and Optimization, as well as Documentation. WIll help with the frontend when DB is set.</li><br>
+<li><strong>Piers:</strong> Database Parsing, Creation, Maintenance, and Optimization. Will help on frontend when DB is set.</li>
 </ul>
 
 <h1>INFO:</h1>
@@ -22,7 +22,7 @@ The code and styles are subject to change and are not currently final.
 There are so many PHP files in the main directory as the php-wrapper that was written for our site (which we do not host) can only read PHP files from main directory. Thus is the reason for having to include CSS/JPG files awkwardly with PHP.
 
 <h1>DAILY/WEEKLY GOALS</h1>
-4/8-4/12: (DB/site down ~5:30PM on 4/9)
+4/8-4/12: <del>(DB/site down ~5:30PM on 4/9)</del>
 <ul>
 <li>Implement search algorithm</li>
 <li><del>Add Artist and Album pages</del></li>
