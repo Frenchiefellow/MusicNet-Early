@@ -1,9 +1,10 @@
 html, body {
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
-	
-    background-image: url('http://farm4.staticflickr.com/3186/3049227706_67fce65d4e_o.jpg');  
+margin: 0 auto;
+width: 100%;
+height: 100%;
+background-image: url('http://upload.wikimedia.org/wikipedia/commons/f/fd/Dr_Dog_Treasure_Island_Music_Festival.jpg');
+background-size: 100%;
+
 }
 
 .colHead {
@@ -32,3 +33,9 @@ width: 99%;
 margin-right: 0 auto; 
 text-align: center;
 }
+
+.topfit{
+background-color: rgba(128, 128, 128, .5);
+margin-top: -2%;
+}
+
