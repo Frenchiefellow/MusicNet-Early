@@ -1,0 +1,105 @@
+WHATS NEXT?
+===========================================================================================================================================================================
+
+So, after we finish the "optimization" of the database, here's what left to do:
+
+SEARCH.PHP
+============================================================================================================
+We are going to have to figure out some efficient queries for searching the database.
+
+Ideally, the user will type in the search-bar and two things will happen:
+
+1) If the user inputs a string, we should be able to return any tuple where the string equals:
+   -User.loginacct
+   -User.username
+   -User.userloc
+   -Song.title
+   -Artist.artistname
+   -Album.albumname
+
+2) If the user inputs an integer, we should be able to return any tuple where the integer equals:
+   -Song.songid
+   -Song.year
+   -Album.albumid
+   -Artist.artistid
+
+Time permitting, we should try to implement all of this. 
+
+If time does not permit, drop the integer option and prioritize the string option without userloc.
+
+I plan to parameterize (?) the search results on the front-end. 
+
+RECOMMEND.PHP
+============================================================================================================
+We are going to have to figure out some efficient way to recommend music to the users.
+
+Ideally, we will have different methods of recommendations based on User data:
+
+1)Highest rated songs
+2)Most played songs
+3)Frequently appearing Artists, Albums
+4)Tags of Songs
+
+Or if you figure out a better way to do this, feel free to experiment.
+
+PROFILE.PHP / STATS.PHP
+============================================================================================================
+We are going to have to figure out some efficient way to list some stats
+
+I'm going to need to get:
+
+1)5 or so most recently played songs (if possible)
+2)5 or so most recently rated songs (if possible)
+3)issupper
+4)total number of songs listened to
+5)total number of songs rated
+6)Most common tags
+7)Most common artists
+8)Most common albums
+9)Most played song(s)
+10)Any other cool stats
+
+**** Also going to need logic for adding friends. ****
+
+Or if you figure out a better way to do this, feel free to experiment.
+
+DISCOVER.PHP
+============================================================================================================
+We are going to have to figure out some way to have music/artists/albums appear on discover 
+
+Ideally, we will display music that is:
+
+1)Highest Rated
+2)Most Plays
+
+If time does not permit, this can simply just be X random songs/artists/albums every page refresh.
+
+OTHER
+============================================================================================================
+As far as I am aware, this is a list of the more complex queries I'll be needing. If I think of
+any where else I might need any, I'll you let you know ASAP.
+
+Otherwise, there is some HTML/CSS/PHP that will need to be done thats not that intensive. 
+See my partials folder for examples on all the stuff. Nothing we are doing is all that complex. 
+
+Pages Include:
+
+Refer.php (main directory, not the refer.php under Dash_Modules)
+	-Mostly just needs some templating; its a blank page now
+	-Page simply sends an email and a message to desired reciepient. 
+		-Use some type of HTML form/textbox combo to add fields
+		-Doesn't need to send an email, just fake it. (I can take care of that if you can't do it)
+	-If url has a friend querystring filled in, pull the querystring into the body of message
+		-using PHP to do so: if(isset($_GET['friend']){ $friend = $_GET['friend']};
+		-To use the sender's name in body: if(isset($_SESSION['username']){ $friend = $_SESSION['username']};
+
+IF TIME PERMITS:
+
+ProfileChanges.php
+	-Allow user to update/change information
+	-Delete account
+	-etc
+
+There will probably be other pages soon that'll need work, but thats it for now. 
+
+

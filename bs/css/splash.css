@@ -2,49 +2,23 @@ html, body {
     margin: 0;
     width: 100%;
     height: 100%;
-    background-image: url('http://farm4.staticflickr.com/3186/3049227706_67fce65d4e_o.jpg');
+	
+    background-image: url('http://farm4.staticflickr.com/3186/3049227706_67fce65d4e_o.jpg');  
 }
 
-#t{
-	text-align: center;
-
-
-}
-.tcontainer{
-  margin: auto;  
-  position: absolute;
-  left:0;
-  right: 0;
-  top: 15%;
-  width: 500px; 
-  height: 10%;
-  background-color: #FFFFFF; 
-  border-radius: 10px;
-
-.ss{
-	width: 60%;
-	padding-left: 10%;
+.colHead {
+color: white;
+margin-left: 1%; 
+text-align: center; 
+text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
 }
 
-
-#signNow{
-	width: 30%;
-	font-weight: bold;
-	font-size: 200%;
-	padding-bottom: 10px;
-	padding-top: 10px;
-	padding-left: 10px;
+.colPar{
+color: white; 
+text-align: center; 
+text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black; 
+font-size: 125%;
 }
-
-.introsu{	
-	text-align: center;
-	font-weight:bold;
-}
-
-#mainSpace{
-	padding-bottom: 15px;
-}
-
 
 
 
