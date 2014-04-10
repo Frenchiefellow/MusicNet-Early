@@ -29,7 +29,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li><del>Authenticity Check for Artist, Album, Song pages</del></li>
 <li>Implement "data drop" on Artist, Song, and Album pages</li>
 <li>Database Optimization (Ted and Piers) [Behind due to DB being down 4/7 and 4/9] </li>
-<li>Finish Stylization of Profiles and complete Profile "data drop"</li>
+<li><del>Finish Stylization of Profiles and </del>Complete Profile "data drop"</li>
 </ul>
 
 <h1>UPDATES:</h1>
@@ -93,6 +93,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 4/10:
 <ul>
 <li>Fixed some scaling and positioning issues on Splash.php and newuser.php </li>
+<li>Profile.php is done with styling. Has some placeholder texts for when I add queries</li>
 </ul>
 
 <h1>TO BE DONE: </h1>
