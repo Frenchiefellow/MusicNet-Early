@@ -28,7 +28,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li><del>Add Artist and Album pages</del></li>
 <li><del>Authenticity Check for Artist, Album, Song pages</del></li>
 <li>Implement "data drop" on Artist, Song, and Album pages</li>
-<li>Database Optimization (More so Ted) </li>
+<li>Database Optimization (Ted and Piers) [Behind due to DB being down 4/7 and 4/9] </li>
 <li>Finish Stylization of Profiles and complete Profile "data drop"</li>
 </ul>
 
