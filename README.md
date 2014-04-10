@@ -85,8 +85,8 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <ul>
 <li>Changes to Admin.php; Mostly Formatting of results</li>
 <li>Spending the afternoon querying the DB for optimization purposes. (DB/site down ~5:30PM)</li>
-<li>Stylized and added content to Splash.php so Ted can add site descritions etc. </li>
-<li>Stylized and added content to newuser.php so Ted can add site descritions etc. </li>
+<li>Stylized and added content to Splash.php so Ted can add site descriptions etc. </li>
+<li>Stylized and added content to newuser.php so Ted can add site descriptions etc. </li>
 <li>Splash and NewUser pages are complete </li>
 <li>Code Beautification V1.0; most of the code looks good now :)</li>
 </ul>
