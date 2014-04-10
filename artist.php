@@ -2,6 +2,5 @@
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/header.php'; ?>
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/navbarProfile.php'; ?>
 
-<div class "container-fluid">
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/sidePlaceHolder.php'; ?>
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/bottombar.php'; ?>

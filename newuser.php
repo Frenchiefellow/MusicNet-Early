@@ -58,7 +58,7 @@ font-size: 125%;
           <p><a style="margin-left: 42%;" class="btn btn-primary" href="http://cs445.cs.umass.edu/php-wrapper/clp/discover.php" role="button">Discover!</a></p>
         </div>
   </div>
-      </div>
+</div>
 
 
 

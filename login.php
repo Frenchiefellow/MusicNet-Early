@@ -1,10 +1,16 @@
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/headerNoNav.php'; ?>
+<?php
+include '/courses/cs400/cs445/php-dirs/clp/www/partials/headerNoNav.php';
+?>
 <div class="entire">
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/navbarPlain.php'; ?>
+<?php
+include '/courses/cs400/cs445/php-dirs/clp/www/partials/navbarPlain.php';
+?>
 
 
 <style>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/splash.css'; ?>
+<?php
+include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/splash.css';
+?>
 </style> 
 <div class="jumbotron" id= "welcome" style="background-color: rgba(128, 128, 128, .85);">
     <div class="container">
@@ -79,10 +85,18 @@
 
 <div class = 'holder'>
 <div class = 'imcontainer'>
-<img src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/guitar_2.jpg"));?>'>
-<img src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/girl.jpg"));?>'>
-<img src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/acordian_2.jpg"));?>'>
-<img src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/girl2_2.jpg"));?>'>
+<img src='data:image/jpg;base64,<?php
+echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/guitar_2.jpg"));
+?>'>
+<img src='data:image/jpg;base64,<?php
+echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/girl.jpg"));
+?>'>
+<img src='data:image/jpg;base64,<?php
+echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/acordian_2.jpg"));
+?>'>
+<img src='data:image/jpg;base64,<?php
+echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/girl2_2.jpg"));
+?>'>
 </div>
 </div>
 
@@ -90,5 +104,7 @@
 
 
 
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/bottombar.php'; ?> 
+<?php
+include '/courses/cs400/cs445/php-dirs/clp/www/partials/bottombar.php';
+?> 
 

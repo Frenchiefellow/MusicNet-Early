@@ -19,9 +19,9 @@
 </div> 
 
 
-<div class="row" style="margin-top: 5%; margin-left: .5%; width: 99%">
-        <div class="col-lg-4" style="margin-bottom: 5%;">
-          <img class="img-circle" src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/discover.jpg"));?>' style="width: 200px; height: 200px; margin-left: 33%;">
+<div class="row" style="margin-top: 5%; margin-left: .5%; width: 99%; margin-left: 0 auto; margin-right: 0 auto;">
+        <div class="col-lg-4" style="margin-bottom: 5%; ">
+          <img class="img-circle" src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/discover.jpg"));?>' style="width: 200px; height: 200px; margin-left: 35%;">
           <h2 class="colHead">Discover New Music!</h2>
           <p class="colPar">With MusicNet, you never have to worry about listening to the same old songs. Discover all sorts of new songs to listen to!</p>
           <p><a style="margin-left: 42%;" class="btn btn-primary" href="http://cs445.cs.umass.edu/php-wrapper/clp/discover.php" role="button">Discover!</a></p>
@@ -38,7 +38,7 @@
           <img class="img-circle" src='data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/girl.jpg"));?>' style="width: 200px; height: 200px; margin-left: 33%;">
           <h2 class="colHead">Connect With Friends!</h2>
           <p class="colPar">What's better than listening to music? Sharing it with your friends! Click here to connect with other MusicNet patrons.</p>
-          <p><a style="margin-left: 42%;" class="btn btn-primary" href="http://cs445.cs.umass.edu/php-wrapper/clp/login.php" role="button">Sign Up First!</a></p>
+          <p><a style="margin-left: 41%;" class="btn btn-primary" href="http://cs445.cs.umass.edu/php-wrapper/clp/login.php" role="button">Sign Up First!</a></p>
         </div>
       </div>
 </div>
