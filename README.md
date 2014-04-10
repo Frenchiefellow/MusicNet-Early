@@ -91,6 +91,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Code Beautification V1.0; most of the code looks good now :)</li>
 </ul>
 4/10:
+<ul>
 <li>Fixed some scaling and positioning issues on Splash.php and newuser.php </li>
 </ul>
 
