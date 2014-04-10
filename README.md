@@ -24,7 +24,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <h1>DAILY/WEEKLY GOALS</h1>
 4/8-4/12: <del>(DB/site down 4/7)</del> <del>(DB/site down ~5:30PM on 4/9)</del>
 <ul>
-<li>Implement search algorithm [Initial Logic Implemented]</li>
+<li>Implement search algorithm [Initial Logic Implemented; Piers is going to try his hand at this]</li>
 <li><del>Add Artist and Album pages</del></li>
 <li><del>Authenticity Check for Artist, Album, Song pages</del></li>
 <li>Implement "data drop" on Artist, Song, and Album pages</li>
