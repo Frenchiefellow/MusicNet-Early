@@ -4,9 +4,9 @@ This is an early version of the MusicNet Project : A social network for music en
 
 <h1>Members</h1>
 <ul>
-<li>_Chris (Owner of repo):_ Working on the front-end of the project. Everything you currently see on this repo was done by me. </li><br>
-<li>_Ted:_ Database Testing and Optimization, as well as Documentation. WIll help with the frontend when DB is set.</li><br>
-<li>_Piers:_ Database Parsing, Creation, Maintenance, and Optimization. Will help on frontend when DB is set.</li>
+<li><strong>Chris (Owner of repo):</strong> Working on the front-end of the project. Everything you currently see on this repo was done by me. </li><br>
+<li><strong>Ted:</strong> Database Testing and Optimization, as well as Documentation. WIll help with the frontend when DB is set.</li><br>
+<li><strong>Piers:</strong> Database Parsing, Creation, Maintenance, and Optimization. Will help on frontend when DB is set.</li>
 </ul>
 
 <h1>INFO:</h1>
@@ -22,13 +22,13 @@ The code and styles are subject to change and are not currently final.
 There are so many PHP files in the main directory as the php-wrapper that was written for our site (which we do not host) can only read PHP files from main directory. Thus is the reason for having to include CSS/JPG files awkwardly with PHP.
 
 <h1>DAILY/WEEKLY GOALS</h1>
-4/8-4/12: (DB/site down ~5:30PM on 4/9)
+4/8-4/12: <del>(DB/site down 4/7)</del> <del>(DB/site down ~5:30PM on 4/9)</del>
 <ul>
-<li>Implement search algorithm</li>
+<li>Implement search algorithm [Initial Logic Implemented]</li>
 <li><del>Add Artist and Album pages</del></li>
 <li><del>Authenticity Check for Artist, Album, Song pages</del></li>
 <li>Implement "data drop" on Artist, Song, and Album pages</li>
-<li>Database Optimization (More so Ted) </li>
+<li>Database Optimization (Ted and Piers) [Behind due to DB being down 4/7 and 4/9] </li>
 <li>Finish Stylization of Profiles and complete Profile "data drop"</li>
 </ul>
 
@@ -87,6 +87,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Spending the afternoon querying the DB for optimization purposes. (DB/site down ~5:30PM)</li>
 <li>Stylized and added content to Splash.php so Ted can add site descritions etc. </li>
 <li>Stylized and added content to newuser.php so Ted can add site descritions etc. </li>
+<li>Splash and NewUser pages are complete </li>
 </ul>
 
 <h1>TO BE DONE: </h1>
