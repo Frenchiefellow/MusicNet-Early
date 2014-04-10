@@ -72,7 +72,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>checkUser.php now reroutes to refer.php with fake user's name (from querystring)</li>
 <li>All profile pages check user name against DB (checkUser.php) to confirm authenticity</li>
 </ul>
-4/8
+4/8:
 <ul>
 <li>Admin Shell for DB queries is available from the admin account</li>
 <li>Updated the Querying Scripts to prevent SQL injections (?) </li>
@@ -81,7 +81,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Added Artist.php and Album.php pages</li>
 <li>Added checkMusic.php to verfiy authenticity of Artist, Album, and Song pages</li>
 </ul>
-4/9
+4/9:
 <ul>
 <li>Changes to Admin.php; Mostly Formatting of results</li>
 <li>Spending the afternoon querying the DB for optimization purposes. (DB/site down ~5:30PM)</li>
@@ -89,6 +89,9 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Stylized and added content to newuser.php so Ted can add site descriptions etc. </li>
 <li>Splash and NewUser pages are complete </li>
 <li>Code Beautification V1.0; most of the code looks good now :)</li>
+</ul>
+4/10:
+<li>Fixed some scaling and positioning issues on Splash.php and newuser.php </li>
 </ul>
 
 <h1>TO BE DONE: </h1>
