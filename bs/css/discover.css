@@ -1,0 +1,24 @@
+.colHead {
+font-size: 110%
+}
+
+.colPar{
+
+text-align: center; 
+text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black; 
+font-size: 125%;
+}
+
+.Cimg{
+width: 100px; 
+height: 100px; 
+display: inline;
+}
+
+.desc{
+
+margin-left: .5%; 
+width: 99%;
+margin-right: 0 auto; 
+text-align: center;
+}

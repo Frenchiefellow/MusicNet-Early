@@ -16,11 +16,11 @@ display: none;
 		$stmt->bind_param( 's',  $song);
 		$stmt->execute();
 		$stmt->bind_result( $plays );
-		while($stmt->fetch()){
-		if (is_null( $row ) )
-		echo $row[ 0 ];
-		else
-		echo '0';
+		while($row = $stmt->fetch()){
+		if (is_null( $row[ 0 ] ) ){
+		echo '0';}
+		else{
+		echo $row[ 0 ] ;}
 		}
 		?></div>
 

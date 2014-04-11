@@ -12,7 +12,7 @@ if ( !$connection ) {
 $url  = $_SERVER["REQUEST_URI"];
 $name = $_GET['id'];
 
-if ( !is_numeric( $name ) ) {
+if ( is_numeric( $name ) ) {
 	if ( ( isset( $_SESSION ) ) && ( isset( $_SESSION['username'] ) ) ) {
 		header( "Location: profile.php?user=" . $_SESSION['username'] );
 		die( );
@@ -29,12 +29,10 @@ if ( !is_numeric( $name ) ) {
 		$stmt->bind_param( 's', $name );
 		
 		$stmt->execute();
-		
-		$stmt->bind_result( $title );
-		
+		$stmt->store_result();
 		
 		
-		if ( $stmt->fetch() == true ) {
+		if ( $stmt->num_rows > 0 ) {
 			
 		} else {
 			if ( ( isset( $_SESSION ) ) && ( isset( $_SESSION['username'] ) ) ) {
@@ -56,11 +54,10 @@ if ( !is_numeric( $name ) ) {
 		
 		$stmt->execute();
 		
-		$stmt->bind_result( $title );
+		$stmt->store_result();
 		
 		
-		
-		if ( $stmt->fetch() == true ) {
+		if ( $stmt->num_rows > 0 ) {
 			
 		} else {
 			if ( ( isset( $_SESSION ) ) && ( isset( $_SESSION['username'] ) ) ) {
@@ -81,11 +78,10 @@ if ( !is_numeric( $name ) ) {
 		
 		$stmt->execute();
 		
-		$stmt->bind_result( $albumname );
+		$stmt->store_result();
 		
 		
-		
-		if ( $stmt->fetch() == true ) {
+		if ( $stmt->num_rows > 0 ) {
 			
 		} else {
 			if ( ( isset( $_SESSION ) ) && ( isset( $_SESSION['username'] ) ) ) {
