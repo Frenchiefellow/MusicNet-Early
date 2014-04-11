@@ -97,6 +97,10 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Initial "data-drop" on Profile.php; other queries cannot be completed yet</li>
 <li>Added fake music player and play count on Song.php (not final versions) </li>
 </ul>
+4/11:
+<ul>
+<li>Discover.php is done</li>
+</ul>
 
 <h1>TO BE DONE: </h1>
 <ul>
