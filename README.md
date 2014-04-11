@@ -94,6 +94,8 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <ul>
 <li>Fixed some scaling and positioning issues on Splash.php and newuser.php </li>
 <li>Profile.php is done with styling. Has some placeholder texts for when I add queries</li>
+<li>Initial "data-drop" on Profile.php; other queries cannot be completed yet</li>
+<li>Added fake music player and play count on Song.php (not final versions) </li>
 </ul>
 
 <h1>TO BE DONE: </h1>
