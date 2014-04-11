@@ -58,7 +58,7 @@ else {
 		} else if ( $gen == "male" ) {
 			$gender = 1;
 		} else {
-			$gender = 0.5;
+			$gender = NULL;
 		}
 		
 		//Insert the tuple into the User table
