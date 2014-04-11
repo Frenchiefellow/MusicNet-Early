@@ -5,8 +5,10 @@
 
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">    
-<h2 class='page-header'>Discover!</h2>
-<h3 class='page-header'>Songs!</h3>
+<h2 class='page-header colHeader'>Discover a Sample of What MusicNet Has to Offer!</h2>
+
+<div class="outline">
+<h3 class='page-header colHeader'>Songs!</h3>
 <div class='row desc'>
 <?php 
 
@@ -22,9 +24,9 @@ $stmt = $connection->query( 'SELECT title, songid FROM Song ORDER BY rand() LIMI
 
 while( $row = $stmt->fetch_assoc() ){
 echo '<div class="col-lg-2 tuxedo">
-          <img class="Cimg" src="data:image/png;base64,';  echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/note.png")); echo '">
+          <img class="img-circle Cimg" src="data:image/png;base64,';  echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/note2.png")); echo '">
           <h2 class="colHead">'; echo $row[ 'title' ]; echo '</h2>
-          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="'; echo 'http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=' . $row[ 'songid' ]; echo '" role="button">Listen!</a></span>
+          <span class= "tuxedo" style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="'; echo 'http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=' . $row[ 'songid' ]; echo '" role="button">Listen!</a></span>
         </div>';
 
 } 
@@ -33,7 +35,9 @@ $stmt->close();
 $connection->close();
 ?>
 </div>
-<h3 class='page-header' style='margin-top: 2%;'>Artists!</h3>
+</div>
+<div class="outline" style='margin-top: 2%;'>
+<h3 class='page-header colHeader'>Artists!</h3>
 <div class='row desc'>
 <?php 
 
@@ -52,7 +56,7 @@ while( $row = $stmt->fetch_assoc() ){
 echo '<div class="col-lg-2 tuxedo">
           <img class="img-circle Cimg" src="data:image/png;base64,';  echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/singer.png")); echo '">
           <h2 class="colHead">'; echo $row[ 'artistname' ]; echo '</h2>
-          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-primary" href="'; echo 'http://cs445.cs.umass.edu/php-wrapper/clp/artist.php?id=' . $row[ 'artistid' ]; echo '" role="button">View!</a></span>
+          <span class= "tuxedo" style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-primary" href="'; echo 'http://cs445.cs.umass.edu/php-wrapper/clp/artist.php?id=' . $row[ 'artistid' ]; echo '" role="button">View!</a></span>
         </div>';
 
 } 
@@ -61,7 +65,9 @@ $stmt->close();
 $connection->close();
 ?>
 </div>
-<h3 class='page-header' style='margin-top: 2%;'>Albums!</h3>
+</div>
+<div class="outline" style='margin-top: 2%;'>
+<h3 class='page-header colHeader'>Albums!</h3>
 <div class='row desc'>
 <?php 
 
@@ -79,7 +85,7 @@ while( $row = $stmt->fetch_assoc() ){
 echo '<div class="col-lg-2 tuxedo">
           <img class="img-circle Cimg" src="data:image/png;base64,';  echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/vinyl.png")); echo '">
           <h2 class="colHead">'; echo $row[ 'albumname' ]; echo '</h2>
-          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-primary" href="'; echo 'http://cs445.cs.umass.edu/php-wrapper/clp/artsist.php?id=' . $row[ 'albumid' ]; echo '" role="button">View!</a></span>
+          <span class= "tuxedo" style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-primary" href="'; echo 'http://cs445.cs.umass.edu/php-wrapper/clp/artsist.php?id=' . $row[ 'albumid' ]; echo '" role="button">View!</a></span>
         </div>';
 
 } 
@@ -87,6 +93,7 @@ $stmt->close();
 
 $connection->close();
 ?>
+</div>
 </div>
 </div>
 </div>
