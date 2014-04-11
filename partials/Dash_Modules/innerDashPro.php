@@ -5,8 +5,8 @@
 
     <div class="row desc">
 
-        <div class="col-lg-3 picholder">
-          <img class="profImg" src="data:image/jpg;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/guitar_2.jpg"));?>">
+        <div class="col-lg-3 picholder profCol">
+          <img class="profImg" src="data:image/png;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/default.png"));?>">
           <h2 class="colHead"><?php echo $_GET['user']; ?></h2>
 	  <div class="picboxinfo"> 
           <p class="colPar">Welcome to <?php echo $_GET['user']; ?>'s MusicNet Profile Page! </p>
@@ -18,14 +18,68 @@
 	   <p style="margin-top: 2%; margin-right: 0 auto; margin-left: 0 auto;"><a class="btn btn-warning stupidButton" href="#" role="button">Friend Me!</a></p>';} ?>
         </div>
 
-        <div class="col-lg-8 aboutbox">
+        <div class="col-lg-8 aboutbox profCol">
 	 <h2 class="aboutitle colHead">About <?php echo $_GET['user']; ?>:</h2>
 	 <h3 class="coltitle">Basic Information:</h3>
 	 <div class="outlineAbout">
-		<p class="colPara"> Name: </p>
-	 	<p class="colPara"> Age: </p>
-        	<p class="colPara"> Gender: </p>
-	 	<p class="colPara"> Location: </p>  
+		<p class="colPara"> Name: 	<?php 
+					    	$connection = @new mysqli( /*removed*/ );
+						$song = $_GET[ 'user' ];
+						$stmt = $connection->prepare( 'SELECT username FROM User WHERE loginacct = ?' );
+						$stmt->bind_param( 's',  $_GET['user']);
+						$stmt->execute();
+						$stmt->bind_result( $username );
+						while ( $stmt->fetch() ){
+						echo $username;
+						}
+						?></p>
+	 	<p class="colPara"> Age:	<?php 
+					    	$connection = @new mysqli( /*removed*/ );
+						$song = $_GET[ 'user' ];
+						$stmt = $connection->prepare( 'SELECT age FROM User WHERE loginacct = ?' );
+						$stmt->bind_param( 's',  $_GET['user']);
+						$stmt->execute();
+						$stmt->bind_result( $age );
+						while ( $stmt->fetch() ){
+						if ( $age == 0)
+						echo 'Not Provided';
+						else
+						echo $age;
+						}
+						?></p> </p>
+        	<p class="colPara"> Gender: <?php 
+					    	$connection = @new mysqli( /*removed*/ );
+						$song = $_GET[ 'user' ];
+						$stmt = $connection->prepare( 'SELECT ismale FROM User WHERE loginacct = ?' );
+						$stmt->bind_param( 's',  $_GET['user']);
+						$stmt->execute();
+						$stmt->bind_result( $gen );
+						while ( $stmt->fetch() ){
+						if( $gen == 1 ){
+						echo 'Male';
+						}
+						else if ( is_null( $gen ) ) {
+						echo 'No Answer';
+						}
+						else if ( $gen == 0 ){
+						echo 'Female';
+						}
+						}
+						?></p> </p>
+	 	<p class="colPara"> Location:<?php 
+					    	$connection = @new mysqli( /*removed*/ );
+						$song = $_GET[ 'user' ];
+						$stmt = $connection->prepare( 'SELECT userloc FROM User WHERE loginacct = ?' );
+						$stmt->bind_param( 's',  $_GET['user']);
+						$stmt->execute();
+						$stmt->bind_result( $loc );
+						while ($stmt->fetch()){
+						if( $loc != '' )
+						echo ' ' . $loc;
+						else
+						echo ' Not Provided';
+						}
+						?></p> </p>  
         </div><br>
 	<h3 class="coltitle">Music Net Information:</h3>
 	<div class="outlineAbout">

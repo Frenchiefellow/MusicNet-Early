@@ -62,10 +62,10 @@ else {
 		}
 		
 		//Insert the tuple into the User table
-		$quer = "INSERT INTO User" . "(loginacct, username, password, age, ismale, issuper, userloc)" . "VALUES ('$login' ,'$user', '$pass', '$age', '$gender', 0, '$loc')";
-		if ( !mysql_query( $quer ) ) {
-			die( 'Error: ' . mysql_error() );
-		}
+		$stmt = $connection->prepare( 'INSERT INTO User (loginacct, username, password, age, ismale, issuper, userloc) VALUES ( ? , ?, ?, ?, ?, 0, ?)' );
+		$stmt->bind_param( 'ssssss', $login, $user, $pass, $age, $gen, $loc );
+		$stmt->execute();
+
 		echo "1 record added";
 		
 		//start a new session, store username inside for varius purposes, and redirect to newuser.php
