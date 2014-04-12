@@ -11,16 +11,6 @@ if ( !$connection ) {
 
 $url  = $_SERVER["REQUEST_URI"];
 $name = $_GET['id'];
-
-if ( is_numeric( $name ) ) {
-	if ( ( isset( $_SESSION ) ) && ( isset( $_SESSION['username'] ) ) ) {
-		header( "Location: profile.php?user=" . $_SESSION['username'] );
-		die( );
-	} else {
-		header( "Location: splash.php?err=3" );
-		die( );
-	}
-} else {
 	
 	//SONG CHUNK
 	if ( strpos( $url, 'song.php' ) ) {
@@ -97,7 +87,7 @@ if ( is_numeric( $name ) ) {
 	
 	
 	
-}
+
 
 ?>
 
