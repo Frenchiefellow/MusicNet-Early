@@ -22,7 +22,7 @@ The code and styles are subject to change and are not currently final.
 There are so many PHP files in the main directory as the php-wrapper that was written for our site (which we do not host) can only read PHP files from main directory. Thus is the reason for having to include CSS/JPG files awkwardly with PHP.
 
 <h1>DAILY/WEEKLY GOALS</h1>
-4/8-4/12: <del>(DB/site down 4/7)</del> <del>(DB/site down ~5:30PM on 4/9)</del>
+4/8-4/13: <del>(DB/site down 4/7)</del> <del>(DB/site down ~5:30PM on 4/9)</del>
 <ul>
 <li><del>Implement search algorithm [Initial Logic Implemented; Piers is going to try his hand at this]</del></li>
 <li><del>Add Artist and Album pages</del></li>
