@@ -27,12 +27,12 @@ echo 'Hello ' . $set . ',
 $set2;
 if( isset( $_SESSION[ 'username' ] ) ){ $set2 = "by " . $_SESSION[ 'username' ];} 
 
-echo $set2 . ' to become part of something bigger than yourself; become part of the greatest community of mussic enthusiasts the world has to offer!' .
-'Join MusicNet today to access the hottest new music, artists, and albums, as well as making lifelong friends along the way that share your musical interests!'.
+echo $set2 . ' to become part of something bigger than yourself; become part of the greatest community of mussic enthusiasts the world has to offer! ' .
+'Join MusicNet today to access the hottest new music, artists, and albums, as well as making lifelong friends along the way that share your musical interests!
+'.
 "
 Copy and paste this link into your internet browser and see all that you can become: 
 http://www.cs445.cs.umass.edu/php-wrapper/clp/splash.php
-
 
 
 Join the MusicNet Community and you'll never look back! Hope to see you on the web!
