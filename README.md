@@ -32,6 +32,8 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li><del>Finish Stylization of Profiles and </del>Complete Profile "data drop"</li>
 </ul>
 
+Little behind on this list due to the DB and site being down earlier in the week.
+
 <h1>UPDATES:</h1>
 4/5: 
 <ul>
