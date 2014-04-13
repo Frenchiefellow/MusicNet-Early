@@ -108,6 +108,7 @@ Little behind on this list due to the DB and site being down earlier in the week
 <li>Search.php is implemented and complete. Minor bug in probability I will look into later</li>
 <li>Added Recommend button to navbarProfile.php</li>
 <li>Recommend.php added for recommendation pages</li>
+<li>Refer.php is complete and sends email invites correctly</li>
 </ul>
 
 <h1>TO BE DONE: </h1>
