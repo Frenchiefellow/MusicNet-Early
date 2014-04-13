@@ -17,7 +17,7 @@ echo '<form id="refer" method="post" action="' . $_SERVER['REQUEST_URI'] . '">' 
 'Send A Message with the Invite!<br>' .
 '<textarea type="text" name="message" cols="200" rows="12">';
 
-$set;
+$set='';
 if( isset( $_GET[ 'friend' ] ) ){ $set = $_GET[ 'friend' ];}  
 
 echo 'Hello ' . $set . ',
