@@ -106,7 +106,7 @@ Little behind on this list due to the DB and site being down earlier in the week
 4/13:
 <ul>
 <li>Search.php is implemented and complete. Minor bug in probability I will look into later</li>
-<li>Added Recommend button to navbarProfile.php</ul>
+<li>Added Recommend button to navbarProfile.php</li>
 <li>Recommend.php added for recommendation pages</li>
 </ul>
 
