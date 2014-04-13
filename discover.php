@@ -84,7 +84,7 @@ $stmt = $connection->query( 'SELECT albumname, albumid FROM Album ORDER BY rand(
 while( $row = $stmt->fetch_assoc() ){
 echo '<div class="col-lg-2 tuxedo">
           <img class="img-circle Cimg" src="data:image/png;base64,';  echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/vinyl.png")); echo '">
-          <h2 class="colHead">'; echo $row[ 'albumname' ]; echo '</h2>
+          <h2 class="colHead">';  if( $row[ 'albumname' ] == ''){ echo 'N/A'; } else{ echo $row[ 'albumname' ]; } echo '</h2>
           <span class= "tuxedo" style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-primary" href="'; echo 'http://cs445.cs.umass.edu/php-wrapper/clp/artsist.php?id=' . $row[ 'albumid' ]; echo '" role="button">View!</a></span>
         </div>';
 
