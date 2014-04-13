@@ -24,7 +24,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <h1>DAILY/WEEKLY GOALS</h1>
 4/8-4/12: <del>(DB/site down 4/7)</del> <del>(DB/site down ~5:30PM on 4/9)</del>
 <ul>
-<li>Implement search algorithm [Initial Logic Implemented; Piers is going to try his hand at this]</li>
+<li><del>Implement search algorithm [Initial Logic Implemented; Piers is going to try his hand at this]</del></li>
 <li><del>Add Artist and Album pages</del></li>
 <li><del>Authenticity Check for Artist, Album, Song pages</del></li>
 <li>Implement "data drop" on Artist, Song, and Album pages</li>
@@ -101,6 +101,12 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <ul>
 <li>Discover.php is done</li>
 </ul>
+4/13:
+<ul>
+<li>Search.php is implemented and complete. Minor bug in probability I will look into later</li>
+<li>Added Recommend button to navbarProfile.php</ul>
+<li>Recommend.php added for recommendation pages</li>
+</ul>
 
 <h1>TO BE DONE: </h1>
 <ul>
@@ -108,6 +114,6 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Implement full search alogrithm.</li>
 <li>Add logic for Friend relations</li>
 <li>Add logic for playlists</li>
-<li>Add logic for discover (may be random if time does not permit for logic)</li>
+<li><del>Add logic for discover (may be random if time does not permit for logic)</del></li>
 <li>Add logic for recommendations</li>
 </ul>
