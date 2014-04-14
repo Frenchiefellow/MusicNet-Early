@@ -15,7 +15,7 @@ echo '<form id="refer" method="post" action="' . $_SERVER['REQUEST_URI'] . '">' 
 "Friend's Email: <input type='email' name='address' placeholder='friend@mail.com' required><br><br>" .
 "E-Mail Subject: <input type='text' name='subject' value='Invite to MusicNet!' required> <br><br>" .
 'Send A Message with the Invite!<br>' .
-'<textarea type="text" name="message" cols="200" rows="12">';
+'<textarea type="text" name="message" style="height: 25%; width: 75%;">';
 
 $set='';
 if( isset( $_GET[ 'friend' ] ) ){ $set = $_GET[ 'friend' ];}  
