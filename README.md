@@ -38,7 +38,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Finish stylizing Song and add data</li>
 <li>Finish Artist and Album pages based on Song's implementation</del>
 <li>Add additional data to Profile</li>
-<li>Stats Page<li>
+<li>Stats Page</li>
 <li>Recommendations Layout and algorithm</li>
 <li>About Us Page</li>
 </ul>
