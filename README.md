@@ -28,11 +28,29 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li><del>Add Artist and Album pages</del></li>
 <li><del>Authenticity Check for Artist, Album, Song pages</del></li>
 <li>Implement "data drop" on Artist, Song, and Album pages</li>
-<li>Database Optimization (Ted and Piers) [Behind due to DB being down 4/7 and 4/9] </li>
+<li><del>Database Optimization (Ted and Piers) [Behind due to DB being down 4/7 and 4/9]</del> </li>
 <li><del>Finish Stylization of Profiles and </del>Complete Profile "data drop"</li>
 </ul>
+<strong>Little behind on this list due to the DB and site being down earlier in the week.</strong>
 
-Little behind on this list due to the DB and site being down earlier in the week.
+4/14-4/21:
+<ul>
+<li>Finish stylizing Song and add data</li>
+<li>Finish Artist and Album pages based on Song's implementation</del>
+<li>Add additional data to Profile</li>
+<li>Stats Page<li>
+<li>Recommendations Layout and algorithm</li>
+<li>About Us Page</li>
+</ul>
+
+4/22-4/28: (DUE 4/29)
+<ul>
+<li>Finish Friend Page and Friend logic</li>
+<li>Finish Playlist Page(profile) and playlist logic</del>
+<li>Finish Playlist Page(main page) and playlist logic</li>
+<li>Final Touches</li>
+<li>Testing and Bug Fixes</li>
+<li>
 
 <h1>UPDATES:</h1>
 4/5: 
@@ -109,6 +127,10 @@ Little behind on this list due to the DB and site being down earlier in the week
 <li>Added Recommend button to navbarProfile.php</li>
 <li>Recommend.php added for recommendation pages</li>
 <li>Refer.php is complete and sends email invites correctly</li>
+</ul>
+4/14:
+<ul>
+<li>Did some serious DB schema updates and optimizations</li>
 </ul>
 
 <h1>TO BE DONE: </h1>
