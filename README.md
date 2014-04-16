@@ -54,6 +54,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Stats Page</li>
 <li>Recommendations Layout and algorithm</li>
 <li>About Us Page</li>
+<li>Optimize queries in Discover.php (running a bit slow)</li>
 </ul>
 
 4/22-4/28: (DUE 4/29)
