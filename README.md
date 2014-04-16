@@ -132,6 +132,10 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <ul>
 <li>Did some serious DB schema updates and optimizations</li>
 </ul>
+4/15-17:
+<ul>
+<li>MusicNet's on hold for a few days for some other pressing work and interviews</li>
+</ul>
 
 <h1>TO BE DONE: </h1>
 <ul>
