@@ -4,9 +4,22 @@ This is an early version of the MusicNet Project : A social network for music en
 
 <h1>Members</h1>
 <ul>
-<li><strong>Chris (Owner of repo):</strong> Working on the front-end of the project. Everything you currently see on this repo was done by me. </li><br>
-<li><strong>Ted:</strong> Database Testing and Optimization, as well as Documentation. WIll help with the frontend when DB is set.</li><br>
-<li><strong>Piers:</strong> Database Parsing, Creation, Maintenance, and Optimization. Will help on frontend when DB is set.</li>
+<li><strong>Chris (Owner of repo):</strong> Working on the front-end of the project. Everything you currently see on this repo was coded by me. </li>
+<ul>
+<li>Currently working on designing Song, Artist, and Album pages</li>
+<li>Going to continue designing and testing</li>
+</ul>
+<li><strong>Ted:</strong> Database Testing and Optimization, as well as Documentation.</li>
+<ul>
+<li>Currently working on logic for recommendations and about.php</li>
+<li>Going to figure out logic behind implementing Playlists, Friends, and Notifications</li>
+</ul>
+<li><strong>Piers:</strong> Database Parsing, Creation, Maintenance, and Optimization. </li>
+<ul>
+<li>Currently working on computing some statistics and updating schema for easy retrieval</li>
+<li>Going to figure out logic behind implementing Playlists, Friends, and Notifications</li>
+<li>Came up with the logic behind the search</li>
+</ul>
 </ul>
 
 <h1>INFO:</h1>
