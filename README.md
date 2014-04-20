@@ -6,7 +6,7 @@ This is an early version of the MusicNet Project : A social network for music en
 <ul>
 <li><strong>Chris (Owner of repo):</strong> Working on the front-end of the project. Everything you currently see on this repo was coded by me. </li>
 <ul>
-<li>Currently working on designing Song, Artist, and Album pages</li>
+<li>Currently working on designing Song, Artist, and Album pages, as well as Chat and possible Spotify integration</li>
 <li>Going to continue designing and testing</li>
 </ul>
 <li><strong>Ted:</strong> Database Testing and Optimization, as well as Documentation.</li>
@@ -59,6 +59,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 
 4/22-4/28: (DUE 4/29)
 <ul>
+<li>Song Chat?</li>
 <li>Finish Friend Page and Friend logic</li>
 <li>Finish Playlist Page(profile) and playlist logic</del>
 <li>Finish Playlist Page(main page) and playlist logic</li>
@@ -153,6 +154,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 4/18-4/19
 <ul>
 <li>Lots of progress on Song, including stylization, and AJAX to update user values etc. (Will commit 4/21)</li>
+<li>Changed Alerts slightly; now employ JavaScript again (fixed previous JS issue) (Will commit 421)</li>
 </ul>
 
 <h1>TO BE DONE: </h1>
@@ -163,4 +165,5 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Add logic for playlists</li>
 <li><del>Add logic for discover (may be random if time does not permit for logic)</del></li>
 <li>Add logic for recommendations</li>
+<li>Song Chat?</li>
 </ul>
