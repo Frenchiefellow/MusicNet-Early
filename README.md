@@ -44,7 +44,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li><del>Database Optimization (Ted and Piers) [Behind due to DB being down 4/7 and 4/9]</del> </li>
 <li><del>Finish Stylization of Profiles and </del>Complete Profile "data drop"</li>
 </ul>
-<strong>Little behind on this list due to the DB and site being down earlier in the week.</strong>
+<strong>^Little behind on this list due to the DB and site being down earlier in the week.^</strong>
 
 4/14-4/21:
 <ul>
