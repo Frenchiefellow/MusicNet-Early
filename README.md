@@ -48,7 +48,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 
 4/14-4/21:
 <ul>
-<li>Finish stylizing Song and add data</li>
+<li><del>Finish stylizing Song and add data</del>Finish AJAX stuff on Song</li>
 <li>Finish Artist and Album pages based on Song's implementation</del>
 <li>Add additional data to Profile</li>
 <li>Stats Page</li>
@@ -149,6 +149,10 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 4/15-17:
 <ul>
 <li>MusicNet's on hold for a few days for some other pressing work and interviews</li>
+</ul>
+4/18-4/19
+<ul>
+<li>Lots of progress on Song, including stylization, and AJAX to update user values etc. (Will commit 4/21)</li>
 </ul>
 
 <h1>TO BE DONE: </h1>
