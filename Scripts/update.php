@@ -58,6 +58,13 @@ if( isset( $_POST[ 'new' ] ) ){
 				$stmt->execute();
 				$stmt->close();
 			}
+
+			//Update the User's number of ratings
+			$stmt = $connection->prepare( 'UPDATE User set ratings = ratings + 1  WHERE loginacct = ?' );
+			$stmt->bind_param( 's', $_SESSION[ 'username' ] );
+			$stmt->execute();
+			$stmt->close();
+
 		}
 
 		elseif( $prev == 0 ){
@@ -93,7 +100,6 @@ if( isset( $_POST[ 'new' ] ) ){
 
 //Checks to see if user has existing playlist
 elseif( isset( $_POST[ 'songid' ] ) ){
-	
 	$connection = @new mysqli( /*removed*/ );
 	$song = $_POST[ 'songid' ];
 	$stmt = $connection->prepare( 'SELECT P.playlistname from Playlist P, Created C WHERE C.loginacct = ? AND P.playlistid = C.playlistid' );
@@ -224,6 +230,73 @@ elseif( isset( $_POST[ 'songI' ] ) ){
 	$plays = $_POST[ 'totplays' ];
 	$connection = @new mysqli( /*removed*/ );
 
+	//See if the song has plays from this User
+	$stmt = $connection->prepare( 'SELECT plays FROM UserInteraction WHERE songid = ? AND loginacct = ?' );
+	$stmt->bind_param( 'ss', $ID, $_SESSION[ 'username' ] );
+	$stmt->execute();
+	$stmt->bind_result( $ply );
+	$stmt->store_result();
+	$ps;
+	if( $stmt->num_rows > 0 ){
+	while( $stmt->fetch() ){
+		$ps = $ply;
+	}
+	}
+	else{
+		$ps = -1;
+	}
+	$stmt->close();
+
+	//If the User hasn't played the song before
+	if( $ps == -1 ){
+
+		//Add the Play to UserInteraction
+		$stmt = $connection->prepare( 'INSERT INTO UserInteraction ( loginacct, songid, rating, plays ) VALUES ( ?, ?, 0, 1 ) ' );
+		$stmt->bind_param( 'ss', $_SESSION[ 'username' ], $ID );
+		$stmt->execute();
+		$stmt->close();
+
+		//See if the song has plays from this User (run this again if user has not refreshed the page and plays song again)
+		$stmt = $connection->prepare( 'SELECT plays FROM UserInteraction WHERE songid = ? AND loginacct = ?' );
+		$stmt->bind_param( 'ss', $ID, $_SESSION[ 'username' ] );
+		$stmt->execute();
+		$stmt->bind_result( $plys );
+		$stmt->store_result();
+		$pss;
+		if( $stmt->num_rows > 0 ){
+			while( $stmt->fetch() ){
+				$pss = $plys;
+		}
+		}
+		else{
+			$pss = -1;
+		}
+		$stmt->close();
+		
+		//If this is the first play of this song by the User, update the User's plays by 1
+		if( $pss == 1 ){
+
+		//Update User Plays
+		$stmt = $connection->prepare( 'UPDATE User set plays = plays + 1 WHERE loginacct = ?' );
+		$stmt->bind_param( 's', $_SESSION[ 'username' ] );
+		$stmt->execute();
+		$stmt->close();
+
+		}
+	
+	}
+
+	//If the User has played the song before, just update the value of plays in UserInteraction
+	else{
+
+		//Add the Play to UserInteraction
+		$stmt = $connection->prepare( 'UPDATE UserInteraction set plays = plays + 1 WHERE loginacct = ? AND songid = ? ' );
+		$stmt->bind_param( 'ss', $_SESSION[ 'username' ], $ID );
+		$stmt->execute();
+		$stmt->close();
+
+	}
+
 	//Update the playcount from song page
 	$stmt = $connection->prepare( 'UPDATE Song set playcount = ? where songid = ?' );
 	$stmt->bind_param( 'ss', $plays, $ID);
@@ -239,6 +312,8 @@ elseif( isset( $_POST[ 'songI' ] ) ){
 		echo $pl;
 	}
 	$stmt->close();
+
+
 
 	$connection->close();
 }

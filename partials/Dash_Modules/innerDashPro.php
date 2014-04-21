@@ -82,10 +82,49 @@
 						?></p> </p>  
         </div><br>
 	<h3 class="coltitle">Music Net Information:</h3>
-	<div class="outlineAbout">
-		<p class="colPara"> Songs Listened to:</p>
-		<p class="colPara"> Songs Rated:</p>
-	 	<p class="colPara"> Playlists Created: </p>
+		<div class="outlineAbout">
+		<p class="colPara"> Songs Listened to: <?php 
+					    	$connection = @new mysqli( /*removed*/ );
+						$song = $_GET[ 'user' ];
+						$stmt = $connection->prepare( 'SELECT plays FROM User WHERE loginacct = ?' );
+						$stmt->bind_param( 's',  $_GET['user']);
+						$stmt->execute();
+						$stmt->bind_result( $plays );
+						while ($stmt->fetch()){
+						if( $plays != 0 )
+						echo ' ' . $plays;
+						else
+						echo 0;
+						}
+						?></p>
+		<p class="colPara"> Songs Rated: <?php 
+					    	$connection = @new mysqli( /*removed*/ );
+						$song = $_GET[ 'user' ];
+						$stmt = $connection->prepare( 'SELECT ratings FROM User WHERE loginacct = ?' );
+						$stmt->bind_param( 's',  $_GET['user']);
+						$stmt->execute();
+						$stmt->bind_result( $rates );
+						while ($stmt->fetch()){
+						if( $rates != 0 )
+						echo ' ' . $rates;
+						else
+						echo 0;
+						}
+						?></p>
+	 	<p class="colPara"> Playlists Created: <?php 
+					    	$connection = @new mysqli( /*removed*/ );
+						$song = $_GET[ 'user' ];
+						$stmt = $connection->prepare( 'SELECT count(*) FROM Created WHERE loginacct = ?' );
+						$stmt->bind_param( 's',  $_GET['user']);
+						$stmt->execute();
+						$stmt->bind_result( $playlists );
+						while ($stmt->fetch()){
+						if( $playlists != '' )
+						echo ' ' . $playlists;
+						else
+						echo 0;
+						}
+						?></p>
 		<p class="colPara"> Friends: </p>
 	</div><br>
 
