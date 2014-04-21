@@ -49,11 +49,11 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 4/14-4/21:
 <ul>
 <li><del>Finish stylizing Song and add data and Finish AJAX stuff on Song</del></li>
-<li>Finish Artist and Album pages based on Song's implementation</del>
+<li><del>Finish Artist and Album pages based on Song's implementation</del></li>
 <li>Add additional data to Profile</li>
 <li>Stats Page</li>
 <li>Recommendations Layout and algorithm</li>
-<li>About Us Page</li>
+<li>About Us Page (Ted's Working on it)</li>
 <li>Optimize queries in Discover.php (running a bit slow)</li>
 </ul>
 
@@ -170,6 +170,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Chat styling is done (functionality to be done later)</li>
 <li>preexistingPlaylist.php added to handle user choice of playlists (for adding a song from song.php)</li>
 <li>updates.js and update.php added to handle all updates (DB and AJAX) from song.php</li>
+<li>Album.php and Artist.php are done</li>
 </ul>
 
 <h1>TO BE DONE: </h1>
