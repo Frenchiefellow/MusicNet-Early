@@ -48,7 +48,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 
 4/14-4/21:
 <ul>
-<li><del>Finish stylizing Song and add data</del> Finish AJAX stuff on Song</li>
+<li><del>Finish stylizing Song and add data and Finish AJAX stuff on Song</del></li>
 <li>Finish Artist and Album pages based on Song's implementation</del>
 <li>Add additional data to Profile</li>
 <li>Stats Page</li>
