@@ -151,10 +151,25 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <ul>
 <li>MusicNet's on hold for a few days for some other pressing work and interviews</li>
 </ul>
+<del>
 4/18-4/19
 <ul>
 <li>Lots of progress on Song, including stylization, and AJAX to update user values etc. (Will commit 4/21)</li>
 <li>Changed Alerts slightly; now employ JavaScript again (fixed previous JS issue) (Will commit 421)</li>
+</ul></del>
+4/21 (Large Commit from the Weekend)
+<ul>
+<li>Song.php is complete, minus the chat module</li>
+ <ul>
+  <li>Total Plays is updated when a song is "played" (DB and and on page using JS/AJAX)</li>
+  <li>Rating is updated when changed/set (DB and on page using JS/AJAX)</li>
+  <li>Average Rating is updated when rating is changed/set (DB and on page using JS/AJAX)</li>
+  <li>Can add songs to playlists (handles no playlists and pre-existing playlists using JS/AJAX/PHP)</li>
+  <li>Chat placeholder is present</li>
+ </ul>
+<li>Chat styling is done (functionality to be done later)</li>
+<li>preexistingPlaylist.php added to handle user choice of playlists (for adding a song from song.php)</li>
+<li>updates.js and update.php added to handle all updates (DB and AJAX) from song.php</li>
 </ul>
 
 <h1>TO BE DONE: </h1>
