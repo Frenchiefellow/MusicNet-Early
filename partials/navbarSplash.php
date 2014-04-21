@@ -22,7 +22,7 @@
             </div>
             <button type="submit" class="btn btn-success" >Sign in</button>
           </form>'; ?>
-	   <?php if(isset($_GET['err'])){ echo '<div class ="navbar-brand2" style="position: absolute; color: white;">'; if($_GET['err'] == 1){echo 'Incorrect Credentials!';} else if($_GET['err'] == 2){ echo 'User Not Found!';} else if($_GET['err'] == 3){ echo 'Page Not Found!';}echo '</div>'; } ?>
+	   <?php if(isset($_GET['err'])){ echo '<div class ="navbar-brand2" style="position: absolute; color: white;">'; if($_GET['err'] == 1){echo '<script type="text/javascript">alert("Incorrect Credentials")</script>';} elseif($_GET['err'] == 2){ echo '<script type="text/javascript">alert("User Not Found!")</script>';} elseif($_GET['err'] == 3){ echo '<script type="text/javascript">alert("Page Not Found!")</script>';} echo '</div>'; } ?>
 	   <?php echo '
         </div>';} 
 	else{
@@ -32,7 +32,7 @@
             <li><a href="'; $url = "http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=" . $_SESSION['username']; echo $url; echo '">Home</a></li>
 	     <li><a href="http://cs445.cs.umass.edu/php-wrapper/clp/logout.php">Log Out</a></li>
 	   </ul>'; ?>
-   <?php if(isset($_GET['err'])){ echo '<div class ="navbar-brand2" style="position: absolute; color: white;">'; if($_GET['err'] == 1){echo 'Incorrect Credentials!';} else if($_GET['err'] == 2){ echo 'User Not Found!';} echo '</div>'; } ?>
+   <?php if(isset($_GET['err'])){ echo '<div class ="navbar-brand2" style="position: absolute; color: white;">'; if($_GET['err'] == 1){echo '<script type="text/javascript">alert("Incorrect Credentials")</script>';} else if($_GET['err'] == 2){ echo '<script type="text/javascript">alert("User Not Found!")</script>';} echo '</div>'; } ?>
 	  <?php echo '
 	</div>';}?>
 
