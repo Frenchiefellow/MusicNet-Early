@@ -13,7 +13,7 @@
    <img src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/case.png" class="imgBack" />
    </div>
       <div class="carousel-caption">
-        <div class="btn btn-primary" style="font-size: 100%; margin-bottom: -2%">ALBUM: <?php 
+        <a class="btn btn-primary">ALBUM: <?php 
 	 	$alID = $_GET[ 'id' ];
 		$connection = @new mysqli( /*removed*/ );
 		$stmt = $connection->prepare( 'SELECT albumname FROM Album WHERE albumid = ?' );
@@ -34,7 +34,9 @@
 		else{
 				echo "album";
 		}
-		?><br>BY: <?php 
+		?></a>
+
+		<?php 
 	 	$alID = $_GET[ 'id' ];
 		$connection = @new mysqli( /*removed*/ );
 		$stmt = $connection->prepare( 'SELECT artistid FROM Linked_To WHERE albumid = ?' );
@@ -51,7 +53,7 @@
 		$stmt->execute();
 		$stmt->bind_result( $anames );
 		while( $stmt->fetch() ){
-				echo $anames;
+				echo '<a class="btn btn-warning" href="http://cs445.cs.umass.edu/php-wrapper/clp/artist.php?id=' . $ida . '">BY: ' . $anames . '</a>';
 			}
 
 
