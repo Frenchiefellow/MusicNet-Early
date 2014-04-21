@@ -4,9 +4,22 @@ This is an early version of the MusicNet Project : A social network for music en
 
 <h1>Members</h1>
 <ul>
-<li><strong>Chris (Owner of repo):</strong> Working on the front-end of the project. Everything you currently see on this repo was done by me. </li><br>
-<li><strong>Ted:</strong> Database Testing and Optimization, as well as Documentation. WIll help with the frontend when DB is set.</li><br>
-<li><strong>Piers:</strong> Database Parsing, Creation, Maintenance, and Optimization. Will help on frontend when DB is set.</li>
+<li><strong>Chris (Owner of repo):</strong> Working on the front-end of the project. Everything you currently see on this repo was coded by me. </li>
+<ul>
+<li>Currently working on designing Song, Artist, and Album pages, as well as Chat and possible Spotify integration</li>
+<li>Going to continue designing and testing</li>
+</ul>
+<li><strong>Ted:</strong> Database Testing and Optimization, as well as Documentation.</li>
+<ul>
+<li>Currently working on logic for recommendations and about.php</li>
+<li>Going to figure out logic behind implementing Playlists, Friends, and Notifications</li>
+</ul>
+<li><strong>Piers:</strong> Database Parsing, Creation, Maintenance, and Optimization. </li>
+<ul>
+<li>Currently working on computing some statistics and updating schema for easy retrieval</li>
+<li>Going to figure out logic behind implementing Playlists, Friends, and Notifications</li>
+<li>Came up with the logic behind the search</li>
+</ul>
 </ul>
 
 <h1>INFO:</h1>
@@ -19,7 +32,7 @@ Some queries of varying complexity have taken 2+ minutes to return due to traffi
 The code and styles are subject to change and are not currently final.
 
 **NOTE:**
-There are so many PHP files in the main directory as the php-wrapper that was written for our site (which we do not host) can only read PHP files from main directory. Thus is the reason for having to include CSS/JPG files awkwardly with PHP.
+There are so many PHP files in the main directory as the php-wrapper that was written for our site (which we do not host) can only read PHP files from main directory. Thus is the reason for having to include CSS/JPG/PNG files awkwardly with PHP.
 
 <h1>DAILY/WEEKLY GOALS</h1>
 4/8-4/13: <del>(DB/site down 4/7)</del> <del>(DB/site down ~5:30PM on 4/9)</del>
@@ -28,11 +41,31 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li><del>Add Artist and Album pages</del></li>
 <li><del>Authenticity Check for Artist, Album, Song pages</del></li>
 <li>Implement "data drop" on Artist, Song, and Album pages</li>
-<li>Database Optimization (Ted and Piers) [Behind due to DB being down 4/7 and 4/9] </li>
+<li><del>Database Optimization (Ted and Piers) [Behind due to DB being down 4/7 and 4/9]</del> </li>
 <li><del>Finish Stylization of Profiles and </del>Complete Profile "data drop"</li>
 </ul>
+<strong>^Little behind on this list due to the DB and site being down earlier in the week.^</strong>
 
-Little behind on this list due to the DB and site being down earlier in the week.
+4/14-4/21:
+<ul>
+<li><del>Finish stylizing Song and add data</del> Finish AJAX stuff on Song</li>
+<li>Finish Artist and Album pages based on Song's implementation</del>
+<li>Add additional data to Profile</li>
+<li>Stats Page</li>
+<li>Recommendations Layout and algorithm</li>
+<li>About Us Page</li>
+<li>Optimize queries in Discover.php (running a bit slow)</li>
+</ul>
+
+4/22-4/28: (DUE 4/29)
+<ul>
+<li>Song Chat?</li>
+<li>Finish Friend Page and Friend logic</li>
+<li>Finish Playlist Page(profile) and playlist logic</del>
+<li>Finish Playlist Page(main page) and playlist logic</li>
+<li>Final Touches</li>
+<li>Testing and Bug Fixes</li>
+<li>
 
 <h1>UPDATES:</h1>
 4/5: 
@@ -110,13 +143,27 @@ Little behind on this list due to the DB and site being down earlier in the week
 <li>Recommend.php added for recommendation pages</li>
 <li>Refer.php is complete and sends email invites correctly</li>
 </ul>
+4/14:
+<ul>
+<li>Did some serious DB schema updates and optimizations</li>
+</ul>
+4/15-17:
+<ul>
+<li>MusicNet's on hold for a few days for some other pressing work and interviews</li>
+</ul>
+4/18-4/19
+<ul>
+<li>Lots of progress on Song, including stylization, and AJAX to update user values etc. (Will commit 4/21)</li>
+<li>Changed Alerts slightly; now employ JavaScript again (fixed previous JS issue) (Will commit 421)</li>
+</ul>
 
 <h1>TO BE DONE: </h1>
 <ul>
 <li>Finish templating all pages and "data-drop" where need be, namely profile.php.</li>
-<li>Implement full search alogrithm.</li>
+<li><del>Implement full</del> Fix search alogrithm.</li>
 <li>Add logic for Friend relations</li>
 <li>Add logic for playlists</li>
 <li><del>Add logic for discover (may be random if time does not permit for logic)</del></li>
 <li>Add logic for recommendations</li>
+<li>Song Chat?</li>
 </ul>
