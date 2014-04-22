@@ -399,10 +399,10 @@ function queryProbability( $query, $res )
 	$maxp = ( float ) 0;
 	for ( $i = 0; $i < count( $res ); $i++ ) {
 		$tokens = array();
-		$tok    = strtok( strtolower( $res[ $i ] ), " " );
+		$tok    = strtok( strtolower( $res[ $i ] ), "/[^A-Za-z0-9 ]/" );
 		do {
 			$tokens[] = $tok;
-			$tok      = strtok( " " );
+			$tok      = strtok( "/[^A-Za-z0-9 ]/" );
 		} while ( $tok !== false );
 		foreach ( $tokens as $s ) {
 			$p    = 1.0 - bcdiv( levenshtein( $s, $query ), max( strlen( $s ), strlen( $query ) ), 4 );
@@ -426,10 +426,10 @@ function advancedProb( $query, $res )
 	
 	for ( $i = 0; $i < count( $res ); $i++ ) {
 		$tokenized = array();
-		$tok       = strtok( strtolower( $res[ $i ] ), " " );
+		$tok       = strtok( strtolower( $res[ $i ] ), "/[^A-Za-z0-9 ]/" );
 		do {
 			$tokenized[] = $tok;
-			$tok         = strtok( " " );
+			$tok         = strtok( "/[^A-Za-z0-9 ]/" );
 		} while ( $tok !== false );
 		for ( $j = 0; $j < count( $tokenized ); $j++ ) {
 			$p[ $j ] = ( 1.0 - bcdiv( levenshtein( $tokenized[ $j ], $query ), max( strlen( $tokenized[ $j ] ), strlen( $query ) ), 5 ) );
@@ -442,9 +442,10 @@ function advancedProb( $query, $res )
 		for ( $k = 0; $k < count( $p ); $k++ ) {
 			if ( $p[ $k ] != $p[ $maxindex ] ) {
 				$sub = $sub + ( ( $p[ $k ] * $p[ $k ] ) / ( count( $p ) * count( $p ) ) );
+				
 			}
 		}
-		$prob[ $i ] = ( $maxp - $sub );
+		$prob[ $i ] = ( number_format( $maxp, 3 ) - number_format( $sub, 3 ) );
 		$maxp       = 0;
 		$maxindex   = 0;
 	}
@@ -458,7 +459,7 @@ function probAverage( $query, $res )
 	$advanced = advancedProb( $query, $res );
 	$fin      = array();
 	for ( $i = 0; $i < count( $naive ); $i++ ) {
-		$fin[ $i ] = ( ( $naive[ $i ] + $advanced[ $i ] ) / 2 );
+		$fin[ $i ] = number_format( ( ( $naive[ $i ] + $advanced[ $i ] ) / 2 ), 2 );
 	}
 	return $fin;
 }
