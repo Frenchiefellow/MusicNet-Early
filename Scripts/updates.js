@@ -42,6 +42,7 @@ function updatePlaylists( songid ){
             if( response == 'No Playlists Created' ){
                 alert( response );
                 var pro = prompt( "Enter a name to create a new playlist: ", "Playlist" );
+                if( pro != null ){
                 $.ajax({
                     type: 'POST',
                     url: 'Scripts/update.php?',
@@ -54,6 +55,7 @@ function updatePlaylists( songid ){
                     alert( response2 );
                     }
                 }); 
+            	}
             }
             //If the User has playlists;
             else{

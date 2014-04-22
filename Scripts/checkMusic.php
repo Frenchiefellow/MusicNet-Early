@@ -19,10 +19,17 @@ $name = $_GET['id'];
 		$stmt->bind_param( 's', $name );
 		
 		$stmt->execute();
+		$stmt->bind_result( $title );
 		$stmt->store_result();
 		
 		
 		if ( $stmt->num_rows > 0 ) {
+			while( $stmt->fetch() ){
+				if ($title == 'The Fragrance of Dark Coffee' ){
+					header( "Location: TheMichaelRosenLounge.php" );
+					die();
+				}
+			}
 			
 		} else {
 			if ( ( isset( $_SESSION ) ) && ( isset( $_SESSION['username'] ) ) ) {

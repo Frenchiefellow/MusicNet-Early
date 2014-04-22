@@ -13,9 +13,69 @@
           <p class="colPar">Here you can learn a little bit more about <?php echo $_GET['user']; ?>'s taste in music, and perhaps you'll find a common link! Take a look around, but don't be afraid to friend them. Don't 
 		worry, its not creepy! We are all music lovers here! </p>
 	  </div> 
-	   <?php if($_SESSION['username'] == $_GET['user']){ echo '<p style="margin-top: 2%;"><a class="btn btn-success stupidButtonNotStupid" href="#" role="button">Friends!</a></p>';} 
- 	   else{ echo '
-	   <p style="margin-top: 2%; margin-right: 0 auto; margin-left: 0 auto;"><a class="btn btn-warning stupidButton" href="#" role="button">Friend Me!</a></p>';} ?>
+	   
+	   <?php 
+	   	$you = $_SESSION[ 'username' ];
+		$them = $_GET[ 'user' ];
+	    $connection = @new mysqli( /*removed*/ );
+		$stmt = $connection->prepare( 'SELECT * FROM Friends WHERE ( loginacct1 = ? AND loginacct2= ? )' );
+		$stmt->bind_param( 'ss',  $you, $them );
+		$stmt->execute();
+		$stmt->store_result();
+		$check = 0;
+		$check2 = 0;
+		if( $stmt->num_rows > 0 ){
+			$check = 1;
+		}
+		$stmt->close();
+
+		$stmt = $connection->prepare( 'SELECT * FROM Friends WHERE ( loginacct1 = ? AND loginacct2 = ? )' );
+		$stmt->bind_param( 'ss', $them, $you );
+		$stmt->execute();
+		$stmt->store_result();
+		if( $stmt->num_rows > 0 ){
+			$check2 = 1;
+		}
+		$stmt->close();
+
+		$check3;
+		if( $check == 1 && $check2 == 1){
+			$check3 = 3;
+		}
+		elseif( $check == 1 && $check2 == 0){
+			$check3 = 1;
+		}
+		elseif( $check == 0 && $check2 == 1){
+			$check3 = 2;
+		}
+		elseif( $check == 0 && $check2 == 0){
+			$check3 = 0;
+		}
+
+
+	   if( isset( $_SESSION[ 'username' ] ) ){
+	   if( $_SESSION[ 'username' ] == $_GET[ 'user' ] || $check3 == 1 ){ echo '<p style="margin-top: 2%;"><a class="btn btn-success stupidButtonNotStupid" href="#" role="button">Following!</a></p>';} 
+ 	 
+	   else if( $check3 == 0 ) { 
+	  	echo '<div id="Follow">'.
+	   '<p style="margin-top: 2%; margin-right: 0 auto; margin-left: 0 auto;"><p class="btn btn-warning stupidButton" id="friend" role="button">Follow Me!</p></p></div>';
+	   }
+	  else if( $check3 == 2) { 
+	  echo '<div id="Following">'.
+	   '<p style="margin-top: 2%; margin-right: 0 auto; margin-left: 0 auto;"><p class="btn btn-warning stupidButton" id="friend" role="button">Following You!</p></p></div>';
+	   }
+	   else if( $check3 == 3 ) { 
+	  echo '<div>'.
+	   '<p style="margin-top: 2%; margin-right: 0 auto; margin-left: 0 auto;"><p class="btn btn-warning stupidButton" role="button">Followers!</p></p></div>';
+	   }
+
+
+	   else { echo '
+	   <p style="margin-top: 2%; margin-right: 0 auto; margin-left: 0 auto;"><a class="btn btn-danger stupidButton" href="http://cs445.cs.umass.edu/php-wrapper/clp/login.php" role="button">Sign Up!</a></p>';
+		} 
+	}
+	?>
+
         </div>
 
         <div class="col-lg-8 aboutbox profCol">
@@ -61,7 +121,7 @@
 						else if ( is_null( $gen ) ) {
 						echo 'No Answer';
 						}
-						else if ( $gen == 0 ){
+						else {
 						echo 'Female';
 						}
 						}
@@ -82,7 +142,7 @@
 						?></p> </p>  
         </div><br>
 	<h3 class="coltitle">Music Net Information:</h3>
-		<div class="outlineAbout">
+	<div class="outlineAbout">
 		<p class="colPara"> Songs Listened to: <?php 
 					    	$connection = @new mysqli( /*removed*/ );
 						$song = $_GET[ 'user' ];
@@ -125,7 +185,20 @@
 						echo 0;
 						}
 						?></p>
-		<p class="colPara"> Friends: </p>
+		<p class="colPara"> Friends: <?php 
+					    	$connection = @new mysqli( /*removed*/ );
+						$song = $_GET[ 'user' ];
+						$stmt = $connection->prepare( 'SELECT count(*) FROM Friends WHERE loginacct1 = ? OR loginacct2= ?' );
+						$stmt->bind_param( 'ss',  $_GET['user'], $_GET[ 'user' ] );
+						$stmt->execute();
+						$stmt->bind_result( $friends );
+						while ($stmt->fetch()){
+						if( $friends != '' )
+						echo ' ' . $friends;
+						else
+						echo 0;
+						}
+						?></p>
 	</div><br>
 
 
@@ -134,45 +207,52 @@
 <h3 class='page-header listen'>Most Listened to </h3>
 
 <div class="row desc">
+	<?
+		$connection = @new mysqli( /*removed*/ );
+        $user = $_GET[ 'user' ];
+        $stmt = $connection->prepare( 'SELECT songid FROM UserInteraction WHERE loginacct = ? and plays > 0 ORDER BY plays LIMIT 6' );
+        $stmt->bind_param( 's',  $user );
+        $stmt->execute();
+        $stmt->bind_result( $songs );
+        $arr = array();
+        while ( $stmt->fetch() ){
+            array_push( $arr, $songs );
+        }
 
-	  <div class="col-lg-2 tuxedo">
-          <img class="img-circle Cimg" src='data:image/png;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/vinyl.png"));?>'>
-          <h2 class="colHeader">SONG NAME</h2>
-          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="<?php echo 'http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=' . $_SESSION['username'];?>" role="button">Listen!</a></span>
-        </div>
+        if( count( $arr ) > 0 ){
 
-	  <div class="col-lg-2 tuxedo">
-          <img class="img-circle Cimg" src='data:image/png;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/vinyl.png"));?>'>
-          <h2 class="colHeader">SONG NAME</h2>
-          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="<?php echo 'http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=' . $_SESSION['username'];?>" role="button">Listen!</a></span>
-        </div>
+        	$size = ( ( 12 - ( count( $arr ) * 2 ) ) / 2 );
 
-	   <div class="col-lg-2 tuxedo">
-          <img class="img-circle Cimg" src='data:image/png;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/vinyl.png"));?>'>
-          <h2 class="colHeader">SONG NAME</h2>
-          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="<?php echo 'http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=' . $_SESSION['username'];?>" role="button">Listen!</a></span>
-        </div>
+            if( $size != 0 ){
+           		echo '<div class="col-lg-' . $size . ' tuxedo"></div>';
+            }
+             for( $i = 0; $i < count( $arr ); $i++ ){
+                $stmt = $connection->prepare( 'SELECT title FROM Song WHERE songid = ?' );
+                $stmt->bind_param( 's',  $arr[ $i ] );
+                $stmt->execute();
+                $stmt->bind_result( $title );
+                while ( $stmt->fetch() ){
+                    echo '<div class="col-lg-2 tuxedo">'.
+         				 '<img class="img-circle Cimg" src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/vinyl.png" />' .
+         				 '<h2 class="colHeader">' . $title . '</h2>' .
+          				 '<span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="http://cs445.umass.edu/php-wrapper/clp/song.php?id=' . $arr[ $i ] . '" role="button">Listen!</a></span>' .
+       					 '</div>';
+                }
+            }
 
-	   <div class="col-lg-2 tuxedo">
-          <img class="img-circle Cimg" src='data:image/png;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/vinyl.png"));?>'>
-          <h2 class="colHeader">SONG NAME</h2>
-          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="<?php echo 'http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=' . $_SESSION['username'];?>" role="button">Listen!</a></span>
-        </div>
+            if( $size != 0 ){
+            	echo '<div class="col-lg-' . $size . ' tuxedo"></div>';
+            }
+        }
 
-	  <div class="col-lg-2 tuxedo">
-          <img class="img-circle Cimg" src='data:image/png;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/vinyl.png"));?>'>
-          <h2 class="colHeader">SONG NAME</h2>
-          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="<?php echo 'http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=' . $_SESSION['username'];?>" role="button">Listen!</a></span>
-        </div>
+        else{
+        	echo '<h2 style="text-align: center">No Songs Played!</h2>';
+        }
+
+  
+            
+    ?>
 	 
-	 <div class="col-lg-2 tuxedo">
-          <img class="img-circle Cimg" src='data:image/png;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/vinyl.png"));?>'>
-          <h2 class="colHeader">SONG NAME</h2>
-          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="<?php echo 'http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=' . $_SESSION['username'];?>" role="button">Listen!</a></span>
-        </div>
-
-
-	
 </div>
 
 
@@ -181,44 +261,80 @@
 <div class ="row desc">
 	
 	<div class="row desc">
-	<div class="col-lg-2 tuxedo">
-          <img class="img-circle Cimg" src='data:image/png;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/vinyl.png"));?>'>
-          <h2 class="colHeader">SONG NAME</h2>
-          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="<?php echo 'http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=' . $_SESSION['username'];?>" role="button">Listen!</a></span>
-        </div>
+	<?
+		$connection = @new mysqli( /*removed*/ );
+        $user = $_GET[ 'user' ];
+        $stmt = $connection->prepare( 'SELECT songid FROM UserInteraction WHERE loginacct = ? and rating > 0 ORDER BY rating desc LIMIT 6' );
+        $stmt->bind_param( 's',  $user );
+        $stmt->execute();
+        $stmt->bind_result( $songs );
+        $arr = array();
+        while ( $stmt->fetch() ){
+            array_push( $arr, $songs );
+        }
+            if( count( $arr ) > 0 ){
 
-	  <div class="col-lg-2 tuxedo">
-          <img class="img-circle Cimg" src='data:image/png;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/vinyl.png"));?>'>
-          <h2 class="colHeader">SONG NAME</h2>
-          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="<?php echo 'http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=' . $_SESSION['username'];?>" role="button">Listen!</a></span>
-        </div>
+        	$size = ( ( 12 - ( count( $arr ) * 2 ) ) / 2 );
 
-	   <div class="col-lg-2 tuxedo">
-          <img class="img-circle Cimg" src='data:image/png;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/vinyl.png"));?>'>
-          <h2 class="colHeader">SONG NAME</h2>
-          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="<?php echo 'http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=' . $_SESSION['username'];?>" role="button">Listen!</a></span>
-        </div>
+            if( $size != 0 ){
+           		echo '<div class="col-lg-' . $size . ' tuxedo"></div>';
+            }
+             for( $i = 0; $i < count( $arr ); $i++ ){
+                $stmt = $connection->prepare( 'SELECT title FROM Song WHERE songid = ?' );
+                $stmt->bind_param( 's',  $arr[ $i ] );
+                $stmt->execute();
+                $stmt->bind_result( $title );
+                while ( $stmt->fetch() ){
+                    echo '<div class="col-lg-2 tuxedo">'.
+         				 '<img class="img-circle Cimg" src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/vinyl.png" />' .
+         				 '<h2 class="colHeader">' . $title . '</h2>' .
+          				 '<span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="http://cs445.umass.edu/php-wrapper/clp/song.php?id=' . $arr[ $i ] . '" role="button">Listen!</a></span>' .
+       					 '</div>';
+                }
+            }
 
-	   <div class="col-lg-2 tuxedo">
-          <img class="img-circle Cimg" src='data:image/png;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/vinyl.png"));?>'>
-          <h2 class="colHeader">SONG NAME</h2>
-          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="<?php echo 'http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=' . $_SESSION['username'];?>" role="button">Listen!</a></span>
-        </div>
+            if( $size != 0 ){
+            	echo '<div class="col-lg-' . $size . ' tuxedo"></div>';
+            }
+        }
+            else{
+            	echo '<h2 style="text-align: center">No Songs Played!</h2>';
+            }
 
-	  <div class="col-lg-2 tuxedo">
-          <img class="img-circle Cimg" src='data:image/png;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/vinyl.png"));?>'>
-          <h2 class="colHeader">SONG NAME</h2>
-          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="<?php echo 'http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=' . $_SESSION['username'];?>" role="button">Listen!</a></span>
-        </div>
-	 
-	 <div class="col-lg-2 tuxedo">
-          <img class="img-circle Cimg" src='data:image/png;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/vinyl.png"));?>'>
-          <h2 class="colHeader">SONG NAME</h2>
-          <span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="<?php echo 'http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=' . $_SESSION['username'];?>" role="button">Listen!</a></span>
-        </div>
+  
+            
+    ?>
 
 	</div>
 
 </div>
 </div>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+$( '#friend' ).click( function(){
+	$.ajax({
+                    type: 'POST',
+                    url: 'Scripts/addFriends.php?',
+                    data: 'user=' + window.location.search.substring( 6 ) + '&follow=' + true,
+                    cache: false,
+                    error: function( e ){
+                    alert( e );
+                    },
+                    success: function( response2 ){
+                    alert( response2 );
+                    var html = '<p style="margin-top: 2%;"><a class="btn btn-success stupidButtonNotStupid" href="#" role="button">Following!</a></p>';
+                    var html2 = '<p style="margin-top: 2%; margin-right: 0 auto; margin-left: 0 auto;"><p class="btn btn-warning stupidButton" role="button">Followers!</p></p></div>';
+                    if( $("#Follow").length ) {
+                    document.getElementById( 'Follow' ).innerHTML = html;
+                	}
+                	if( $("#Following").length ) {
+                    document.getElementById( 'Following' ).innerHTML = html2;
+               		 }
+                    }
+                }); 
+});
+
+
+</script>
 

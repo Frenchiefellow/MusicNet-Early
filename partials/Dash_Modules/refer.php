@@ -17,8 +17,8 @@ echo '<form id="refer" method="post" action="' . $_SERVER['REQUEST_URI'] . '">' 
 'Send A Message with the Invite!<br>' .
 '<textarea type="text" name="message" style="height: 25%; width: 75%;">';
 
-$set='';
-if( isset( $_GET[ 'friend' ] ) ){ $set = $_GET[ 'friend' ];}  
+$set ='';
+if( isset( $_GET[ 'friend' ] ) ){ $set = $_GET[ 'friend' ];} 
 
 echo 'Hello ' . $set . ',
 
@@ -46,7 +46,7 @@ Join the MusicNet Community and you'll never look back! Hope to see you on the w
 else{
   if (isset($_POST[ "address" ])) {
     $to = $_POST[ "address" ]; 
-    $from = $_SESSION[ "username" ];
+    $from = $_SESSION[ "username" ] . '@frenchiefellow.xxx';
     $subject = $_POST[ "subject" ];
     $message = $_POST[ "message" ];
     $message = wordwrap($message, 70);

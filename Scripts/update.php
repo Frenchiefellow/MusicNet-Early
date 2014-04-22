@@ -69,11 +69,47 @@ if( isset( $_POST[ 'new' ] ) ){
 
 		elseif( $prev == 0 ){
 
+			//Grab User's previous rating
+			$prevs;
+			$prevsPlays;
+			$stmt = $connection->prepare( 'SELECT rating, plays FROM UserInteraction WHERE loginacct = ? AND songid = ?' );
+			$stmt->bind_param( 'ss', $_SESSION[ 'username' ], $_GET[ 'id' ] );
+			$stmt->execute();
+			$stmt->bind_result( $prevsRating, $prevPlays );
+			$stmt->store_result();
+			if( $stmt->num_rows > 0 ){
+				while( $stmt->fetch() ){
+					$prevs = $prevsRating;
+					$prevsPlays = $prevPlays;
+				}
+			}
+			//Set previous number of ratings to 0
+			else{
+				$prevs = 0;
+				$prevsPlays = 0;
+			}
+
+			$param = $prev + $prevsPlays;
+			$stmt->close();
+			echo $prevs;
+			if( $param == 0 ){
 			//Insert a new tuple for this rating
 			$stmt = $connection->prepare( 'INSERT INTO UserInteraction ( loginacct, songid, rating, plays ) VALUES ( ?, ?, ?, 0 )' );
 			$stmt->bind_param( 'sss', $_SESSION[ 'username' ], $_GET[ 'id' ], $_POST[ 'content' ] );
 			$stmt->execute();
-			echo 'Rating Set To: ' . $_POST[ 'content' ];
+			echo 'Rating Set To: ' . $_POST[ 'content' ] . " HERE";
+			}
+
+			elseif( $param != 0 ){
+
+			//Set the new rating in the UserInteraction Tuple
+			$stmt = $connection->prepare( 'UPDATE UserInteraction SET rating = ? WHERE loginacct = ? AND songid = ?' );
+			$stmt->bind_param( 'sss',  $_POST[ 'content' ], $_SESSION[ 'username' ], $_GET[ 'id' ]);
+			$stmt->execute();
+			$stmt->close();
+			echo 'Rating Changed To: ' . $_POST[ 'content' ];
+
+			}
 
 			//Update rating count and total ratings
 			$stmt = $connection->prepare( 'UPDATE Song set ratecount = ratecount + ?, totalRatings = totalRatings + 1 WHERE songid = ?' );
@@ -138,8 +174,9 @@ elseif( isset( $_POST[ 'pname' ] ) ){
 	$playlist = $_POST[ 'pname' ];
 	$connection = @new mysqli( /*removed*/ );
 	$song = $_POST[ 'sid' ];
-	$prevID;
+
 	//Get the value of the largest playlistID
+	$prevID;
 	$results = mysqli_query( $connection, 'SELECT playlistid from Created ORDER BY playlistid DESC LIMIT 1' );
 	while( $row = $results->fetch_array() ){
 		$prevID = $row[0];
@@ -342,6 +379,41 @@ elseif( isset( $_POST[ 'update' ] ) ){
 
 	$connection->close();
 }
+
+elseif( isset( $_POST[ 'newpname' ] ) ){
+	$user = $_POST[ 'user' ];
+	$name = $_POST[ 'newpname'];
+
+	$connection = @new mysqli( /*removed*/ );
+
+	//Get the value of the largest playlistID
+	$prevID;
+	$results = mysqli_query( $connection, 'SELECT playlistid from Created ORDER BY playlistid DESC LIMIT 1' );
+	while( $row = $results->fetch_array() ){
+		$prevID = $row[0];
+	}
+	$prevID += 1;
+	//Turn off foreign key checks to add tuple
+	$noCheck = mysqli_query( $connection, 'SET FOREIGN_KEY_CHECKS=0');
+	//Add a new tuple representing this playlist to Created
+	$stmt = $connection->prepare( 'INSERT INTO Created ( loginacct, playlistid ) VALUES ( ?, ? )' );
+	$stmt->bind_param( 'ss', $user, $prevID );
+	$stmt->execute();
+	$stmt->store_result();
+
+	//Add a new tuple representing this playlist to Playlist
+	$stmt = $connection->prepare( 'INSERT INTO Playlist ( playlistid, playlistname, trackno ) VALUES ( ?, ?, 0 )' );
+	$stmt->bind_param( 'ss', $prevID, $name );
+	$stmt->execute();
+	$stmt->close();
+
+	echo 'Playlist added!';
+
+	$Check = mysqli_query( $connection, 'SET FOREIGN_KEY_CHECKS=1');
+	$connection->close();
+
+}	
+
 
 
 		?>
