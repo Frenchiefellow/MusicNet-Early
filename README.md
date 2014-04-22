@@ -50,7 +50,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <ul>
 <li><del>Finish stylizing Song and add data and Finish AJAX stuff on Song</del></li>
 <li><del>Finish Artist and Album pages based on Song's implementation</del></li>
-<li>Add additional data to Profile</li>
+<li><del>Add additional data to Profile</del></li>
 <li>Stats Page</li>
 <li>Recommendations Layout and algorithm</li>
 <li><del>About Us Page (Ted's Working on it)</del></li>
@@ -60,9 +60,8 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 4/22-4/28: (DUE 4/29)
 <ul>
 <li>Song Chat?</li>
-<li>Finish Friend Page and Friend logic</li>
-<li>Finish Playlist Page(profile) and playlist logic</del>
-<li>Finish Playlist Page(main page) and playlist logic</li>
+<li><del>Finish Friend Page and Friend logic</del></li>
+<li><del>Finish Playlist Page(profile) and playlist logic</del></li>
 <li>Final Touches</li>
 <li>Testing and Bug Fixes</li>
 <li>
@@ -173,13 +172,20 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Album.php and Artist.php are done</li>
 <li>About.php is done</li>
 </ul>
+4/22:
+<ul>
+<li>Profile Songs, Playlists, and Friends are done. </li>
+<li>addFriend.php added for friending</li>
+<li>Updated update.php for adding playlists from profile</li>
+<li>The Michael Rosen Lounge added</li>
+</ul>
 
 <h1>TO BE DONE: </h1>
 <ul>
-<li>Finish templating all pages and "data-drop" where need be, namely profile.php.</li>
+<li>Finish templating all pages and "data-drop" where need be, <del>namely profile.php</del></li>
 <li><del>Implement full</del> Fix search alogrithm.</li>
-<li>Add logic for Friend relations</li>
-<li>Add logic for playlists</li>
+<li><del>Add logic for Friend relations</del></li>
+<li><del>Add logic for playlists</del></li>
 <li><del>Add logic for discover (may be random if time does not permit for logic)</del></li>
 <li>Add logic for recommendations</li>
 <li>Song Chat?</li>
