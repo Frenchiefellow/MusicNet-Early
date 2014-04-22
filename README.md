@@ -40,7 +40,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li><del>Implement search algorithm [Initial Logic Implemented; Piers is going to try his hand at this]</del></li>
 <li><del>Add Artist and Album pages</del></li>
 <li><del>Authenticity Check for Artist, Album, Song pages</del></li>
-<li>Implement "data drop" on Artist, Song, and Album pages</li>
+<li><del>Implement "data drop" on Artist, Song, and Album pages</del></li>
 <li><del>Database Optimization (Ted and Piers) [Behind due to DB being down 4/7 and 4/9]</del> </li>
 <li><del>Finish Stylization of Profiles and </del>Complete Profile "data drop"</li>
 </ul>
