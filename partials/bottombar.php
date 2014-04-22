@@ -9,10 +9,14 @@
           </button>
 
 	   <?php
-	   if(isset($_SESSION['username'])){
-	     if($_SESSION['username'] == 'admin'){
-		 echo '
-	   		<a class="navbar-brand" href="'; $si = session_id(); $url = "http://cs445.cs.umass.edu/php-wrapper/clp/admin.php?id=" . $si; echo $url; echo '" style="position:absolute;">ADMIN</a>';}} ?>
+	  	if( isset( $_SESSION[ 'username' ] ) ){
+	    	if($_SESSION['username'] == 'admin'){
+			 	echo '<a class="navbar-brand" href="'; $si = session_id(); $url = "http://cs445.cs.umass.edu/php-wrapper/clp/admin.php?id=" . $si; echo $url; echo '" style="position:absolute;">ADMIN</a>';}}
+	   	elseif ( !isset( $_SESSION[ 'username' ] ) ){
+	   		echo '<a class="navbar-brand" href="http://cs445.cs.umass.edu/php-wrapper/clp/about.php" style="position:absolute;">About Us</a>';
+	   	}
+
+	   		?>
 
           <a class="navbar-brand2" href="http://www.github.com/frenchiefellow" style="position:absolute; ">CLP Productions</a>
         </div>

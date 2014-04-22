@@ -9,5 +9,6 @@
             		<li ><a href="#ted">Ted</a></li>
             		<li ><a href="#piers">Piers</a></li>
             	</ul>
+            <li ><a href="#serious">In All Seriousness</a></li>
           </ul>
 </div>

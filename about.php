@@ -43,9 +43,9 @@ html, body{
 	</p>
 
 	<p>	
-		It's a terrible song though, I wouldn't reccommend listening to it for too long. You'll be waiting and waiting for it to get to the good
+		They are terrible songs though, I wouldn't recommend listening to them for too long. You'll be waiting and waiting for it to get to the good
 		part but it never comes. You'll see related videos on Youtube and you'll click to the next one thinking maybe it will be better, but it won't be.
-		It's like if everything that made the Beetles good was taken away&mdash;it's like a band of four Ringo Starrs got together just to ruin the 
+		It's like if everything that made the Beatles good was taken away&mdash;it's like a band of four Ringo Starrs got together just to ruin the 
 		10 minutes of your life that you devoted to listening to their music. Don't take my word for it, <a href="http://open.spotify.com/album/0hkdPlZ1durffV7QVIE8rR">go and see for yourself!</a>
 	</p><br>
 	</div>
@@ -53,9 +53,8 @@ html, body{
 	<div style="background-color: white; border: 0px solid; border-radius: 10px;">
 	<h1 id="morethanmusic" class="page-header">More Than Just Music</h1>
 	<p>
-		If you are still not convinced that we are a <i>top tier</i> social networking site, that's probably because we haven't mentioned that we are a social networking site yet: We <i>are</i> a social networking site. We give you the freedom to rate songs that you've listened to with none of the incentive to. We also give you the abilty to rate songs you haven't listened to, in case you're a communist. Then again, the play button is just a listener that doesn't do anything, so I guess you can do what you want.
-	</p>
-	<p> <i>Commie</i> </p><br>
+		If you are still not convinced that we are a <i>top tier</i> social networking site, that's probably because we haven't mentioned that we are a social networking site yet: We <i>are</i> a social networking site. We give you the freedom to rate songs that you've listened to with none of the incentive to. We also give you the abilty to rate songs you haven't listened to, in case you're "that guy/girl". Then again, the play button is just a listener that doesn't do anything, so I guess you can do what you want.
+	</p><br>
 	</div>
 
 	<div style="background-color: white; border: 0px solid; border-radius: 10px;">
@@ -66,7 +65,7 @@ html, body{
 	<img src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/ChrisAbout.png"  style="border: 0px solid; border-radius: 10px; width: 90%; height: 225px; "> 
 	</div>
 	<div class="col-sm-8">
-	<h4 style="text-align: center" class="page-header">CHRIS: Frontend Master, Backend Apprentice</h4>
+	<h4 style="text-align: center" class="page-header">CHRIS: Frontend Master, Backend Knight</h4>
 	<p style="float: right">
 	Chris is the slave driver. He <i>whipped</i> Piers and Ted into submission relentlessly until their fingers were only dust and the website was complete. Spent all his free time complaining that he was
 	the only one on the frontend and went <strong>WELL</strong> beyond the requirements, while still complaining that he had too much work to do. Chris now dreams in HTML, CSS, PHP, MySQL, and JavaScript and has 
@@ -80,9 +79,9 @@ html, body{
 	<img src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/TedAbout.png"  style="border: 0px solid; border-radius: 10px;  width: 90%; height: 225px; "> 
 	</div>
 	<div class="col-sm-8">
-	<h4 style="text-align: center" class="page-header">TED: Document Master, Frontend Apprentice, Backend Apprentice</h4>
+	<h4 style="text-align: center" class="page-header">TED: Document Master, Frontend Initiate, Backend Padawan</h4>
 	<p>
-	Ted is a straight male, age 20 with <i>meaty</i> hands that have a passion for nurturing and massaging a keyboard with sexy LaTeX documents and sensual MySQL queries. I wrote this page, but I didn't get to
+	Ted is a straight male, age 20 with <i>meaty</i> hands that have a passion for nurturing and massaging a keyboard with sexy LaTeX documents and sensual MySQL queries. Ted's long living goal in working on this project was to quench Snoop's thirst. Alas, he failed and Snoop's still thirsty. I wrote this page, but I didn't get to
 	write my own description. Just kidding, Chris did this, just like the entire Frontend. 
 	</p>
 	</div>
@@ -93,14 +92,32 @@ html, body{
 	<img src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/PiersAbout.png" style="border: 0px solid; border-radius: 10px;  width: 90%; height: 225px;"> 
 	</div>
 	<div class="col-sm-8">
-	<h4 style="text-align: center" class="page-header">PIERS: Backend Master</h4>
+	<h4 style="text-align: center" class="page-header">PIERS: Backend Sith Lord</h4>
 	<p>
-	Born in the town of Smallville, Kansas Piers watched the brutal murder of his parents before his eyes while exiting a theatre. After meeting the sorcerer solomon, he was granted superhuman abilities using his ring of power. After defeating a number of supervillians, he met his greatest foe who was immune to his webslinging powers, Magneto, who could control his Unobtanium bones. Only with the help of his sidekick Speedy, was Ultron defeated and balance restored to the League of Shadows. Also, I did the database.
+	Born in the town of Smallville, Kansas, Piers watched the brutal murder of his parents before his eyes while exiting a theatre. After meeting the sorcerer solomon, he was granted superhuman abilities using his ring of power. After defeating a number of supervillians, he met his greatest foe who was immune to his webslinging powers, Magneto, who could control his Unobtanium bones. Only with the help of his sidekick Speedy, was Ultron defeated and balance restored to the League of Shadows. Also, I did the database.
 	</p>
 	</div>
 	</div>
 	</div>
 	</div>
+
+	<div style="background-color: white; border: 0px solid; border-radius: 10px;">
+	<h1 id="serious" class="page-header">In All Seriousness</h1>
+	<p> 
+	We think its pretty clear that we had a fun, albeit a bit frustrating, time designing this website. It was certainly a struggle to finish in time and get everything <i>perfect</i>, but 
+	we are happy with the end result and we hope you will like the all the functionality we actually got programmed into the site. We tried not taking ourselves too seriously (especially in this page),
+	but the website came together better than we all thought possible. </p>
+	<p>
+	Had we more time to continue onward (Chris started the Frontend before Data Loading was complete), we would have liked to implement other features/changes to our website such as: </p>
+	<ul>
+		<li>Allowing Users to upload pictures for there accounts</li>
+		<li>A peer to peer chat client (private messages)</li>
+		<li>Scripts to grab album art, artist pictures, and songs from sources such as Spotify or Google</li>
+		<li>Refactoring of older authentication scripts</li>
+	</ul>
+	</div>
+
+
 </div>
 
 
