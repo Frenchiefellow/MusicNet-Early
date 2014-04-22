@@ -53,7 +53,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Add additional data to Profile</li>
 <li>Stats Page</li>
 <li>Recommendations Layout and algorithm</li>
-<li>About Us Page (Ted's Working on it)</li>
+<li><del>About Us Page (Ted's Working on it)</del></li>
 <li>Optimize queries in Discover.php (running a bit slow)</li>
 </ul>
 
@@ -171,6 +171,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>preexistingPlaylist.php added to handle user choice of playlists (for adding a song from song.php)</li>
 <li>updates.js and update.php added to handle all updates (DB and AJAX) from song.php</li>
 <li>Album.php and Artist.php are done</li>
+<li>About.php is done</li>
 </ul>
 
 <h1>TO BE DONE: </h1>
