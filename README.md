@@ -11,7 +11,6 @@ This is an early version of the MusicNet Project : A social network for music en
 </ul>
 <li><strong>Ted:</strong> Database Testing and Optimization, as well as Documentation.</li>
 <ul>
-<li>Currently working on logic for recommendations and about.php</li>
 <li>Going to bug test</li>
 </ul>
 <li><strong>Piers:</strong> Database Parsing, Creation, Maintenance, and Optimization. </li>
