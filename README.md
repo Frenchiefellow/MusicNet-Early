@@ -6,18 +6,18 @@ This is an early version of the MusicNet Project : A social network for music en
 <ul>
 <li><strong>Chris (Owner of repo):</strong> Working on the front-end of the project. Everything you currently see on this repo was coded by me. </li>
 <ul>
-<li>Currently working on designing Song, Artist, and Album pages, as well as Chat and possible Spotify integration</li>
+<li>Currently working on possible Facebook integration and bug fixes</li>
 <li>Going to continue designing and testing</li>
 </ul>
 <li><strong>Ted:</strong> Database Testing and Optimization, as well as Documentation.</li>
 <ul>
 <li>Currently working on logic for recommendations and about.php</li>
-<li>Going to figure out logic behind implementing Playlists, Friends, and Notifications</li>
+<li>Going to bug test</li>
 </ul>
 <li><strong>Piers:</strong> Database Parsing, Creation, Maintenance, and Optimization. </li>
 <ul>
 <li>Currently working on computing some statistics and updating schema for easy retrieval</li>
-<li>Going to figure out logic behind implementing Playlists, Friends, and Notifications</li>
+<li>Going to design stats page and bug test</li>
 <li>Came up with the logic behind the search</li>
 </ul>
 </ul>
@@ -180,7 +180,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>The Michael Rosen Lounge added</li>
 </ul>
 
-4/22: SPOTIFY COMMIT
+4/23: SPOTIFY COMMIT
 <ul>
 <li>Spotify has been integrated in song.php </li>
 <ul>
@@ -198,10 +198,16 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Fixed various bugs across pages</li>
 </ul>
 
+4/24:
+<ul>
+<li>Search.php has been fixed</li>
+<li>Minor adjustments to The Michael Rosen Lounge</li>
+</ul>
+
 <h1>TO BE DONE: </h1>
 <ul>
 <li>Finish templating all pages and "data-drop" where need be, <del>namely profile.php</del></li>
-<li><del>Implement full</del> Fix search alogrithm.</li>
+<li><del>Implement full Fix search alogrithm. </del></li>
 <li><del>Add logic for Friend relations</del></li>
 <li><del>Add logic for playlists</del></li>
 <li><del>Add logic for discover (may be random if time does not permit for logic)</del></li>
