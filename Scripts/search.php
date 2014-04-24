@@ -9,6 +9,7 @@ echo '<style>html, body{height: 100%;}</style>';
 if ( isset( $_GET[ 'query' ] ) ) {
 	
 	$query1     = strtolower("%" . $_GET[ 'query' ] . "%" );
+	$query2 	= strtolower( $_GET[ 'query' ] . "%" );
 	$query      = strtolower( $_GET[ 'query' ] );
 	$connection = @new mysqli( /*removed*/ );
 	if ( !$connection ) {
@@ -41,7 +42,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 		if ( !$stmt ) {
 			echo $connection->error;
 		}
-		$stmt->bind_param( 'sss', $query1, $query1, $query1 );
+		$stmt->bind_param( 'sss', $query2, $query2, $query2 );
 		
 		$stmt->execute();
 		$stmt->bind_result( $log, $username, $userloc );
@@ -243,8 +244,8 @@ if ( isset( $_GET[ 'query' ] ) ) {
 			for ( $i = 0; $i < count( $results ); $i++ ) {
 				$url  = "http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=" . $results[ $i ][ 2 ];
 				$html = '<a style="float: left; margin-right: 5px;" href="' . $url . '">';
-				echo $html . $results[ $i ][ 0 ] . " </a><span>by: " . $artd[ $i ] . "</span><div style='float: right;'>Probability: " . ( number_format( ( $results[ $i ][ 1 ] * 100 ), 0 ) ) . "%</div><br>";
-				
+				echo $html . $results[ $i ][ 0 ] . " </a><span>by: " . $artd[ $i ] . "</span><div style='float: right;'>Probability: " . ( ( ($results[ $i ][ 1 ] * 100 ) % 100 ) )  . "%</div><br>";
+			
 				
 				
 			}
@@ -317,7 +318,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 			for ( $i = 0; $i < count( $results ); $i++ ) {
 				$url  = "http://cs445.cs.umass.edu/php-wrapper/clp/artist.php?id=" . $results[ $i ][ 2 ];
 				$html = '<a href="' . $url . '">';
-				echo $html . $results[ $i ][ 0 ] . "</a> <div style='float: right;'>Probability: " . ( number_format( ( $results[ $i ][ 1 ] * 100 ), 0 ) ) . "%</div><br>";
+				echo $html . $results[ $i ][ 0 ] . "</a> <div style='float: right;'>Probability: " . ( ( ($results[ $i ][ 1 ] * 100 ) % 100 ) ) . "%</div><br>";
 				
 				
 				
@@ -391,7 +392,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 			for ( $i = 0; $i < count( $results ); $i++ ) {
 				$url  = "http://cs445.cs.umass.edu/php-wrapper/clp/album.php?id=" . $results[ $i ][ 2 ];
 				$html = '<a href="' . $url . '">';
-				echo $html . $results[ $i ][ 0 ] . "</a> <div style='float: right;'>Probability: " . ( number_format( ( $results[ $i ][ 1 ] * 100 ), 0 ) ) . "%</div><br>";
+				echo $html . $results[ $i ][ 0 ] . "</a> <div style='float: right;'>Probability: " . ( ( ($results[ $i ][ 1 ] * 100 ) % 100 ) ) . "%</div><br>";
 				
 				
 				
@@ -451,13 +452,11 @@ function queryProbability( $query, $res )
 	$maxp = ( float ) 0;
 	for ( $i = 0; $i < count( $res ); $i++ ) {
 		$tokens = array();
-		$tok    = strtok( strtolower( $res[ $i ] ), "/[^A-Za-z0-9 ]/" );
-		do {
-			$tokens[] = $tok;
-			$tok      = strtok( "/[^A-Za-z0-9 ]/" );
-		} while ( $tok !== false );
-		foreach ( $tokens as $s ) {
-			$p    = 1.0 - bcdiv( levenshtein( $s, $query ), max( strlen( $s ), strlen( $query ) ), 4 );
+		$words = preg_replace("/[^a-zA-Z0-9\s]/", "", $res[ $i ]);
+		$words = strtolower( $words );
+		$tokens =  explode( " ", $words );
+		for ( $j = 0; $j < count( $tokens ); $j++) {
+			$p    = 1.0 - bcdiv( levenshtein( $tokens[ $j ], $query ), max( strlen( $tokens[ $j ] ), strlen( $query ) ), 4 );
 			$maxp = max( $maxp, $p );
 		}
 		$prob[ $i ] = $maxp;
@@ -477,14 +476,12 @@ function advancedProb( $query, $res )
 	$maxindex = 0;
 	
 	for ( $i = 0; $i < count( $res ); $i++ ) {
-		$tokenized = array();
-		$tok       = strtok( strtolower( $res[ $i ] ), "/[^A-Za-z0-9 ]/" );
-		do {
-			$tokenized[] = $tok;
-			$tok         = strtok( "/[^A-Za-z0-9 ]/" );
-		} while ( $tok !== false );
-		for ( $j = 0; $j < count( $tokenized ); $j++ ) {
-			$p[ $j ] = ( 1.0 - bcdiv( levenshtein( $tokenized[ $j ], $query ), max( strlen( $tokenized[ $j ] ), strlen( $query ) ), 5 ) );
+		$tokens = array();
+		$words = preg_replace("/[^a-zA-Z0-9\s]/", "", $res[ $i ]);
+		$words = strtolower( $words );
+		$tokens =  explode( " ", $words );
+		for ( $j = 0; $j < count( $tokens ); $j++) {
+			$p[ $j ] = ( 1.0 - bcdiv( levenshtein( $tokens[ $j ], $query ), max( strlen( $tokens[ $j ] ), strlen( $query ) ), 10 ) );
 			if ( $maxp < $p[ $j ] ) {
 				$maxp     = $p[ $j ];
 				$maxindex = $j;
@@ -497,7 +494,7 @@ function advancedProb( $query, $res )
 				
 			}
 		}
-		$prob[ $i ] = ( number_format( $maxp, 3 ) - number_format( $sub, 3 ) );
+		$prob[ $i ] =  $maxp -  $sub;
 		$maxp       = 0;
 		$maxindex   = 0;
 	}
@@ -511,11 +508,12 @@ function probAverage( $query, $res )
 	$advanced = advancedProb( $query, $res );
 	$fin      = array();
 	for ( $i = 0; $i < count( $naive ); $i++ ) {
-		$fin[ $i ] = number_format( ( ( $naive[ $i ] + $advanced[ $i ] ) / 2 ), 2 );
+		$fin[ $i ] = (( $naive[ $i ] + $advanced[ $i ] ) / 2 ) ;
 	}
 	return $fin;
 }
 
+	
 
 
 
