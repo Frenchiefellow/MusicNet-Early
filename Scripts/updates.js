@@ -1,15 +1,22 @@
 //Updates the User's rating of a song and handles creating a new Interaction if needed. 
 function UpdateRating( object, val, prevRate ){
+     if( object.value != 'norating' ){
 	 $.ajax({
 	 	type: 'POST',
         url: 'Scripts/update.php?' + window.location.search.substring( 1 ),
         data: '&content=' + object.value + '&new=' + val + '&prevRate=' + prevRate,
         cache: false,
         error: function( e ){
-            alert( e );
+
         },
         success: function( response ){
+             if( response == ''){
+                alert("Can't Rate to No Rating");
+            }
+            else{
             alert( response );
+            
+
             $.ajax({
                 type: 'POST',
                 url: 'Scripts/update.php?' + window.location.search.substring( 1 ),
@@ -23,7 +30,9 @@ function UpdateRating( object, val, prevRate ){
                 }
             }); 
         }
+    }
     }); 
+    }
 };
 
 //Adds songs to playlist and handles creating new playlists
@@ -105,6 +114,9 @@ function updatePlaylists( songid ){
                 }
                 //If the user has more than one playlist to choose from
                 else{
+                    var res = confirm( "Click Yes to Add Song to Existing Playlist. \n Click Cancel For Options.");
+
+                    if( res == true ){
                     alert( "Please Allow Pop-Ups to Add to a Playlist!" );
 
                     //Put the playlist array and songid in local storage for use on next page
@@ -113,6 +125,29 @@ function updatePlaylists( songid ){
 
                     //Open a new window for playlist selection
                     window.open( 'http://cs445.cs.umass.edu/php-wrapper/clp/existingPlaylist.php','name','height=500,width=600' );
+                    }
+                    else{
+                         var res2 = confirm( "Click Yes to create New Playlist for Song. \n Click Cancel to Cancel" );
+                            if( res2 == true ){
+                                //create playlist and add song
+                                var promp = prompt( "Enter a name to create a new playlist: ", "Playlist" );
+                                $.ajax({
+                                    type: 'POST',
+                                    url: 'Scripts/update.php?',
+                                    data: 'pname=' + promp + '&sid=' + songid,
+                                    cache: false,
+                                    error: function( e ){
+                                    alert( e );
+                                    },
+                                    success: function( response3 ){
+                                    alert( response3 );
+                                    }
+                                 }); 
+                            }
+                            else{
+                                alert( "Song not added to Playlists" );
+                            }
+                    }
                   
                 }
 

@@ -3,6 +3,9 @@ $name = $_SERVER[ 'REQUEST_URI' ];
 if ( strpos( $name, 'discover.php' ) ) {
 echo ' <div class="col-sm-3 col-md-2 sidebar2" >';
 }
+elseif ( strpos( $name, 'recommend.php' ) ) {
+echo ' <div class="col-sm-3 col-md-2 sidebar2" >';
+}
 else{
 echo ' <div class="col-sm-3 col-md-2 sidebar">';
 }

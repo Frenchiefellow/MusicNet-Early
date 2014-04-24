@@ -18,8 +18,13 @@ $connection = @new mysqli( /*removed*/ );
 if ( !$connection ) {
 	die( "Couldn't connect to mysql server!<br>The error was: " . mysql_error() );
 }
+echo '<div class="col-lg-2 tuxedo">
+          <img class="img-circle Cimg" src="data:image/png;base64,';  echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/note2.png")); echo '">
+          <h2 class="colHead">'; echo "The Michael Rosen Lounge"; echo '</h2>
+          <span class= "tuxedo" style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=M1CH43LR053NL0UNG3" role="button">Listen!</a></span>
+        </div>';
 
-$stmt = $connection->query( 'SELECT title, songid FROM Song ORDER BY rand() LIMIT 6' );
+$stmt = $connection->query( 'SELECT title, songid FROM Song ORDER BY rand() LIMIT 5' );
 
 
 while( $row = $stmt->fetch_assoc() ){
@@ -84,8 +89,8 @@ $stmt = $connection->query( 'SELECT albumname, albumid FROM Album ORDER BY rand(
 while( $row = $stmt->fetch_assoc() ){
 echo '<div class="col-lg-2 tuxedo">
           <img class="img-circle Cimg" src="data:image/png;base64,';  echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/vinyl.png")); echo '">
-          <h2 class="colHead">';  if( $row[ 'albumname' ] == ''){ echo 'N/A'; } else{ echo $row[ 'albumname' ]; } echo '</h2>
-          <span class= "tuxedo" style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-primary" href="'; echo 'http://cs445.cs.umass.edu/php-wrapper/clp/artsist.php?id=' . $row[ 'albumid' ]; echo '" role="button">View!</a></span>
+          <h2 class="colHead">'; if( $row[ 'albumname' ] == ''){ echo 'N/A'; } else{ echo $row[ 'albumname' ]; } echo '</h2>
+          <span class= "tuxedo" style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-primary" href="'; echo 'http://cs445.cs.umass.edu/php-wrapper/clp/album.php?id=' . $row[ 'albumid' ]; echo '" role="button">View!</a></span>
         </div>';
 
 } 

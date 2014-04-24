@@ -99,7 +99,7 @@
 			$stmt->execute();
 			$stmt->bind_result( $title );
 			while($row = $stmt->fetch()){
-				echo '<a href="http://cs445.cs.umass.edu/php-wrapper/song.php?id=' . $sIDs[ $i ] . '">' . $title . '</a><br>';
+				echo '<a href="http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=' . $sIDs[ $i ] . '">' . $title . '</a><br>';
 			}
 		}
 

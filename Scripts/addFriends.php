@@ -15,6 +15,17 @@ if( isset( $_POST[ 'user' ] ) ){
 		echo "Friend added!";
 		$stmt->close();
 
+		$prevID = 0;
+		$results = mysqli_query( $connection, 'SELECT notid FROM Notifications ORDER BY notid DESC' );
+		while( $row = $results->fetch_array() ){
+		$prevID = $row[0];
+		}
+		$prevID += 1;
+
+		$message = $you . " is now following you!";
+		$stmt = $connection->prepare( 'INSERT INTO Notifications ( notid, content, Recipient ) VALUES ( ?, ?, ? )' );
+		$stmt->bind_param( 'sss',  $prevID, $message, $them );
+		$stmt->execute();
 
 		$Check = mysqli_query( $connection, 'SET FOREIGN_KEY_CHECKS=1');
 		$connection->close();

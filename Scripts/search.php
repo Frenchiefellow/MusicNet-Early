@@ -8,7 +8,7 @@ echo '<style>html, body{height: 100%;}</style>';
 
 if ( isset( $_GET[ 'query' ] ) ) {
 	
-	$query1     = strtolower( $_GET[ 'query' ] . "%" );
+	$query1     = strtolower("%" . $_GET[ 'query' ] . "%" );
 	$query      = strtolower( $_GET[ 'query' ] );
 	$connection = @new mysqli( /*removed*/ );
 	if ( !$connection ) {
@@ -37,7 +37,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 		echo $sel2 . '>Alphabetically</option>' . '<option value="rele"' . $sel . '>Revelence</option>' . '</select></form>';
 		
 		//SQL INJECTION PREVENTION START
-		$stmt = $connection->prepare( 'SELECT U.loginacct, U.username, U.userloc FROM User U WHERE U.loginacct like ? or U.username like ? or U.userloc like ? LIMIT 50' );
+		$stmt = $connection->prepare( 'SELECT U.loginacct, U.username, U.userloc FROM User U WHERE U.loginacct like ? or U.username like ? or U.userloc like ?' );
 		if ( !$stmt ) {
 			echo $connection->error;
 		}
@@ -54,6 +54,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 				$html = '<a href="' . $url . '">';
 				printf( $html . '%s</a></br>', $log );
 			}
+
 			echo '</div>';
 		} else {
 			$arr     = array();
@@ -146,7 +147,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 		echo $sel2 . '>Alphabetically</option>' . '<option value="rele"' . $sel . '>Revelence</option>' . '</select></form>';
 		
 		//SQL INJECTION PREVENTION START
-		$stmt = $connection->prepare( 'SELECT S.title, S.songid FROM Song S WHERE S.title like ? LIMIT 50' );
+		$stmt = $connection->prepare( 'SELECT S.title, S.songid FROM Song S WHERE S.title like ?' );
 		if ( !$stmt ) {
 			echo $connection->error;
 		}
@@ -154,15 +155,42 @@ if ( isset( $_GET[ 'query' ] ) ) {
 		
 		$stmt->execute();
 		$stmt->bind_result( $title, $sID );
-		
-		
+		$ss = array();
+		$ht = array();
 		if ( !isset( $_POST[ 'order1' ] ) || $_POST[ 'order1' ] == 'alpha' ) {
 			echo '<div style="position: relative; height: 13%; overflow: auto; background-color: #eee; border: 2px solid;">';
 			while ( $row = $stmt->fetch() ) {
+				array_push( $ss, $sID );
 				$url  = "http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=" . $sID;
-				$html = '<a href="' . $url . '">';
-				printf( $html . '%s</a></br>', $title );
+				$html = '<a href="' . $url . '">' . $title;
+				array_push( $ht, $html );
+
 			}
+
+			$na = array();
+			$aa = array();
+			for ( $i = 0; $i < count( $ss ); $i++ ) {
+			$stmt = $connection->prepare( 'SELECT artistid FROM Linked_To WHERE songid = ?' );
+			$stmt->bind_param("s", $ss[ $i ] );
+			$stmt->execute();
+			$stmt->bind_result( $idd );
+			while( $stmt->fetch() ){
+				array_push( $aa, $idd );
+			}
+			$stmt->close();
+			
+			$stmt = $connection->prepare( 'SELECT artistname FROM Artist WHERE artistid = ?' );
+			$stmt->bind_param("s", $aa[ $i ] );
+			$stmt->execute();
+			$stmt->bind_result( $add );
+			while( $stmt->fetch() ){
+				array_push( $na, $add );
+			}
+			$stmt->close();
+
+			echo $ht[ $i ] . '</a><span> by: ' . $na[ $i ] . '</span><br>';
+			}
+
 			echo '</div>';
 		} else {
 			$arr     = array();
@@ -187,11 +215,35 @@ if ( isset( $_GET[ 'query' ] ) ) {
 				) );
 			}
 			array_multisort( $prob, SORT_DESC, $results );
+
+			$artd = array();
+			for ( $i = 0; $i < count( $results ); $i++ ) {
+			$stmt = $connection->prepare( 'SELECT artistid FROM Linked_To WHERE songid = ?' );
+			$stmt->bind_param("s", $results[ $i ][ 2 ] );
+			$stmt->execute();
+			$stmt->bind_result( $idd );
+			while( $stmt->fetch() ){
+				array_push( $artd, $idd );
+			}
+			$stmt->close();
+
+			$stmt = $connection->prepare( 'SELECT artistname FROM Artist WHERE artistid = ?' );
+			$stmt->bind_param("s", $artd[ $i ] );
+			$stmt->execute();
+			$stmt->bind_result( $add );
+			while( $stmt->fetch() ){
+				$artd[ $i ] = $add;
+			}
+			$stmt->close();
+			}
+
+
+
 			echo '<div style="position: relative; height: 13%; overflow: auto; background-color: #eee; border: 2px solid;">';
 			for ( $i = 0; $i < count( $results ); $i++ ) {
 				$url  = "http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=" . $results[ $i ][ 2 ];
-				$html = '<a href="' . $url . '">';
-				echo $html . $results[ $i ][ 0 ] . "</a> <div style='float: right;'>Probability: " . ( number_format( ( $results[ $i ][ 1 ] * 100 ), 0 ) ) . "%</div><br>";
+				$html = '<a style="float: left; margin-right: 5px;" href="' . $url . '">';
+				echo $html . $results[ $i ][ 0 ] . " </a><span>by: " . $artd[ $i ] . "</span><div style='float: right;'>Probability: " . ( number_format( ( $results[ $i ][ 1 ] * 100 ), 0 ) ) . "%</div><br>";
 				
 				
 				
@@ -220,7 +272,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 		echo $sel2 . '>Alphabetically</option>' . '<option value="rele"' . $sel . '>Revelence</option>' . '</select></form>';
 		
 		//SQL INJECTION PREVENTION START
-		$stmt = $connection->prepare( 'SELECT A.artistname, A.artistid FROM Artist A WHERE A.artistname like ? LIMIT 50' );
+		$stmt = $connection->prepare( 'SELECT A.artistname, A.artistid FROM Artist A WHERE A.artistname like ?' );
 		if ( !$stmt ) {
 			echo $connection->error;
 		}
@@ -294,7 +346,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 		echo $sel2 . '>Alphabetically</option>' . '<option value="rele"' . $sel . '>Revelence</option>' . '</select></form>';
 		
 		//SQL INJECTION PREVENTION START
-		$stmt = $connection->prepare( 'SELECT A.albumname, A.albumid FROM Album A WHERE A.albumname like ? LIMIT 50' );
+		$stmt = $connection->prepare( 'SELECT A.albumname, A.albumid FROM Album A WHERE A.albumname like ?' );
 		if ( !$stmt ) {
 			echo $connection->error;
 		}
@@ -363,7 +415,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 		echo '<h4 class="page-header" style="margin-top: 1%">Songs by Year</h4>';
 		
 		//SQL INJECTION PREVENTION START
-		$stmt = $connection->prepare( 'SELECT S.title, S.year, S.songid FROM Song S WHERE S.year = ? LIMIT 50' );
+		$stmt = $connection->prepare( 'SELECT S.title, S.year, S.songid FROM Song S WHERE S.year = ?' );
 		if ( !$stmt ) {
 			echo $connection->error;
 		}

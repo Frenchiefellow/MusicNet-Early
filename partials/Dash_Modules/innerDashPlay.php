@@ -56,6 +56,7 @@
             }
             else{
                 echo '<h3 style="text-align: center;"> No Songs in Playlist!</h3>';
+                echo '</div>';
             }
             $stmt->close();
             $connection->close();
@@ -85,14 +86,17 @@
             			 echo '<div class="row" style="padding-top: 10px; padding-left: 10px; padding-bottom: 10px; border: 1px solid; width: 100% height: 100%; margin: auto;">'.
                          '<div class="col-sm-3" style="padding-top: 7px;">' .
                          '<a class="btn btn-success" href="http://cs445.cs.umass.edu/php-wrapper/clp/profilePlaylists.php?user=' . $user . '&id=' . $lists[ $i ] . '">Open!</a></div>' .
-                         '<div class="col-sm-6" style="text-align: center; margin:auto; padding-top: 7px;">Playlist Name: ' . $name . '</div>' .
-                         '<div class="col-sm-3" style="text-align: center; padding-top: 7px;"> Tracks: ' . $tracks . '</div></div>';
+                         '<div class="col-sm-5" id="pname" style="text-align: center; margin:auto; padding-top: 7px;">Playlist Name: ' . $name . '</div>' .
+                         '<div class="col-sm-2" style="text-align: center; padding-top: 7px;"> Tracks: ' . $tracks . '</div>' .
+                         '<div class="col-sm-2" style="text-align: center; padding-top: 7px;"><a id="delete" class="btn btn-danger">Delete</a></div></div>';
+
             		}
            		}
     			echo '</div>';
             }
             else{
                 echo '<h3 style="text-align: center;"> No Playlists!</h3>';
+                echo '</div>';
             }
             $stmt->close();
             $connection->close();
@@ -106,6 +110,27 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
+
+$( '#delete' ).click( function(){
+	
+	var name = $( '#pname' ).text().split("Playlist Name: ");
+
+			$.ajax({
+                    type: 'POST',
+                    url: 'Scripts/update.php?',
+                    data: 'delete=' + name[ 1 ] ,
+                    cache: false,
+                    error: function( e ){
+                    alert( e );
+                    },
+                    success: function( response2 ){
+                    alert( response2 );
+                    window.location.reload();
+                    }
+                }); 
+			
+});
+
 $( '#newplaylist' ).click( function(){
 			var name = prompt( "Please Enter a Name for the Playlist", "Playlist" );
 			if(name != null){

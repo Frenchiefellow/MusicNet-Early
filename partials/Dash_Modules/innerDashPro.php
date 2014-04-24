@@ -185,11 +185,11 @@
 						echo 0;
 						}
 						?></p>
-		<p class="colPara"> Friends: <?php 
+		<p class="colPara"> Followers: <?php 
 					    	$connection = @new mysqli( /*removed*/ );
 						$song = $_GET[ 'user' ];
-						$stmt = $connection->prepare( 'SELECT count(*) FROM Friends WHERE loginacct1 = ? OR loginacct2= ?' );
-						$stmt->bind_param( 'ss',  $_GET['user'], $_GET[ 'user' ] );
+						$stmt = $connection->prepare( 'SELECT count(*) FROM Friends WHERE loginacct2= ?' );
+						$stmt->bind_param( 's',  $_GET['user'] );
 						$stmt->execute();
 						$stmt->bind_result( $friends );
 						while ($stmt->fetch()){
@@ -235,7 +235,7 @@
                     echo '<div class="col-lg-2 tuxedo">'.
          				 '<img class="img-circle Cimg" src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/vinyl.png" />' .
          				 '<h2 class="colHeader">' . $title . '</h2>' .
-          				 '<span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="http://cs445.umass.edu/php-wrapper/clp/song.php?id=' . $arr[ $i ] . '" role="button">Listen!</a></span>' .
+          				 '<span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=' . $arr[ $i ] . '" role="button">Listen!</a></span>' .
        					 '</div>';
                 }
             }
@@ -247,6 +247,7 @@
 
         else{
         	echo '<h2 style="text-align: center">No Songs Played!</h2>';
+        
         }
 
   
@@ -288,7 +289,7 @@
                     echo '<div class="col-lg-2 tuxedo">'.
          				 '<img class="img-circle Cimg" src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/vinyl.png" />' .
          				 '<h2 class="colHeader">' . $title . '</h2>' .
-          				 '<span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="http://cs445.umass.edu/php-wrapper/clp/song.php?id=' . $arr[ $i ] . '" role="button">Listen!</a></span>' .
+          				 '<span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=' . $arr[ $i ] . '" role="button">Listen!</a></span>' .
        					 '</div>';
                 }
             }
@@ -299,6 +300,7 @@
         }
             else{
             	echo '<h2 style="text-align: center">No Songs Played!</h2>';
+            	echo '</div>';
             }
 
   
@@ -316,7 +318,7 @@ $( '#friend' ).click( function(){
 	$.ajax({
                     type: 'POST',
                     url: 'Scripts/addFriends.php?',
-                    data: 'user=' + window.location.search.substring( 6 ) + '&follow=' + true,
+                    data: 'user=' + window.location.search.substring( 6 ),
                     cache: false,
                     error: function( e ){
                     alert( e );
