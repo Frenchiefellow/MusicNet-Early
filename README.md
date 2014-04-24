@@ -52,14 +52,14 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li><del>Finish Artist and Album pages based on Song's implementation</del></li>
 <li><del>Add additional data to Profile</del></li>
 <li>Stats Page</li>
-<li>Recommendations Layout and algorithm</li>
+<li><del>Recommendations Layout and algorithm</del></li>
 <li><del>About Us Page (Ted's Working on it)</del></li>
 <li>Optimize queries in Discover.php (running a bit slow)</li>
 </ul>
 
 4/22-4/28: (DUE 4/29)
 <ul>
-<li>Song Chat?</li>
+<li><del>Song Chat?</del></li>
 <li><del>Finish Friend Page and Friend logic</del></li>
 <li><del>Finish Playlist Page(profile) and playlist logic</del></li>
 <li>Final Touches</li>
@@ -180,6 +180,24 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>The Michael Rosen Lounge added</li>
 </ul>
 
+4/22: SPOTIFY COMMIT
+<ul>
+<li>Spotify has been integrated in song.php </li>
+<ul>
+<li>Queries spotify based on Song title and Artist with parsing</li>
+<li>Displays our player if not found on Spotify</li>
+<li>For Spotify player, play counter is incremented on page load/refresh</li>
+</ul>
+<li>Recommend.php is done (some logic by Ted)</li>
+<li>Added Artists to Songs on Search.php</li>
+<li>Fake chat is implemented and works</li>
+<li>Can now delete playlists</li>
+<li>Random Song button added to Song.php</li>
+<li>Notifications are implemented</li>
+<li>Can now create new playlist from Song.php if you have more than 1</li>
+<li>Fixed various bugs across pages</li>
+</ul>
+
 <h1>TO BE DONE: </h1>
 <ul>
 <li>Finish templating all pages and "data-drop" where need be, <del>namely profile.php</del></li>
@@ -187,6 +205,6 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li><del>Add logic for Friend relations</del></li>
 <li><del>Add logic for playlists</del></li>
 <li><del>Add logic for discover (may be random if time does not permit for logic)</del></li>
-<li>Add logic for recommendations</li>
-<li>Song Chat?</li>
+<li><del>Add logic for recommendations</del></li>
+<li><del>Song Chat?</del></li>
 </ul>
