@@ -23,9 +23,9 @@ This is an early version of the MusicNet Project : A social network for music en
 
 <h1>INFO:</h1>
  
-The database is currently being optimized, so there is not a lot in the way of functional code,
+<del>The database is currently being optimized, so there is not a lot in the way of functional code,
 other than stylization. Once this has been completed appropriately, I can start making more complex queries. 
-Some queries of varying complexity have taken 2+ minutes to return due to traffic on the Edlab servers, amongst other things. In addition, the Database and the Site (hosted on the same server) have often been going down for half a day at a time. This is out of our control and affects our development process.  
+Some queries of varying complexity have taken 2+ minutes to return due to traffic on the Edlab servers, amongst other things.</del> In addition, the Database and the Site (hosted on the same server) have often been going down for half a day at a time. This is out of our control and affects our development process.  
 
 
 The code and styles are subject to change and are not currently final.
