@@ -4,12 +4,12 @@ This is an early version of the MusicNet Project : A social network for music en
 
 <h1>Members</h1>
 <ul>
-<li><strong>Chris (Owner of repo):</strong> Working on the front-end of the project. Everything you currently see on this repo was coded by me. </li>
+<li><strong>Chris (Owner of repo):</strong> Frontend Master. 99.9% of the code here was contributed by me.</li>
 <ul>
 <li>Currently working on possible Facebook integration and bug fixes</li>
 <li>Going to continue designing and testing</li>
 </ul>
-<li><strong>Ted:</strong> Database Testing and Optimization, as well as Documentation.</li>
+<li><strong>Ted:</strong> Database Testing and Optimization, Frontend Testing,  as well as Documentation.</li>
 <ul>
 <li>Going to bug test</li>
 </ul>
