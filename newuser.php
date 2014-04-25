@@ -9,12 +9,24 @@
 
 <div class="jumbotron topfit">
       <div id = "splashContainer" class="container">
-        <h1>Welcome to MusicNet, <?php echo ($_GET['user']); ?>!</h1>
-        <p>Congratulations <?php echo ($_GET['user']); ?>!
-        You've just joined a community of over a million music lovers and counting. You can rate, play, and tag hundreds of thousands of your favorite songs.
+      <?php if( strpos( $_GET[ 'user' ], '_FB' ) ){
+
+        echo '<h1>Welcome to MusicNet, ' . preg_replace( "/_FB/", "", $_GET['user'] ) . '!</h1>' .
+        '<p>Congratulations ' .  preg_replace( "/_FB/", "", $_GET['user'] ) . '!' .
+        "You've just joined a community of over a million music lovers and counting, all via Facebook! You can rate, play, and tag hundreds of thousands of your favorite songs.
         Don't have a hundred thousand favorite songs? No problem! You'll discover all of the things MusicNet has to offer&mdash;from your favorite songs, 
         a new artist, or even a genre you've never heard of. At MusicNet, we understand that there's more to music than just listening to music. 
-        Scroll down to explore all that MusicNet has to offer!</p>
+        Scroll down to explore all that MusicNet has to offer!</p>";
+        }
+        else{
+        echo '<h1>Welcome to MusicNet, ' . $_GET['user'] . '!</h1>' .
+        '<p>Congratulations ' . $_GET['user'] . '!' .
+        "You've just joined a community of over a million music lovers and counting. You can rate, play, and tag hundreds of thousands of your favorite songs.
+        Don't have a hundred thousand favorite songs? No problem! You'll discover all of the things MusicNet has to offer&mdash;from your favorite songs, 
+        a new artist, or even a genre you've never heard of. At MusicNet, we understand that there's more to music than just listening to music. 
+        Scroll down to explore all that MusicNet has to offer!</p>";
+        }
+        ?>
         <p><a class="btn btn-warning btn-lg" role="button" href="http://cs445.cs.umass.edu/php-wrapper/clp/profile.php" style="">Profile!</a></p>
       </div>
 </div> 

@@ -221,18 +221,29 @@ else{
 function fetchSpotify() {
     var songname = $('#songname').text().split(' by: ');
 
-   
+
+  
     $.ajax({
         type: 'GET',
-        url: 'http://ws.spotify.com/search/1/track.json?q=' + songname[0].replace(/[^a-z0-9]+|\s+/gmi, " ").toLowerCase(),
+        url: 'http://ws.spotify.com/search/1/track.json?q=' + songname[0].replace(/[^A-Za-z0-9 ]/, "").toLowerCase(),
         error: function (e) {
 
         },
         success: function (resp) {
-            var title = songname[1].substring(1, songname[1].length).replace(/[^a-z0-9]+|\s+/gmi, " ").substring(0, songname[1].indexOf(';'));
+        	console.dir(resp);
+            var title;
+            if (songname[1].indexOf(";") > -1) {
+                title = songname[1].substring(1, songname[1].indexOf(';'));
+            } else {
+                title = songname[1].substring(1, songname[1].length).replace(/[^A-Za-z0-9 ]/, "");
+            }
+                 
             var link;
+            
             for (var i = 0; i < resp['tracks'].length; i++) {
-                if (resp['tracks'][i]['artists'][0]['name'].replace(/[^a-z0-9]+|\s+/gmi, " ").toLowerCase() === title.toLowerCase()) {
+            	
+            	title.toLowerCase()
+                if (resp['tracks'][i]['artists'][0]['name'].replace(/[^A-Za-z0-9 ]/, "").toLowerCase() === title.toLowerCase()) {
                     link = resp['tracks'][i]['href'];
                     break;
                 }
@@ -264,18 +275,18 @@ function fetchSpotify() {
             	
                 $.ajax({
                     type: 'GET',
-                    url: 'http://ws.spotify.com/search/1/track.json?q=' + songname[0].replace(/ *\([^)]*\) */g, "").replace(/[^a-z0-9]+|\s+/gmi, " ").toLowerCase(),
+                    url: 'http://ws.spotify.com/search/1/track.json?q=' + songname[0].replace(/[^A-Za-z0-9 ]/, "").toLowerCase(),
                     error: function (e) {
 
                     },
                     success: function (resp) {
 
-                        var title = songname[1].substring(1, songname[1].length).replace(/[^a-z0-9]+|\s+/gmi, " ");
+                        var title = songname[1].substring(1, songname[1].length).replace(/[^A-Za-z0-9 ]/, "");
 
 
                         var link;
                         for (var i = 0; i < resp['tracks'].length; i++) {
-                            if (resp['tracks'][i]['artists'][0]['name'].replace(/[^a-z0-9]+|\s+/gmi, " ").toLowerCase() === title.replace(/ *\([^)]*\) */g, "").toLowerCase()) {
+                            if (resp['tracks'][i]['artists'][0]['name'].replace(/[^A-Za-z0-9 ]/, "").toLowerCase() === title.replace(/[^A-Za-z0-9 ]/, "").toLowerCase()) {
                                 link = resp['tracks'][i]['href'];
                                 break;
                             }
@@ -306,13 +317,13 @@ function fetchSpotify() {
                             if (songname[1].indexOf(";") > -1) {
                                 t = songname[1].substring(0, songname[1].indexOf(';'));
                             } else {
-                                t = songname[1].substring(1, songname[1].length).replace(/[^a-z0-9]+|\s+/gmi, " ");
+                                t = songname[1].substring(1, songname[1].length).replace(/[^A-Za-z0-9 ]/, "");
                             }
 
 
                             $.ajax({
                                 type: 'GET',
-                                url: 'http://ws.spotify.com/search/1/track.json?q=' + songname[0].replace(/[^a-z0-9]+|\s+/gmi, " ").toLowerCase() + " " + t,
+                                url: 'http://ws.spotify.com/search/1/track.json?q=' + songname[0].replace(/[^A-Za-z0-9 ]/, "").toLowerCase() + " " + t,
                                 error: function (e) {
 
                                 },
@@ -321,7 +332,7 @@ function fetchSpotify() {
                                     if (songname[1].indexOf(";") > -1) {
                                         title = songname[1].substring(1, songname[1].indexOf(';'));
                                     } else {
-                                        title = songname[1].substring(1, songname[1].length).replace(/[^a-z0-9]+|\s+/gmi, " ");
+                                        title = songname[1].substring(1, songname[1].length).replace(/[^A-Za-z0-9 ]/, "");
                                     }
                                     var link;
                                     for (var i = 0; i < resp['tracks'].length; i++) {

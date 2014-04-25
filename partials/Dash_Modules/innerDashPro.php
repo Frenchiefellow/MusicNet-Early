@@ -1,3 +1,5 @@
+
+
 <style><?php include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/profile.css'; ?></style>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style = "margin-top: -2%;">      
 <h1 class="page-header" style="margin-top: 2%;"><?php echo $_GET['user']; ?>: Profile</h1>
@@ -6,13 +8,39 @@
     <div class="row desc">
 
         <div class="col-lg-3 picholder profCol">
-          <img class="profImg" src="data:image/png;base64,<?php echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/default.png"));?>">
-          <h2 class="colHead"><?php echo $_GET['user']; ?></h2>
-	  <div class="picboxinfo"> 
-          <p class="colPar">Welcome to <?php echo $_GET['user']; ?>'s MusicNet Profile Page! </p>
-          <p class="colPar">Here you can learn a little bit more about <?php echo $_GET['user']; ?>'s taste in music, and perhaps you'll find a common link! Take a look around, but don't be afraid to friend them. Don't 
-		worry, its not creepy! We are all music lovers here! </p>
-	  </div> 
+        <?php
+        	$them = $_GET[ 'user' ];
+        	$you = $_SESSION[ 'username' ];
+        	$connection = @new mysqli( /*removed*/ );
+        	$stmt = $connection->prepare( 'SELECT FBid FROM User WHERE loginacct = ?' );
+			$stmt->bind_param( 's',  $them );
+			$stmt->execute();
+			$stmt->bind_result( $id );
+			$FB = '';
+			while( $stmt->fetch() ){
+				if( $id != NULL){
+					$FB = $id;
+				}
+				else{
+					$FB = '';
+				}
+			}
+			
+			if( $FB != ''){
+				echo '<img class="profImg" id="picture" src="https://graph.facebook.com/' . $FB . '/picture?type=large">';
+			}
+			else{
+				echo '<img class="profImg" id="picture" src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/default.png">';
+			}
+
+			?>
+       
+          	<h2 class="colHead"><?php echo $_GET['user']; ?></h2>
+	  	  	<div class="picboxinfo"> 
+          	<p class="colPar">Welcome to <?php echo $_GET['user']; ?>'s MusicNet Profile Page! </p>
+          	<p class="colPar">Here you can learn a little bit more about <?php echo $_GET['user']; ?>'s taste in music, and perhaps you'll find a common link! Take a look around, but don't be afraid to friend them. Don't 
+						      worry, its not creepy! We are all music lovers here! </p>
+	  		</div> 
 	   
 	   <?php 
 	   	$you = $_SESSION[ 'username' ];
@@ -146,7 +174,7 @@
 		<p class="colPara"> Songs Listened to: <?php 
 					    	$connection = @new mysqli( /*removed*/ );
 						$song = $_GET[ 'user' ];
-						$stmt = $connection->prepare( 'SELECT plays FROM User WHERE loginacct = ?' );
+						$stmt = $connection->prepare( 'SELECT count( plays ) FROM UserInteraction  WHERE loginacct = ? AND plays > 0' );
 						$stmt->bind_param( 's',  $_GET['user']);
 						$stmt->execute();
 						$stmt->bind_result( $plays );
@@ -340,3 +368,11 @@ $( '#friend' ).click( function(){
 
 </script>
 
+<script>
+/*
+var src = 'https://graph.facebook.com/' + localStorage.getItem( 'profID' ) + '/picture?type=large';
+$(document).ready(function(){
+	$('#picture').attr('src', src);
+});*/
+
+</script>

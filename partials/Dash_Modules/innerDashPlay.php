@@ -9,8 +9,8 @@
 
     <div class="row">
 
-    	<!-- Column for Songs with Plays -->
-    	<div class="col-sm-12" style="border: 2px solid; height: 80%; border-radius: 10px;">
+    	
+    	<div class="col-sm-12" style="border: 2px solid #eee; height: 80%; border-radius: 10px; background-color: white;">
     	<?php
     		if( isset( $_GET[ 'id' ] ) ){
 
@@ -24,7 +24,7 @@
             	$stmt->bind_result( $pname );
             	while ( $stmt->fetch() ){
                 	echo '<a style ="float: left; margin-top: .2%; margin-left: 1.5%" href="http://cs445.cs.umass.edu/php-wrapper/clp/profilePlaylists.php?user=' . $user . '" class="btn btn-warning">Back</a><h3 class="page-header" style="text-align: center; padding-top: 5px; margin-right: 5%;">Playlist: ' . $pname . '</h3>' .
-                	'<div style="background-color: #eee; border: 0px solid; border-radius: 10px; height: 90%; margin-top: 1.5%; overflow: auto;">';
+                	'<div style="background-color: #428bca; border: 0px solid; border-radius: 10px; height: 90%; margin-top: 1.5%; overflow: auto;">';
            		}
            		$stmt->close();
 
@@ -45,11 +45,11 @@
             		$stmt->execute();
             		$stmt->bind_result( $name, $rate );
             		while ( $stmt->fetch() ){
-            			 echo '<div class="row" style="padding-top: 10px; padding-left: 10px; padding-bottom: 10px; border: 1px solid; width: 100% height: 100%; margin: auto;">'.
+            			 echo '<div class="row" style="padding-top: 0px; padding-left: 10px; padding-bottom: 10px; border: 2px solid #808080; background-color: #f5f5f5; border-radius: 10px; width: 90%; margin: auto; margin-top: .5%;">'.
                          '<div class="col-sm-3" style="padding-top: 7px;">' .
                          '<a class="btn btn-success" href="http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=' . $lists[ $i ] . '">Play!</a></div>' .
-                         '<div class="col-sm-6" style="text-align: center; margin:auto; padding-top: 7px;">' . $name . '</div>' .
-                         '<div class="col-sm-3" style="text-align: center; padding-top: 7px;">Rating: ' . $rate . '</div></div>';
+                         '<div class="col-sm-6" style="text-align: center; margin:auto; padding-top: 10px; font-size: 150%">' . $name . '</div>' .
+                         '<div class="col-sm-3" style="text-align: center; padding-top: 10px; font-size: 150%">Rating: ' . $rate . '</div></div>';
             		}
            		}
     			echo '</div>';
@@ -62,7 +62,7 @@
             $connection->close();
     		}
     		else{
-    			echo '<div style="background-color: #eee; border: 0px solid; border-radius: 10px; height: 95%; margin-top: 1.5%; overflow: auto;">';
+    			echo '<div style="background-color: #428bca; border: 0px solid; border-radius: 10px; height: 95%; margin-top: 1.5%; overflow: auto;">';
     			$connection = @new mysqli( /*removed*/ );
             	$user = $_GET[ 'user' ];
            		$stmt = $connection->prepare( 'SELECT playlistid FROM Created WHERE loginacct = ?' );
@@ -83,11 +83,11 @@
             		$stmt->execute();
             		$stmt->bind_result( $name, $tracks );
             		while ( $stmt->fetch() ){
-            			 echo '<div class="row" style="padding-top: 10px; padding-left: 10px; padding-bottom: 10px; border: 1px solid; width: 100% height: 100%; margin: auto;">'.
+            			 echo '<div class="row" style="padding-top: 0px; padding-left: 10px; padding-bottom: 10px; border: 2px solid #808080; background-color: #f5f5f5; border-radius: 10px; width: 90%; margin: auto; margin-top: .5%;">'.
                          '<div class="col-sm-3" style="padding-top: 7px;">' .
                          '<a class="btn btn-success" href="http://cs445.cs.umass.edu/php-wrapper/clp/profilePlaylists.php?user=' . $user . '&id=' . $lists[ $i ] . '">Open!</a></div>' .
-                         '<div class="col-sm-5" id="pname" style="text-align: center; margin:auto; padding-top: 7px;">Playlist Name: ' . $name . '</div>' .
-                         '<div class="col-sm-2" style="text-align: center; padding-top: 7px;"> Tracks: ' . $tracks . '</div>' .
+                         '<div class="col-sm-5" id="pname" style="text-align: center; margin:auto; padding-top: 10px; font-size: 150%">Playlist Name: ' . $name . '</div>' .
+                         '<div class="col-sm-2" style="text-align: center; padding-top: 10px; font-size: 150%"> Tracks: ' . $tracks . '</div>' .
                          '<div class="col-sm-2" style="text-align: center; padding-top: 7px;"><a id="delete" class="btn btn-danger">Delete</a></div></div>';
 
             		}

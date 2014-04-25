@@ -26,6 +26,7 @@ $ids = array();
 while($stmt->fetch()){
 	array_push( $ids , $sid );
 }
+
 $stmt->close();
 
 if( count( $ids ) > 0 ){
@@ -47,6 +48,7 @@ $stmt->close();
 $mostTagged;
 $numTags = 0;
 for($i=0; $i<count($tag); $i++){
+	if( $tag[$i] != NULL || $tag[$i] != '' || $tag[$i] != ' '){
 	$curTag = $tag[$i];
 	$curNum = 0;
 	for($j=0; $j<count($tag); $j++){
@@ -57,6 +59,7 @@ for($i=0; $i<count($tag); $i++){
 	if($curNum > $numTags){
 		$numTags = $curNum;
 		$mostTagged = $curTag;
+	}
 	}
 }
 

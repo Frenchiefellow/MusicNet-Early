@@ -1,5 +1,8 @@
-<?php
+<script>
+window.localStorage.clear();
+</script>
 
+<?php
 //Destroys session if user is already signed in
 if ( isset( $_SESSION ) ) {
 	if ( ini_get( "session.use_cookies" ) ) {
@@ -19,7 +22,6 @@ $age   = $_POST[ 'age' ];
 $loc   = $_POST[ 'location' ];
 $gen   = $_POST[ 'Gender' ];
 
-//Test connection to my Database
 $connection = @new mysqli( /*removed*/ );
 if ( !$connection ) {
 	die( "Couldn't connect to mysql server!<br>The error was: " . mysql_error() );
@@ -62,10 +64,9 @@ else {
 		}
 		
 		//Insert the tuple into the User table
-		$stmt = $connection->prepare( 'INSERT INTO User (loginacct, username, password, age, ismale, issuper, userloc) VALUES ( ? , ?, ?, ?, ?, 0, ?)' );
-		$stmt->bind_param( 'ssssss', $login, $user, $pass, $age, $gen, $loc );
+		$stmt = $connection->prepare( 'INSERT INTO User (loginacct, username, password, age, ismale, issuper, userloc, FBid) VALUES ( ? , ?, ?, ?, ?, 0, ?, NULL)');
+		$stmt->bind_param( 'ssssss', $login, $user, $pass, $age, $gen, $loc);
 		$stmt->execute();
-
 		echo "1 record added";
 		
 		//start a new session, store username inside for varius purposes, and redirect to newuser.php
