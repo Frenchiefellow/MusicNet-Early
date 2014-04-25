@@ -61,6 +61,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li><del>Song Chat?</del></li>
 <li><del>Finish Friend Page and Friend logic</del></li>
 <li><del>Finish Playlist Page(profile) and playlist logic</del></li>
+<li>Fix Admin Shell Output</li>
 <li>Final Touches</li>
 <li>Testing and Bug Fixes</li>
 <li>
@@ -197,11 +198,27 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Fixed various bugs across pages</li>
 </ul>
 
-4/24:
+4/24
 <ul>
 <li>Search.php has been fixed</li>
 <li>Minor adjustments to The Michael Rosen Lounge</li>
 </ul>
+
+4/25: FACEBOOK COMMIT
+<ul>
+<li>Facebook has been integrated</li>
+<ul>
+<li>Added Facebook login/signup button to splash.php</li>
+<li>Users can sign up then login with facebook </li>
+<li>User's profiles display Facebook profile picture</li>
+</ul>
+<li>Spotify query parsing updated; looks to be correct this time</li>
+<li>Logout.php is now a AJAX accessed only page; Now handled with jQuery/AJAX (Due to FB logout)</li>
+<li>profilePlaylist.php now has a cleaner new stylization</li>
+<li>Fixed Songs Played on Profile.php (was showing playcount) </li>
+<li>Fixed NULL tags being added on recommend.php</li>
+</ul>
+
 
 <h1>TO BE DONE: </h1>
 <ul>
@@ -212,4 +229,5 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li><del>Add logic for discover (may be random if time does not permit for logic)</del></li>
 <li><del>Add logic for recommendations</del></li>
 <li><del>Song Chat?</del></li>
+<li>Fix Admin Shell Output</li>
 </ul>
