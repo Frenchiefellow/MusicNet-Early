@@ -33,6 +33,8 @@ The code and styles are subject to change and are not currently final.
 **NOTE:**
 There are so many PHP files in the main directory as the php-wrapper that was written for our site (which we do not host) can only read PHP files from main directory. Thus is the reason for having to include CSS/JPG/PNG files awkwardly with PHP.
 
+<i>UPDATE 4;25/14</i>We were given a way to avoid this; will change when I come accross any awkward includes.
+
 <h1>DAILY/WEEKLY GOALS</h1>
 4/8-4/13: <del>(DB/site down 4/7)</del> <del>(DB/site down ~5:30PM on 4/9)</del>
 <ul>
