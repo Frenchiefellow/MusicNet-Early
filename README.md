@@ -6,7 +6,7 @@ This is an early version of the MusicNet Project : A social network for music en
 <ul>
 <li><strong>Chris (Owner of repo):</strong> Frontend Master. 99.9% of the code here was contributed by me.</li>
 <ul>
-<li>Currently working on possible Facebook integration and bug fixes</li>
+<li>Currently working on bug fixes, optimizations, and other possible features</li>
 <li>Going to continue designing and testing</li>
 </ul>
 <li><strong>Ted:</strong> Database Testing and Optimization, Frontend Testing,  as well as Documentation.</li>
@@ -55,7 +55,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Stats Page</li>
 <li><del>Recommendations Layout and algorithm</del></li>
 <li><del>About Us Page (Ted's Working on it)</del></li>
-<li>Optimize queries in Discover.php (running a bit slow)</li>
+<li><de>Optimize queries in Discover.php (running a bit slow)</del></li>
 </ul>
 
 4/22-4/28: (DUE 4/29)
@@ -63,7 +63,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li><del>Song Chat?</del></li>
 <li><del>Finish Friend Page and Friend logic</del></li>
 <li><del>Finish Playlist Page(profile) and playlist logic</del></li>
-<li>Fix Admin Shell Output</li>
+<li><del>Fix Admin Shell Output</del></li>
 <li>Final Touches</li>
 <li>Testing and Bug Fixes</li>
 <li>
@@ -221,6 +221,13 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Fixed NULL tags being added on recommend.php</li>
 </ul>
 
+4/24
+<ul>
+<li>Fixed Admin Shell Output</li>
+<li>Fixed profileplaylists so delete works properly</li>
+<li>Added ability to 'Like' playlists</li>
+<li>Playlist.php reintroduced to house all the User's 'Liked' playlists</li>
+</ul>
 
 <h1>TO BE DONE: </h1>
 <ul>
@@ -231,5 +238,5 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li><del>Add logic for discover (may be random if time does not permit for logic)</del></li>
 <li><del>Add logic for recommendations</del></li>
 <li><del>Song Chat?</del></li>
-<li>Fix Admin Shell Output</li>
+<li><del>Fix Admin Shell Output</del></li>
 </ul>
