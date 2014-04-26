@@ -227,6 +227,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Fixed profileplaylists so delete works properly</li>
 <li>Added ability to 'Like' playlists</li>
 <li>Playlist.php reintroduced to house all the User's 'Liked' playlists</li>
+<li>Search.php has been optimized to return fewer irrelevent results</li>
 </ul>
 
 <h1>TO BE DONE: </h1>
