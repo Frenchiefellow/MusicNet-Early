@@ -74,7 +74,7 @@
                 	array_push( $lists, $ids );
            		}
 
-           		echo '<div style="padding-top: 10px;">';
+           		echo '<div id="tableHolder" style="padding-top: 10px;">';
             	if( count( $lists ) > 0 ){
            		for( $i = 0; $i < count( $lists ); $i++ ){
 
@@ -82,23 +82,110 @@
             		$stmt->bind_param( 's',  $lists[ $i ] );
             		$stmt->execute();
             		$stmt->bind_result( $name, $tracks );
+            		$names = array();
             		while ( $stmt->fetch() ){
-            			 echo '<div class="row" style="padding-top: 0px; padding-left: 10px; padding-bottom: 10px; border: 2px solid #808080; background-color: #f5f5f5; border-radius: 10px; width: 90%; margin: auto; margin-top: .5%;">'.
-                         '<div class="col-sm-3" style="padding-top: 7px;">' .
+            			 array_push( $names, $name );
+            			 echo '<div class="row" id="row' . $i . '" style="padding-top: 0px; padding-left: 10px; padding-bottom: 10px; border: 2px solid #808080; background-color: #f5f5f5; border-radius: 10px; width: 90%; margin: auto; margin-top: .5%;">'.
+                         '<div class="col-sm-2" style="padding-top: 7px;">' .
                          '<a class="btn btn-success" href="http://cs445.cs.umass.edu/php-wrapper/clp/profilePlaylists.php?user=' . $user . '&id=' . $lists[ $i ] . '">Open!</a></div>' .
-                         '<div class="col-sm-5" id="pname" style="text-align: center; margin:auto; padding-top: 10px; font-size: 150%">Playlist Name: ' . $name . '</div>' .
+                         '<div class="col-sm-6" id="pname' . $i . '" style="text-align: center; margin:auto; padding-top: 10px; font-size: 150%">Playlist Name: ' . $name . '</div>' .
                          '<div class="col-sm-2" style="text-align: center; padding-top: 10px; font-size: 150%"> Tracks: ' . $tracks . '</div>' .
-                         '<div class="col-sm-2" style="text-align: center; padding-top: 7px;"><a id="delete" class="btn btn-danger">Delete</a></div></div>';
+                         '<div class="col-sm-1" style="text-align: center; padding-top: 7px;"><a id="delete' . $i . '" class="btn btn-danger">Delete</a></div>'
+                         ;
 
             		}
+            		$stmt->close();
+
+            		
+            		
+            		$stmt = $connection->prepare( 'SELECT * FROM PlayLikes WHERE playlistid = ? AND loginacct = ?' );
+            		$stmt->bind_param( 'ss',  $lists[ $i ], $_SESSION[ 'username' ] );
+            		$stmt->execute();
+            		$stmt->store_result();
+            		if( $stmt->num_rows > 0 ){
+            			echo '<div class="col-sm-1" style="text-align: center; padding-top: 7px;"><a id="unlike' . $i . '" class="btn btn-success">Unlike!</a></div></div>';
+            		}
+            		else{
+            			echo '<div class="col-sm-1" style="text-align: center; padding-top: 7px;"><a id="like' . $i . '" class="btn btn-primary">Like!</a></div></div>';
+            		}
+            		$stmt->close();
+            	
+            		echo "<script>
+            			$( '#like" . $i . "' ).click( function(){
+	
+						var name = $( '#pname" . $i . "' ).text().split('Playlist Name: ');
+					
+						
+						$.ajax({
+                    		type: 'POST',
+                    		url: 'Scripts/update.php?',
+                    		data: 'like=' + name[ 1 ] ,
+                    		cache: false,
+                    		error: function( e ){
+                    		alert( e );
+                    		},
+                    		success: function( response2 ){
+                    		alert( response2 );
+                    		window.location.reload();
+                    		}
+                		}); 
+			
+						}); 
+
+						$( '#delete" . $i . "' ).click( function(){
+	
+						var name = $( '#pname" . $i . "' ).text().split('Playlist Name: ');
+
+								$.ajax({
+					                    type: 'POST',
+					                    url: 'Scripts/update.php?',
+					                    data: 'delete=' + name[ 1 ] ,
+					                    cache: false,
+					                    error: function( e ){
+					                    alert( e );
+					                    },
+					                    success: function( response2 ){
+					                    alert( response2 );
+					                    window.location.reload();
+					                    }
+					                }); 
+								
+						});
+
+						$( '#unlike" . $i . "' ).click( function(){
+	
+						var name = $( '#pname" . $i . "' ).text().split('Playlist Name: ');
+
+						$.ajax({
+			                    type: 'POST',
+			                    url: 'Scripts/update.php?',
+			                    data: 'unlike=' + name[ 1 ] ,
+			                    cache: false,
+			                    error: function( e ){
+			                    alert( e );
+			                    },
+			                    success: function( response2 ){
+			                    alert( response2 );
+			                    window.location.reload();
+			                    }
+			                }); 
+			
+						});
+
+
+					</script>";
+
            		}
+
+
     			echo '</div>';
+
+
             }
             else{
                 echo '<h3 style="text-align: center;"> No Playlists!</h3>';
                 echo '</div>';
             }
-            $stmt->close();
             $connection->close();
     	}
     	?>
@@ -110,26 +197,10 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
+var numrow = $('#tableHolder').children().length;
 
-$( '#delete' ).click( function(){
-	
-	var name = $( '#pname' ).text().split("Playlist Name: ");
 
-			$.ajax({
-                    type: 'POST',
-                    url: 'Scripts/update.php?',
-                    data: 'delete=' + name[ 1 ] ,
-                    cache: false,
-                    error: function( e ){
-                    alert( e );
-                    },
-                    success: function( response2 ){
-                    alert( response2 );
-                    window.location.reload();
-                    }
-                }); 
-			
-});
+
 
 $( '#newplaylist' ).click( function(){
 			var name = prompt( "Please Enter a Name for the Playlist", "Playlist" );
@@ -149,6 +220,8 @@ $( '#newplaylist' ).click( function(){
                 }); 
 			}
 });
+
+
 
 
 </script>

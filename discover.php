@@ -24,7 +24,7 @@ echo '<div class="col-lg-2 tuxedo">
           <span class= "tuxedo" style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=M1CH43LR053NL0UNG3" role="button">Listen!</a></span>
         </div>';
 
-$stmt = $connection->query( 'SELECT title, songid FROM Song ORDER BY rand() LIMIT 5' );
+$stmt = $connection->query( 'SELECT title, songid FROM Song WHERE duration > 180 ORDER BY rand() LIMIT 5' );
 
 
 while( $row = $stmt->fetch_assoc() ){
@@ -53,7 +53,7 @@ if ( !$connection ) {
 	die( "Couldn't connect to mysql server!<br>The error was: " . mysql_error() );
 }
 
-$stmt = $connection->query( 'SELECT artistname, artistid FROM Artist ORDER BY rand() LIMIT 6' );
+$stmt = $connection->query( 'SELECT artistname, artistid FROM Artist WHERE LENGTH(artistname) > 5 ORDER BY rand() LIMIT 6' );
 
 
 while( $row = $stmt->fetch_assoc() ){
@@ -83,7 +83,7 @@ if ( !$connection ) {
 	die( "Couldn't connect to mysql server!<br>The error was: " . mysql_error() );
 }
 
-$stmt = $connection->query( 'SELECT albumname, albumid FROM Album ORDER BY rand() LIMIT 6' );
+$stmt = $connection->query( 'SELECT albumname, albumid FROM Album WHERE LENGTH(albumname) ORDER BY rand() LIMIT 6' );
 
 
 while( $row = $stmt->fetch_assoc() ){

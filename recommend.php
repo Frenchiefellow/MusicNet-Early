@@ -129,7 +129,7 @@ if ( !$connection ) {
 	die( "Couldn't connect to mysql server!<br>The error was: " . mysql_error() );
 }
 
-$stmt = $connection->query( 'SELECT artistname, artistid FROM Artist ORDER BY rand() LIMIT 6' );
+$stmt = $connection->query( 'SELECT artistname, artistid FROM Artist WHERE LENGTH(artistname) > 5 ORDER BY rand() LIMIT 6' );
 
 
 while( $row = $stmt->fetch_assoc() ){
@@ -159,7 +159,8 @@ if ( !$connection ) {
 	die( "Couldn't connect to mysql server!<br>The error was: " . mysql_error() );
 }
 
-$stmt = $connection->query( 'SELECT albumname, albumid FROM Album ORDER BY rand() LIMIT 6' );
+$stmt = $connection->query( 'SELECT albumname, albumid FROM Album WHERE LENGTH(albumname) ORDER BY rand() LIMIT 6' );
+
 
 
 while( $row = $stmt->fetch_assoc() ){

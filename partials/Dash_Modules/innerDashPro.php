@@ -9,14 +9,17 @@
 
         <div class="col-lg-3 picholder profCol">
         <?php
+        	$FB = '';
         	$them = $_GET[ 'user' ];
+        	if( isset( $_SESSION[ 'username' ] ) ){
         	$you = $_SESSION[ 'username' ];
+        	}
+
         	$connection = @new mysqli( /*removed*/ );
         	$stmt = $connection->prepare( 'SELECT FBid FROM User WHERE loginacct = ?' );
 			$stmt->bind_param( 's',  $them );
 			$stmt->execute();
 			$stmt->bind_result( $id );
-			$FB = '';
 			while( $stmt->fetch() ){
 				if( $id != NULL){
 					$FB = $id;
@@ -25,6 +28,7 @@
 					$FB = '';
 				}
 			}
+			
 			
 			if( $FB != ''){
 				echo '<img class="profImg" id="picture" src="https://graph.facebook.com/' . $FB . '/picture?type=large">';
@@ -43,7 +47,10 @@
 	  		</div> 
 	   
 	   <?php 
-	   	$you = $_SESSION[ 'username' ];
+
+	   if( isset( $_SESSION[ 'username' ] ) ){
+        	$you = $_SESSION[ 'username' ];
+        	}
 		$them = $_GET[ 'user' ];
 	    $connection = @new mysqli( /*removed*/ );
 		$stmt = $connection->prepare( 'SELECT * FROM Friends WHERE ( loginacct1 = ? AND loginacct2= ? )' );
@@ -96,12 +103,12 @@
 	  echo '<div>'.
 	   '<p style="margin-top: 2%; margin-right: 0 auto; margin-left: 0 auto;"><p class="btn btn-warning stupidButton" role="button">Followers!</p></p></div>';
 	   }
-
+	}
 
 	   else { echo '
 	   <p style="margin-top: 2%; margin-right: 0 auto; margin-left: 0 auto;"><a class="btn btn-danger stupidButton" href="http://cs445.cs.umass.edu/php-wrapper/clp/login.php" role="button">Sign Up!</a></p>';
 		} 
-	}
+	
 	?>
 
         </div>

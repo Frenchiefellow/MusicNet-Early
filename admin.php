@@ -32,9 +32,7 @@ if ( isset( $_SESSION ) ) {
 			}
 			
 			if ( isset( $_POST[ 'query' ] ) ) {
-				$words = array(
-					 "dog" 
-				);
+				$words = array();
 				if ( contains( $_POST[ 'query' ], $words ) ) {
 					header( 'Location: admin.php?id=' . $si . '&error=ILLEGAL_KEYWORD' );
 					die();
@@ -48,26 +46,27 @@ if ( isset( $_SESSION ) ) {
 					} else {
 						echo "Connection Status: Successful!<br>\n";
 					}
-					if ( !mysql_select_db( /*removed*/ ) )
+					if ( !mysql_select_db( "clp" ) )
 						die( "Couldn't select a database!<br> Error: " . mysql_error() );
 					else
 						echo "Database Status: Connected!<br><br>\n";
-					$db        = /*removed*/;
+					$db        = 'clp';
 					$starttime = microtime( true );
 					$result    = mysql_query( $text );
 					$endtime   = microtime( true );
 					$totaltime = $endtime - $starttime;
 					
 					if ( !$result ) {
-						echo "User does not exist\n";
 						echo 'MySQL Error: ' . mysql_error();
 						exit;
 					}
 					
-					
+					$keys = array('delete', 'update', 'alter', 'insert' );
+					if( !contains( $query, $keys ) ) {
 					echo '<table border = "1" > <tbody> <tr>';
 					
 					$res = array();
+					
 					while ( $row = mysql_fetch_assoc( $result ) ) {
 						$res[] = $row;
 					}
@@ -84,10 +83,15 @@ if ( isset( $_SESSION ) ) {
 						}
 						echo "</tr>";
 					}
+					echo 'QUERY STATUS: SUCCESS!';
+					}
+					else{
+						echo 'Query Success! ' . $result . " row(s) affected!<br>";
+					}
 					
 					echo '</tr></tbody></table><br>';
 					echo "APPROXIMATE QUERY TIME: " . round( $totaltime, 3, PHP_ROUND_HALF_UP ) . " seconds<br><br>";
-					echo 'QUERY STATUS: SUCCESS!';
+					
 					
 				}
 			}
