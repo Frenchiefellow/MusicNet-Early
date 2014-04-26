@@ -63,27 +63,27 @@ if ( isset( $_SESSION ) ) {
 					
 					$keys = array('delete', 'update', 'alter', 'insert' );
 					if( !contains( $query, $keys ) ) {
-					echo '<table border = "1" > <tbody> <tr>';
-					
-					$res = array();
-					
-					while ( $row = mysql_fetch_assoc( $result ) ) {
-						$res[] = $row;
-					}
-					$columns = array_keys( reset( $res ) );
-					
-					foreach ( $columns as $col ) {
-						echo "<th style='padding-left: 5px; padding-right: 5px;'>$col</th>";
-					}
-					echo '</tr>';
-					foreach ( $res as $row ) {
-						echo "<tr>";
-						foreach ( $columns as $col ) {
-							echo "<td style='padding-left: 5px; padding-right: 5px;'>" . $row[ $col ] . "</td>";
+						echo '<table border = "1" > <tbody> <tr>';
+						
+						$res = array();
+						
+						while ( $row = mysql_fetch_assoc( $result ) ) {
+							$res[] = $row;
 						}
-						echo "</tr>";
-					}
-					echo 'QUERY STATUS: SUCCESS!';
+						$columns = array_keys( reset( $res ) );
+						
+						foreach ( $columns as $col ) {
+							echo "<th style='padding-left: 5px; padding-right: 5px;'>$col</th>";
+						}
+						echo '</tr>';
+						foreach ( $res as $row ) {
+							echo "<tr>";
+							foreach ( $columns as $col ) {
+								echo "<td style='padding-left: 5px; padding-right: 5px;'>" . $row[ $col ] . "</td>";
+							}
+							echo "</tr>";
+						}
+						echo 'QUERY STATUS: SUCCESS!';
 					}
 					else{
 						echo 'Query Success! ' . $result . " row(s) affected!<br>";

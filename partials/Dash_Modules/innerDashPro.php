@@ -195,7 +195,7 @@
 		<p class="colPara"> Songs Rated: <?php 
 					    	$connection = @new mysqli( /*removed*/ );
 						$song = $_GET[ 'user' ];
-						$stmt = $connection->prepare( 'SELECT ratings FROM User WHERE loginacct = ?' );
+						$stmt = $connection->prepare( 'SELECT count(rating) FROM UserInteraction WHERE loginacct = ? AND rating > 0' );
 						$stmt->bind_param( 's',  $_GET['user']);
 						$stmt->execute();
 						$stmt->bind_result( $rates );

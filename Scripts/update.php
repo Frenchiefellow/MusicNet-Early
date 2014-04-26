@@ -94,6 +94,14 @@ if( isset( $_POST[ 'new' ] ) && ( $_POST[ 'content'] != 'norating' )){
 			$stmt->bind_param( 'sss', $_SESSION[ 'username' ], $_GET[ 'id' ], $_POST[ 'content' ] );
 			$stmt->execute();
 			echo 'Rating Set To: ' . $_POST[ 'content' ];
+
+
+			//Update the User's number of ratings
+			$stmt = $connection->prepare( 'UPDATE User set ratings = ratings + 1  WHERE loginacct = ?' );
+			$stmt->bind_param( 's', $_SESSION[ 'username' ] );
+			$stmt->execute();
+			$stmt->close();
+			
 			}
 
 			elseif( $param != 0 ){
@@ -119,11 +127,6 @@ if( isset( $_POST[ 'new' ] ) && ( $_POST[ 'content'] != 'norating' )){
 			$stmt->execute();
 			$stmt->close();
 
-			//Update the User's number of ratings
-			$stmt = $connection->prepare( 'UPDATE User set ratings = ratings + 1  WHERE loginacct = ?' );
-			$stmt->bind_param( 's', $_SESSION[ 'username' ] );
-			$stmt->execute();
-			$stmt->close();
 		}
 
 		//Update Average Rating
@@ -456,8 +459,55 @@ elseif( isset( $_POST[ 'delete' ] ) ){
 
 }
 
+elseif( isset( $_POST[ 'like' ] ) ){
+
+	$playlist = $_POST[ 'like' ];
+
+	$id = 0;
+	$connection = @new mysqli( /*removed*/ );
+	$stmt = $connection->prepare( 'SELECT playlistid FROM Playlist WHERE playlistname = ?' );
+	$stmt->bind_param( 's', $playlist );
+	$stmt->execute();
+	$stmt->bind_result( $pID );
+	while( $stmt->fetch() ){
+		$id = $pID;
+	}
+	$stmt->close();
+
+	if( $id > 0 ){
+	$stmt = $connection->prepare( 'INSERT INTO PlayLikes ( loginacct, playlistid) VALUES ( ?, ? )' );
+	$stmt->bind_param( 'ss', $_SESSION[ 'username' ], $id );
+	$stmt->execute();
+	$stmt->close();
+
+	echo 'Playlist Liked!';
+	}
+	$connection->close();
+}
+
+elseif( isset( $_POST[ 'unlike' ] ) ){
+
+	$playlist = $_POST[ 'unlike' ];
+
+	$id = 0;
+	$connection = @new mysqli( /*removed*/ );
+	$stmt = $connection->prepare( 'SELECT playlistid FROM Playlist WHERE playlistname = ?' );
+	$stmt->bind_param( 's', $playlist );
+	$stmt->execute();
+	$stmt->bind_result( $pID );
+	while( $stmt->fetch() ){
+		$id = $pID;
+	}
+	$stmt->close();
 
 
+	$stmt = $connection->prepare( 'DELETE FROM PlayLikes WHERE loginacct = ? AND playlistid = ?' );
+	$stmt->bind_param( 'ss', $_SESSION[ 'username' ], $id );
+	$stmt->execute();
+	$stmt->close();
 
+	echo 'Playlist Unliked!';
 
-		?>
+	$connection->close();
+}
+	?>

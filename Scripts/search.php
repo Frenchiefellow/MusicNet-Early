@@ -8,7 +8,8 @@ echo '<style>html, body{height: 100%;}</style>';
 
 if ( isset( $_GET[ 'query' ] ) ) {
 	
-	$query1     = strtolower("%" . $_GET[ 'query' ] . "%" );
+	$query1     = strtolower("% " .$_GET[ 'query' ] . "%" );
+	$query3     = strtolower("% " .$_GET[ 'query' ] . " %" );
 	$query2 	= strtolower( $_GET[ 'query' ] . "%" );
 	$query      = strtolower( $_GET[ 'query' ] );
 	$connection = @new mysqli( /*removed*/ );
@@ -38,14 +39,14 @@ if ( isset( $_GET[ 'query' ] ) ) {
 		echo $sel2 . '>Alphabetically</option>' . '<option value="rele"' . $sel . '>Revelence</option>' . '</select></form>';
 		
 		//SQL INJECTION PREVENTION START
-		$stmt = $connection->prepare( 'SELECT U.loginacct, U.username, U.userloc FROM User U WHERE U.loginacct like ? or U.username like ? or U.userloc like ?' );
+		$stmt = $connection->prepare( 'SELECT U.loginacct, U.username FROM User U WHERE U.loginacct like ? or U.username like ?' );
 		if ( !$stmt ) {
 			echo $connection->error;
 		}
-		$stmt->bind_param( 'sss', $query2, $query2, $query2 );
+		$stmt->bind_param( 'ss', $query2, $query2 );
 		
 		$stmt->execute();
-		$stmt->bind_result( $log, $username, $userloc );
+		$stmt->bind_result( $log, $username );
 		
 		
 		if ( !isset( $_POST[ 'order' ] ) || $_POST[ 'order' ] == 'alpha' ) {
@@ -61,16 +62,13 @@ if ( isset( $_GET[ 'query' ] ) ) {
 			$arr     = array();
 			$results = array();
 			$name    = array();
-			$loc     = array();
 			$l       = 0;
 			$u       = 0;
-			$ul      = 0;
 			$sorter;
 			
 			while ( $row = $stmt->fetch() ) {
 				array_push( $arr, $log );
 				array_push( $name, $username );
-				array_push( $loc, $userloc );
 			}
 			foreach ( $arr as $s ) {
 				$l = $l + ( ( levenshtein( $s, $query ) / max( strlen( $s ), strlen( $query ) ) ) );
@@ -78,11 +76,8 @@ if ( isset( $_GET[ 'query' ] ) ) {
 			foreach ( $name as $s ) {
 				$u = $u + ( ( levenshtein( $s, $query ) / max( strlen( $s ), strlen( $query ) ) ) );
 			}
-			foreach ( $loc as $s ) {
-				$ul = $ul + ( ( levenshtein( $s, $query ) / max( strlen( $s ), strlen( $query ) ) ) );
-			}
 			
-			$maxp = min( ( $l / count( $arr ) ), ( $u / count( $name ) ), ( $ul / count( $loc ) ) );
+			$maxp = min( ( $l / count( $arr ) ), ( $u / count( $name ) ) );
 			
 			if ( $maxp == ( $l / count( $arr ) ) ) {
 				$prob   = probAverage( $query, $arr );
@@ -93,22 +88,15 @@ if ( isset( $_GET[ 'query' ] ) ) {
 				//echo 'username';
 				$sorter = 'Name';
 				
-			} elseif ( $maxp == ( $ul / count( $loc ) ) ) {
-				$prob   = probAverage( $query, $loc );
-				//echo 'location';
-				$sorter = 'User Location';
-				
-				
 			}
 			
 			
 			
 			for ( $i = 0; $i < count( $arr ); $i++ ) {
 				array_push( $results, array(
-					 $arr[ $i ],
+					$arr[ $i ],
 					$prob[ $i ],
 					$name[ $i ],
-					$loc[ $i ] 
 				) );
 			}
 			array_multisort( $prob, SORT_DESC, $results );
@@ -148,12 +136,8 @@ if ( isset( $_GET[ 'query' ] ) ) {
 		echo $sel2 . '>Alphabetically</option>' . '<option value="rele"' . $sel . '>Revelence</option>' . '</select></form>';
 		
 		//SQL INJECTION PREVENTION START
-		$stmt = $connection->prepare( 'SELECT S.title, S.songid FROM Song S WHERE S.title like ?' );
-		if ( !$stmt ) {
-			echo $connection->error;
-		}
-		$stmt->bind_param( 's', $query1 );
-		
+		$stmt = $connection->prepare( 'SELECT S.title, S.songid FROM Song S WHERE S.title like ? OR S.title like ? OR  S.title like ?' );
+		$stmt->bind_param( 'sss', $query1, $query2, $query3 );
 		$stmt->execute();
 		$stmt->bind_result( $title, $sID );
 		$ss = array();
@@ -168,28 +152,19 @@ if ( isset( $_GET[ 'query' ] ) ) {
 
 			}
 
-			$na = array();
 			$aa = array();
 			for ( $i = 0; $i < count( $ss ); $i++ ) {
-			$stmt = $connection->prepare( 'SELECT artistid FROM Linked_To WHERE songid = ?' );
+			$stmt = $connection->prepare( 'SELECT A.artistname FROM Artist A, Linked_To L WHERE L.songid = ? AND A.artistid = L.artistid' );
 			$stmt->bind_param("s", $ss[ $i ] );
 			$stmt->execute();
 			$stmt->bind_result( $idd );
 			while( $stmt->fetch() ){
 				array_push( $aa, $idd );
-			}
-			$stmt->close();
-			
-			$stmt = $connection->prepare( 'SELECT artistname FROM Artist WHERE artistid = ?' );
-			$stmt->bind_param("s", $aa[ $i ] );
-			$stmt->execute();
-			$stmt->bind_result( $add );
-			while( $stmt->fetch() ){
-				array_push( $na, $add );
+				
 			}
 			$stmt->close();
 
-			echo $ht[ $i ] . '</a><span> by: ' . $na[ $i ] . '</span><br>';
+			echo $ht[ $i ] . '</a><span> by: ' . $aa[ $i ] . '</span><br>';
 			}
 
 			echo '</div>';
@@ -219,7 +194,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 
 			$artd = array();
 			for ( $i = 0; $i < count( $results ); $i++ ) {
-			$stmt = $connection->prepare( 'SELECT artistid FROM Linked_To WHERE songid = ?' );
+			$stmt = $connection->prepare( 'SELECT A.artistname FROM Artist A, Linked_To L WHERE L.songid = ? AND A.artistid = L.artistid' );
 			$stmt->bind_param("s", $results[ $i ][ 2 ] );
 			$stmt->execute();
 			$stmt->bind_result( $idd );
@@ -227,16 +202,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 				array_push( $artd, $idd );
 			}
 			$stmt->close();
-
-			$stmt = $connection->prepare( 'SELECT artistname FROM Artist WHERE artistid = ?' );
-			$stmt->bind_param("s", $artd[ $i ] );
-			$stmt->execute();
-			$stmt->bind_result( $add );
-			while( $stmt->fetch() ){
-				$artd[ $i ] = $add;
-			}
-			$stmt->close();
-			}
+		}
 
 
 
@@ -273,11 +239,11 @@ if ( isset( $_GET[ 'query' ] ) ) {
 		echo $sel2 . '>Alphabetically</option>' . '<option value="rele"' . $sel . '>Revelence</option>' . '</select></form>';
 		
 		//SQL INJECTION PREVENTION START
-		$stmt = $connection->prepare( 'SELECT A.artistname, A.artistid FROM Artist A WHERE A.artistname like ?' );
+		$stmt = $connection->prepare( 'SELECT A.artistname, A.artistid FROM Artist A WHERE A.artistname like ? OR A.artistname like ? OR  A.artistname like ?' );
 		if ( !$stmt ) {
 			echo $connection->error;
 		}
-		$stmt->bind_param( 's', $query1 );
+		$stmt->bind_param( 'sss', $query1, $query2, $query3 );
 		
 		$stmt->execute();
 		$stmt->bind_result( $name, $aID );
@@ -347,11 +313,11 @@ if ( isset( $_GET[ 'query' ] ) ) {
 		echo $sel2 . '>Alphabetically</option>' . '<option value="rele"' . $sel . '>Revelence</option>' . '</select></form>';
 		
 		//SQL INJECTION PREVENTION START
-		$stmt = $connection->prepare( 'SELECT A.albumname, A.albumid FROM Album A WHERE A.albumname like ?' );
+		$stmt = $connection->prepare( 'SELECT A.albumname, A.albumid FROM Album A WHERE A.albumname like ? OR A.albumname like ? OR A.albumname like ?' );
 		if ( !$stmt ) {
 			echo $connection->error;
 		}
-		$stmt->bind_param( 's', $query1 );
+		$stmt->bind_param( 'sss', $query1, $query2, $query3 );
 		
 		$stmt->execute();
 		$stmt->bind_result( $name, $aID );
