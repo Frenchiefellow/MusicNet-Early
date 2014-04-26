@@ -4,12 +4,12 @@ This is an early version of the MusicNet Project : A social network for music en
 
 <h1>Members</h1>
 <ul>
-<li><strong>Chris (Owner of repo):</strong> Working on the front-end of the project. Everything you currently see on this repo was coded by me. </li>
+<li><strong>Chris (Owner of repo):</strong> Frontend Master. 99.9% of the code here was contributed by me.</li>
 <ul>
 <li>Currently working on possible Facebook integration and bug fixes</li>
 <li>Going to continue designing and testing</li>
 </ul>
-<li><strong>Ted:</strong> Database Testing and Optimization, as well as Documentation.</li>
+<li><strong>Ted:</strong> Database Testing and Optimization, Frontend Testing,  as well as Documentation.</li>
 <ul>
 <li>Going to bug test</li>
 </ul>
@@ -23,15 +23,17 @@ This is an early version of the MusicNet Project : A social network for music en
 
 <h1>INFO:</h1>
  
-The database is currently being optimized, so there is not a lot in the way of functional code,
+<del>The database is currently being optimized, so there is not a lot in the way of functional code,
 other than stylization. Once this has been completed appropriately, I can start making more complex queries. 
-Some queries of varying complexity have taken 2+ minutes to return due to traffic on the Edlab servers, amongst other things. In addition, the Database and the Site (hosted on the same server) have often been going down for half a day at a time. This is out of our control and affects our development process.  
+Some queries of varying complexity have taken 2+ minutes to return due to traffic on the Edlab servers, amongst other things.</del> In addition, the Database and the Site (hosted on the same server) have often been going down for half a day at a time. This is out of our control and affects our development process.  
 
 
 The code and styles are subject to change and are not currently final.
 
 **NOTE:**
 There are so many PHP files in the main directory as the php-wrapper that was written for our site (which we do not host) can only read PHP files from main directory. Thus is the reason for having to include CSS/JPG/PNG files awkwardly with PHP.
+
+<i>UPDATE 4/25/14:</i> We were given a way to avoid this; will change when I come accross any awkward includes.
 
 <h1>DAILY/WEEKLY GOALS</h1>
 4/8-4/13: <del>(DB/site down 4/7)</del> <del>(DB/site down ~5:30PM on 4/9)</del>
@@ -61,6 +63,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li><del>Song Chat?</del></li>
 <li><del>Finish Friend Page and Friend logic</del></li>
 <li><del>Finish Playlist Page(profile) and playlist logic</del></li>
+<li>Fix Admin Shell Output</li>
 <li>Final Touches</li>
 <li>Testing and Bug Fixes</li>
 <li>
@@ -197,11 +200,27 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Fixed various bugs across pages</li>
 </ul>
 
-4/24:
+4/24
 <ul>
 <li>Search.php has been fixed</li>
 <li>Minor adjustments to The Michael Rosen Lounge</li>
 </ul>
+
+4/25: FACEBOOK COMMIT
+<ul>
+<li>Facebook has been integrated</li>
+<ul>
+<li>Added Facebook login/signup button to splash.php</li>
+<li>Users can sign up then login with facebook </li>
+<li>User's profiles display Facebook profile picture</li>
+</ul>
+<li>Spotify query parsing updated; looks to be correct this time</li>
+<li>Logout.php is now a AJAX accessed only page; Now handled with jQuery/AJAX (Due to FB logout)</li>
+<li>profilePlaylist.php now has a cleaner new stylization</li>
+<li>Fixed Songs Played on Profile.php (was showing playcount) </li>
+<li>Fixed NULL tags being added on recommend.php</li>
+</ul>
+
 
 <h1>TO BE DONE: </h1>
 <ul>
@@ -212,4 +231,5 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li><del>Add logic for discover (may be random if time does not permit for logic)</del></li>
 <li><del>Add logic for recommendations</del></li>
 <li><del>Song Chat?</del></li>
+<li>Fix Admin Shell Output</li>
 </ul>
