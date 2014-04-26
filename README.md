@@ -221,7 +221,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Fixed NULL tags being added on recommend.php</li>
 </ul>
 
-4/24
+4/26
 <ul>
 <li>Fixed Admin Shell Output</li>
 <li>Fixed profileplaylists so delete works properly</li>
