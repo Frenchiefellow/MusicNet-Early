@@ -20,8 +20,11 @@
             <li '; $url = "$_SERVER[REQUEST_URI]"; if(strpos($url, 'playlists.php')){echo 'class = "active"';} echo '><a href="http://cs445.cs.umass.edu/php-wrapper/clp/playlists.php?user=' . $_SESSION[ 'username' ] . '">Playlists</a></li>'; } ?>
 	          
             <li <?php $url = "$_SERVER[REQUEST_URI]"; if(strpos($url, 'about.php')){echo 'class = "active"';} ?>><a href="http://cs445.cs.umass.edu/php-wrapper/clp/about.php">About Us</a></li>
-		<?php if(isset($_SESSION['username'])){ echo '
-            <li><a id="lo">Log Out</a></li>';} ?>
+		<?php if(isset($_SESSION['username'] ) && strpos( $_SESSION[ 'username' ], '_FB')){ echo '
+            <li><a id="lo">Log Out</a></li>';} 
+            else{
+             echo '<li><a id="log">Log Out</a></li>';} 	
+            	?>
           </ul>
           <form class="navbar-form navbar-right" method="get" action="http://cs445.cs.umass.edu/php-wrapper/clp/search.php?query=">
             <input type="search" class="form-control" placeholder="Search Everything!" name="query">
@@ -148,6 +151,23 @@ $( '#lo' ).click(function(){
     };
     return;  
   });
+
+$( '#log' ).click(function(){
+
+	  $.ajax({
+            type: 'POST',
+            url: 'logout.php',
+            data: 'fbl=' + false, 
+            cache: false,
+            error: function( e ){
+            alert( e );
+            },
+            success: function( response ){ 
+            window.localStorage.clear();
+            window.location.href = 'splash.php';
+            }
+          });
+});
   
 </script>
   

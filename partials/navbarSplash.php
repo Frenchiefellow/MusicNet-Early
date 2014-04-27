@@ -32,9 +32,14 @@
 	echo '
 	 <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="'; $url = "http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=" . $_SESSION['username']; echo $url; echo '">Home</a></li>
-	     <li><a id="lo" >Log Out</a></li>
-	   </ul>';} ?>
+            <li><a href="'; $url = "http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=" . $_SESSION['username']; echo $url; echo '">Home</a></li>';
+        if( strpos( $_SESSION[ 'username' ], '_FB') ){ 
+	     echo '<li><a id="lo" >Log Out</a></li>';
+        }
+        else{
+           echo '<li><a id="log" >Log Out</a></li>';
+        }
+	   echo '</ul>';} ?>
    <?php if(isset($_GET['err'])){ echo '<div class ="navbar-brand2" style="position: absolute; color: white;">'; if($_GET['err'] == 1){echo '<script type="text/javascript">alert("Incorrect Credentials")</script>';} else if($_GET['err'] == 2){ echo '<script type="text/javascript">alert("User Not Found!")</script>';} echo '</div>'; } ?>
 	  <?php echo '</div>'; ?>
 
@@ -196,4 +201,21 @@ $( '#lo' ).click(function(){
     };
 
     return;  });
+
+$( '#log' ).click(function(){
+
+    $.ajax({
+            type: 'POST',
+            url: 'logout.php',
+            data: 'fbl=' + false, 
+            cache: false,
+            error: function( e ){
+            alert( e );
+            },
+            success: function( response ){ 
+            window.localStorage.clear();
+            window.location.href = 'splash.php';
+            }
+          });
+});
 </script>
