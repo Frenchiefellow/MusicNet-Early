@@ -182,7 +182,7 @@ elseif( isset( $_POST[ 'pname' ] ) ){
 
 	//Get the value of the largest playlistID
 	$prevID = 0;
-	$results = mysqli_query( $connection, 'SELECT playlistid from Created ORDER BY playlistid DESC LIMIT 1' );
+	$results = mysqli_query( $connection, 'SELECT CONVERT(playlistid, SIGNED INTEGER) AS num from Created ORDER BY num DESC LIMIT 1' );
 	while( $row = $results->fetch_array() ){
 		$prevID = $row[0];
 	}
@@ -392,8 +392,9 @@ elseif( isset( $_POST[ 'newpname' ] ) ){
 	$connection = @new mysqli( /*removed*/ );
 
 	//Get the value of the largest playlistID
-	$prevID;
-	$results = mysqli_query( $connection, 'SELECT playlistid from Created ORDER BY playlistid DESC LIMIT 1' );
+	$prevID = 0;
+	$results = mysqli_query( $connection, 'SELECT CONVERT(playlistid, SIGNED INTEGER) AS num FROM Created ORDER BY num DESC LIMIT 1' );
+
 	while( $row = $results->fetch_array() ){
 		$prevID = $row[0];
 	}
@@ -450,6 +451,13 @@ elseif( isset( $_POST[ 'delete' ] ) ){
 
 	$connection = @new mysqli( /*removed*/ );
 	$stmt = $connection->prepare( 'DELETE FROM Playlist WHERE playlistid = ?' );
+	$stmt->bind_param( 's', $id );
+	$stmt->execute();
+	$stmt->close();
+	$connection->close();
+
+	$connection = @new mysqli( /*removed*/ );
+	$stmt = $connection->prepare( 'DELETE FROM PlayLikes WHERE playlistid = ?' );
 	$stmt->bind_param( 's', $id );
 	$stmt->execute();
 	$stmt->close();

@@ -1,11 +1,13 @@
-<div style="position: relative; border: 1px solid #eee; border-radius: 10px; width: 35%; height: 50%;  margin: auto; margin-top: 2%; background-color: #eee; background-color: rgba(128, 128, 128, .7)">
+
+
+<div id='tplays'>
 <h4 style="color: white; text-align: center">Listener's Locations:</h4>
-<div id="map3d" style="height: 75%; width: 90%; margin: auto; padding-top: 2%;"></div>
+<div id="map3d" ></div>
 
 <?php 
 $connection = @new mysqli( /*removed*/ );
 $id = $_GET[ 'id' ];
-$stmt = $connection->prepare( 'SELECT userloc, U.loginacct FROM User U, UserInteraction I WHERE U.loginacct = I.loginacct AND I.songid = ? and U.userloc is not NULL AND I.plays > 0' );
+$stmt = $connection->prepare( 'SELECT userloc, U.loginacct FROM User U, UserInteraction I WHERE U.loginacct = I.loginacct AND I.songid = ? and U.userloc is not NULL AND I.plays > 0 and U.userloc != "UMASS"' );
 $stmt->bind_param( 's', $id );
 $stmt->execute();
 $stmt->bind_result( $location, $login);
@@ -37,7 +39,7 @@ function initCB(instance) {
    for( var i = 0; i < leng; i++ ){
    $.ajax({
         		type: 'GET',
-        		url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + $('.locations')[ i ].innerHTML  + '&sensor=false&key=AIzaSyAA-p8I6Sob67KnZhNkkKyHZ6c6yRWZ_AU',
+        		url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + $('.locations')[ i ].innerHTML  + '&sensor=false&key=AIzaSyB8dXZZC4uyQSesH8Cizu9bkIqsrsqW3kk',
         		datatype: 'jsonp', 
         		error: function( e ){
         		alert( e );
@@ -80,4 +82,17 @@ function failureCB(errorCode) {
 
 
 google.setOnLoadCallback(init);
+</script>
+
+<script>
+
+var plays = document.getElementById( 'res' ).innerHTML;
+if( plays > 0 ){
+	$( '#tplays ').attr("style", "position: relative; border: 1px solid #eee; border-radius: 10px; width: 35%; height: 50%; float: left; margin-top: 2%; background-color: #eee; background-color: rgba(128, 128, 128, .7)" );
+	$( '#map3d' ).attr( "style", "height: 75%; width: 90%; margin: auto; padding-top: 2%;" );
+}
+else{
+	$( '#tplays ').attr("style", "position: relative; border: 1px solid #eee; border-radius: 10px; width: 35%; height: 50%;  margin: auto; margin-top: 2%; background-color: #eee; background-color: rgba(128, 128, 128, .7); display:none;" );
+	$( '#map3d' ).attr( "style", "height: 75%; width: 90%; margin: auto; padding-top: 2%; display:none;" );
+}
 </script>
