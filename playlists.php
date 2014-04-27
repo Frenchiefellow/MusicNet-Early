@@ -14,7 +14,7 @@
 
     			$id = $_GET[ 'id' ];
     			$user = $_GET[ 'user' ];
-    			$connection = @new mysqli( "cs445sql", "crpeters", "EL159crp", "clp" );
+    			$connection = @new mysqli( /*removed*/ );
 
 				$stmt = $connection->prepare( 'SELECT playlistname FROM Playlist WHERE playlistid = ?' );
             	$stmt->bind_param( 's',  $id );
@@ -63,11 +63,11 @@
     		else{
     			echo '<div style="background-color: #428bca; border: 0px solid; border-radius: 10px; height: 95%; margin-top: 1.5%; overflow: auto;">';
 
-    			$connection = @new mysqli( "cs445sql", "crpeters", "EL159crp", "clp" );
+    			$connection = @new mysqli( /*removed*/ );
             	$user = $_GET[ 'user' ];
 
            		$stmt = $connection->prepare( 'SELECT playlistid FROM PlayLikes WHERE loginacct = ?' );
-            	$stmt->bind_param( 's',  $user );
+            	$stmt->bind_param( 's',  $_SESSION[ 'username' ] );
             	$stmt->execute();
             	$stmt->bind_result( $ids );
             	$lists = array();
@@ -96,12 +96,12 @@
                          '<div class="col-sm-6" id="pname' .$i .'" style="text-align: center; margin:auto; padding-top: 10px; font-size: 150%">Name: ' . $name . '</div>' .
                          '<div class="col-sm-3" style="text-align: center; padding-top: 10px; font-size: 150%"> Tracks: ' . $tracks . '</div>'
                          ;
-
+                         echo '<div class="col-sm-1" style="text-align: center; padding-top: 7px;"><a id="unlike' . $i . '" class="btn btn-success">Unlike!</a></div></div>';
             		}
             		$stmt->close();
 
             
-            			echo '<div class="col-sm-1" style="text-align: center; padding-top: 7px;"><a id="unlike' . $i . '" class="btn btn-success">Unlike!</a></div></div>';
+            	
             		
             		echo "<script>$( '#unlike" . $i . "' ).click( function(){
 	

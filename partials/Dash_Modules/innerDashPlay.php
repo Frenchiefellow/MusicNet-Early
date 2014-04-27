@@ -204,6 +204,7 @@ var numrow = $('#tableHolder').children().length;
 
 $( '#newplaylist' ).click( function(){
 			var name = prompt( "Please Enter a Name for the Playlist", "Playlist" );
+			alert(name);
 			if(name != null){
 			$.ajax({
                     type: 'POST',
