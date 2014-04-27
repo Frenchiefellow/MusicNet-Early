@@ -5,7 +5,7 @@
 <?php 
 $connection = @new mysqli( /*removed*/ );
 $id = $_GET[ 'id' ];
-$stmt = $connection->prepare( 'SELECT userloc, U.loginacct FROM User U, UserInteraction I WHERE U.loginacct = I.loginacct AND I.songid = ? and U.userloc is not NULL' );
+$stmt = $connection->prepare( 'SELECT userloc, U.loginacct FROM User U, UserInteraction I WHERE U.loginacct = I.loginacct AND I.songid = ? and U.userloc is not NULL AND I.plays > 0' );
 $stmt->bind_param( 's', $id );
 $stmt->execute();
 $stmt->bind_result( $location, $login);
