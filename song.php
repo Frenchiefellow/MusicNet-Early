@@ -16,7 +16,7 @@ html, body {
 </style>
 
 
-<div style="height: 65%; ">
+<div style="height: 75%; ">
 <div class="jumbotron" style="position: relative; text-align: center; margin: auto; overflow: hidden; width: 100; height: 240px; background-color: rgba(128, 128, 128, .7);">
 <div style="border: 10px solid black; height: 120px; border-radius: 10px; background-color: black;">
 <div style="height: 134px;">

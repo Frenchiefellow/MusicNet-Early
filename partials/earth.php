@@ -1,7 +1,9 @@
-<div id="map3d" style="height: 250px; width: 607px; margin: auto; padding-top: 2%;"></div>
+<div style="position: relative; border: 1px solid #eee; border-radius: 10px; width: 35%; height: 50%;  margin: auto; margin-top: 2%; background-color: #eee; background-color: rgba(128, 128, 128, .7)">
+<h4 style="color: white; text-align: center">Listener's Locations:</h4>
+<div id="map3d" style="height: 75%; width: 90%; margin: auto; padding-top: 2%;"></div>
 
 <?php 
-$connection = @new mysqli( "cs445sql", "crpeters", "EL159crp", "clp" );
+$connection = @new mysqli( /*removed*/ );
 $id = $_GET[ 'id' ];
 $stmt = $connection->prepare( 'SELECT userloc, U.loginacct FROM User U, UserInteraction I WHERE U.loginacct = I.loginacct AND I.songid = ? and U.userloc is not NULL' );
 $stmt->bind_param( 's', $id );
@@ -13,7 +15,7 @@ echo '<div class="locations" style="display:none">' . $location .  '</div><br>';
 $stmt->close();
 $connection->close();
 ?>
-
+</div>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
@@ -41,7 +43,7 @@ function initCB(instance) {
         		alert( e );
         		},
         		success: function( response ){
-        		console.dir(response);
+        		//console.dir(response);
       			lat = response['results'][0]['geometry']['location']['lat'];
       			lng = response['results'][0]['geometry']['location']['lng'];
 

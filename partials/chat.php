@@ -3,7 +3,7 @@
 if( isset( $_SESSION[ 'username' ] ) ){
 echo '<div class="chat_wrapper" style="position: relative; border: 1px solid #eee; border-radius: 10px; width: 60%; margin: auto; background-color: #eee; background-color: rgba(128, 128, 128, .7)">
     <p style="text-align: center; font-weight: bold; color: white;">Song-Chat!</p>
-	<div class="message_box" id="mess_box" style="border: 1px solid; border-radius: 10px; width: 90%; margin: auto; height: 150px; overflow: auto; background-color: white; opacity: .7">';
+	<div class="message_box" id="mess_box" style="border: 1px solid; border-radius: 10px; width: 90%; margin: auto; height: 125px; overflow: auto; background-color: white; opacity: .7">';
     if(file_exists("Scripts/log.html") && filesize("Scripts/log.html") > 0){
     $handle = fopen("Scripts/log.html", "r");
     $contents = fread($handle, filesize("Scripts/log.html"));

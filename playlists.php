@@ -86,10 +86,9 @@
             		$stmt->bind_param( 's',  $lists[ $i ] );
             		$stmt->execute();
             		$stmt->bind_result( $name, $tracks );
-            		$names = array();
             		while ( $stmt->fetch() ){
-            			 array_push( $names, $name );
-
+            			
+                        
             			 echo '<div class="row" style="padding-top: 0px; padding-left: 10px; padding-bottom: 10px; border: 2px solid #808080; background-color: #f5f5f5; border-radius: 10px; width: 90%; margin: auto; margin-top: .5%;">'.
                          '<div class="col-sm-2" style="padding-top: 7px;">' .
                          '<a class="btn btn-success" href="http://cs445.cs.umass.edu/php-wrapper/clp/profilePlaylists.php?user=' . $user . '&id=' . $lists[ $i ] . '">Open!</a></div>' .
