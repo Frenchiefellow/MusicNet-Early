@@ -228,6 +228,9 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Added ability to 'Like' playlists</li>
 <li>Playlist.php reintroduced to house all the User's 'Liked' playlists</li>
 <li>Search.php has been optimized to return fewer irrelevent results</li>
+<li>Fixed a Bug where new playlists weren't being created</li>
+<li>Recommend and Discover have been optimized</li>
+<li>Recommend now only recommends song the User hasn't rated or played</li>
 </ul>
 
 <h1>TO BE DONE: </h1>
