@@ -210,6 +210,7 @@ else{
 
 ?>
 </div>
+<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/earth.php'; ?>
 </div>
 
 <?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/chat.php'; ?>
