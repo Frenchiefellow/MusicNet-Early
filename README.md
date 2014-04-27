@@ -15,8 +15,7 @@ This is an early version of the MusicNet Project : A social network for music en
 </ul>
 <li><strong>Piers:</strong> Database Parsing, Creation, Maintenance, and Optimization. </li>
 <ul>
-<li>Currently working on computing some statistics and updating schema for easy retrieval</li>
-<li>Going to design stats page and bug test</li>
+<li>Going to bug test</li>
 <li>Came up with the logic behind the search</li>
 </ul>
 </ul>
@@ -52,7 +51,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li><del>Finish stylizing Song and add data and Finish AJAX stuff on Song</del></li>
 <li><del>Finish Artist and Album pages based on Song's implementation</del></li>
 <li><del>Add additional data to Profile</del></li>
-<li>Stats Page</li>
+<li><del>Stats Page</del></li>
 <li><del>Recommendations Layout and algorithm</del></li>
 <li><del>About Us Page (Ted's Working on it)</del></li>
 <li><del>Optimize queries in Discover.php (running a bit slow)</del></li>
@@ -240,11 +239,13 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Added Lyrics to each song</li>
 <li>New Stylization for Song.php in regards to the Google Earth and Lyric inclusions</li>
 <li>Playlist addition bug fix</li>
+<li>New Source for Lyrics that has entire set of lyrics, not only 150 characters</li>
+<li>Piers pushed profilestats.php.</li>
 </ul>
 
 <h1>TO BE DONE: </h1>
 <ul>
-<li>Finish templating all pages and "data-drop" where need be, <del>namely profile.php</del></li>
+<li><del>Finish templating all pages and "data-drop" where need be,namely profile.php</del></li>
 <li><del>Implement full Fix search alogrithm. </del></li>
 <li><del>Add logic for Friend relations</del></li>
 <li><del>Add logic for playlists</del></li>
