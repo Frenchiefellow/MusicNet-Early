@@ -233,6 +233,11 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Recommend now only recommends song the User hasn't rated or played</li>
 </ul>
 
+4/27: GOOGLE EARTH COMMIT
+<ul>
+<li>Integrated Earth on song.php to display the location of users that listen to the song</li>
+</ul>
+
 <h1>TO BE DONE: </h1>
 <ul>
 <li>Finish templating all pages and "data-drop" where need be, <del>namely profile.php</del></li>
