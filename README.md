@@ -172,6 +172,7 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>updates.js and update.php added to handle all updates (DB and AJAX) from song.php</li>
 <li>Album.php and Artist.php are done</li>
 <li>About.php is done</li>
+<li>Changed Alerts slightly; now employ JavaScript again (fixed previous JS issue) </li>
 </ul>
 4/22:
 <ul>
