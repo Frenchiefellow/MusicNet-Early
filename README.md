@@ -237,7 +237,9 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <ul>
 <li>Integrated Earth on song.php to display the location of users that listen to the song</li>
 <li>Fixed a Bug where non-Facebook accounts couldn't log out</li>
-<li>New Stylization for Song.php in regards to the Google Earth inclusion</li>
+<li>Added Lyrics to each song</li>
+<li>New Stylization for Song.php in regards to the Google Earth and Lyric inclusions</li>
+<li>Playlist addition bug fix</li>
 </ul>
 
 <h1>TO BE DONE: </h1>
