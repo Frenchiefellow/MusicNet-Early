@@ -8,35 +8,20 @@ We are currently working on migrating our site to a permament server, as we were
 
 <h1>Members</h1>
 <ul>
-<li><strong>Chris (Owner of repo):</strong> Frontend Master. 99.9% of the code here was contributed by me.</li>
+<li><strong>Chris (Owner of repo):</strong> Frontend Developer/Code Monkey </li>
 <ul>
-<li>Currently working on bug fixes, optimizations, and other possible features</li>
-<li>Going to continue designing and testing</li>
+<li>Currently working on bug fixes and optimizations for migration</li>
 </ul>
 <li><strong>Ted:</strong> Database Testing and Optimization, Frontend Testing,  as well as Documentation.</li>
 <ul>
-<li>Going to bug test</li>
 </ul>
 <li><strong>Piers:</strong> Database Parsing, Creation, Maintenance, and Optimization. </li>
 <ul>
 <li>Going to bug test</li>
-<li>Came up with the logic behind the search</li>
+<li>Working on creating and loading data for new database on new server</li>
 </ul>
 </ul>
 
-<h1>INFO:</h1>
- 
-<del>The database is currently being optimized, so there is not a lot in the way of functional code,
-other than stylization. Once this has been completed appropriately, I can start making more complex queries. 
-Some queries of varying complexity have taken 2+ minutes to return due to traffic on the Edlab servers, amongst other things.</del> In addition, the Database and the Site (hosted on the same server) have often been going down for half a day at a time. This is out of our control and affects our development process.  
-
-
-The code and styles are subject to change and are not currently final.
-
-**NOTE:**
-There are so many PHP files in the main directory as the php-wrapper that was written for our site (which we do not host) can only read PHP files from main directory. Thus is the reason for having to include CSS/JPG/PNG files awkwardly with PHP.
-
-<i>UPDATE 4/25/14:</i> We were given a way to avoid this; will change when I come accross any awkward includes.
 
 <h1>DAILY/WEEKLY GOALS</h1>
 4/8-4/13: <del>(DB/site down 4/7)</del> <del>(DB/site down ~5:30PM on 4/9)</del>
@@ -246,6 +231,11 @@ There are so many PHP files in the main directory as the php-wrapper that was wr
 <li>Playlist addition bug fix</li>
 <li>New Source for Lyrics that has entire set of lyrics, not only 150 characters</li>
 <li>Piers pushed profilestats.php.</li>
+</ul>
+
+5/18
+<ul>
+<li>Initial actions taken to migrate site to new server </li>
 </ul>
 
 <h1>TO BE DONE: </h1>
