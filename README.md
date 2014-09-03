@@ -3,7 +3,7 @@ MusicNet-Early
 This is an early version of the MusicNet Project : A social network for music enthusiasts. Semester long project for CS445: Information Systems, Spring 2014.
 
 <h1> IMPORTANT INFORMATION </h1>
-We are currently working on migrating our site to a permament server, as we were choosen as the best project by our peers and Professor. The new site url is http://avid.cs.umass.edu/projects/course-project/Musicnet/ . <del> A lot of the code is changing to facilate this migration, so not all pages are functional as of yet. In addition, the database is empty as of 5/18/14, but we will be working to get the site and database running in the next few days. </del> Site is up and running, but will not be updated in the future. 
+We are currently working on migrating our site to a permament server, as we were choosen as the best project by our peers and Professor. The new site url is http://avid.cs.umass.edu/projects/course-project/Musicnet/ . <del> A lot of the code is changing to facilate this migration, so not all pages are functional as of yet. In addition, the database is empty as of 5/18/14, but we will be working to get the site and database running in the next few days.</del> Site is up and running, but will not be updated in the future. 
 
 
 <h1>Members</h1>
@@ -52,8 +52,8 @@ We are currently working on migrating our site to a permament server, as we were
 <li><del>Finish Friend Page and Friend logic</del></li>
 <li><del>Finish Playlist Page(profile) and playlist logic</del></li>
 <li><del>Fix Admin Shell Output</del></li>
-<li>Final Touches</li>
-<li>Testing and Bug Fixes</li>
+<li><del>Final Touches</del></li>
+<li><del>Testing and Bug Fixes</del></li>
 <li>
 
 <h1>UPDATES:</h1>
@@ -236,6 +236,13 @@ We are currently working on migrating our site to a permament server, as we were
 5/18
 <ul>
 <li>Initial actions taken to migrate site to new server </li>
+</ul>
+
+5/19-7/30
+<ul>
+<li>Site has been migrated to new host (link in description above </li>
+<li>Many bug fixes due to migration tasks</del></li>
+<li>Song chat disabled due to lack of time to fix bugs </li>
 </ul>
 
 <h1>TO BE DONE: </h1>
