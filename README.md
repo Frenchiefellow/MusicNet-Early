@@ -9,12 +9,8 @@ We are currently working on migrating our site to a permament server, as we were
 <h1>Members</h1>
 <ul>
 <li><strong>Chris (Owner of repo):</strong> Frontend Developer/Code Monkey </li>
-
 <li><strong>Ted:</strong> Database Testing and Optimization, Frontend Testing,  as well as Documentation.</li>
-<ul>
-</ul>
 <li><strong>Piers:</strong> Database Parsing, Creation, Maintenance, and Optimization. </li>
-
 </ul>
 
 
