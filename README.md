@@ -3,7 +3,7 @@ MusicNet-Early
 This is an early version of the MusicNet Project : A social network for music enthusiasts. Semester long project for CS445: Information Systems, Spring 2014.
 
 <h1> IMPORTANT INFORMATION </h1>
-We are currently working on migrating our site to a permament server, as we were choosen as the best project by our peers and Professor. The new site url is http://avid.cs.umass.edu/projects/course-project/Musicnet/ . A lot of the code is changing to facilate this migration, so not all pages are functional as of yet. In addition, the database is empty as of 5/18/14, but we will be working to get the site and database running in the next few days. 
+We are currently working on migrating our site to a permament server, as we were choosen as the best project by our peers and Professor. The new site url is http://avid.cs.umass.edu/projects/course-project/Musicnet/ . <del> A lot of the code is changing to facilate this migration, so not all pages are functional as of yet. In addition, the database is empty as of 5/18/14, but we will be working to get the site and database running in the next few days. </del> Site is up and running, but will not be updated in the future. 
 
 
 <h1>Members</h1>
