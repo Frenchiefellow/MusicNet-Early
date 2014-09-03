@@ -231,7 +231,7 @@ We are currently working on migrating our site to a permament server, as we were
 
 5/19-7/30
 <ul>
-<li>Site has been migrated to new host (link in description above </li>
+<li>Site has been migrated to new host (link in description above) </li>
 <li>Many bug fixes due to migration tasks</del></li>
 <li>Song chat disabled due to lack of time to fix bugs </li>
 </ul>
