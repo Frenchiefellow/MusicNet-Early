@@ -5,10 +5,12 @@ This is an version of the MusicNet Project : A social network for music enthusia
 <h1> IMPORTANT INFORMATION </h1>
 We are currently working on migrating our site to a permament server, as we were choosen as the best project by our peers and Professor. The new site url is http://avid.cs.umass.edu/projects/course-project/Musicnet/ . <del> A lot of the code is changing to facilate this migration, so not all pages are functional as of yet. In addition, the database is empty as of 5/18/14, but we will be working to get the site and database running in the next few days.</del> Site is up and running, but will not be updated in the future. 
 
+<h2> NOTE: The current source code is not what is currently hosted at the site listed above. It is the code from pre-migration </h2>
+
 
 <h1>Members</h1>
 <ul>
-<li><strong>Chris (Owner of repo):</strong> Frontend Developer/Code Monkey </li>
+<li><strong>Chris (Owner of repo):</strong> Frontend Developer, Database tweeking, and a little bit of everything else! </li>
 <li><strong>Ted:</strong> Database Testing and Optimization, Frontend Testing,  as well as Documentation.</li>
 <li><strong>Piers:</strong> Database Parsing, Creation, Maintenance, and Optimization. </li>
 </ul>
