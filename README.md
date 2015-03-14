@@ -9,7 +9,7 @@ We are currently working on migrating our site to a permament server, as we were
 
 <h1> SPECIAL UPDATE </h1>
 <p>MusicNet is currently being updated (likely for the last time). We are currently bug fixing, correcting some CSS issues, as well as adding some new features such as implementation of my <a href="https://github.com/Frenchiefellow/Web-Audio-Visualizer"> Visualizer</a> to the Song Page. </p><br>
-<p>The reason behind the update is that MusicNet will be presented on April 11th, 2015, during The University of Massachusetts-Amherst<a href="http://www.umass.edu/massnanotech/scienceQUEST/">ScienceQUEST</a>. Ted, Piers, and myself will presenting MusicNet as part of an effort to stimulate and encourage interest in Computer Science in High School Students (grades 10-12). We will be ambassadors of the School of Computer Science and look forward to impressing the students with our project and presentation.</p> 
+<p>The reason behind the update is that MusicNet will be presented on April 11th, 2015, during The University of Massachusetts-Amherst <a href="http://www.umass.edu/massnanotech/scienceQUEST/">ScienceQUEST</a>. Ted, Piers, and myself will presenting MusicNet as part of an effort to stimulate and encourage interest in Computer Science in High School Students (grades 10-12). We will be ambassadors of the School of Computer Science and look forward to impressing the students with our project and presentation.</p> 
 
 
 <h1>Members</h1>
