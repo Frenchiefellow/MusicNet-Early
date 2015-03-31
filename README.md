@@ -5,12 +5,12 @@ This is an version of the MusicNet Project : A social network for music enthusia
 <h1> IMPORTANT INFORMATION </h1>
 We are currently working on migrating our site to a permament server, as we were choosen as the best project by our peers and Professor. The new site url is http://avid.cs.umass.edu/projects/course-project/Musicnet/ . <del> A lot of the code is changing to facilate this migration, so not all pages are functional as of yet. In addition, the database is empty as of 5/18/14, but we will be working to get the site and database running in the next few days.</del> Site is up and running, but will not be updated in the future. 
 
-<h3> NOTE: The current source code is not what is currently hosted at the site listed above. It is the code from pre-migration. </h3>
+
 
 <h1> SPECIAL UPDATE 3/14/15: </h1>
 <p>MusicNet is currently being updated (likely for the last time). We are currently bug fixing, correcting some CSS issues, as well as adding some new features such as implementation of my <a href="https://github.com/Frenchiefellow/Web-Audio-Visualizer"> Visualizer</a> to the Song Page. </p>
 <p>The reason behind the update is that MusicNet will be presented on April 11th, 2015, during The University of Massachusetts-Amherst <a href="http://www.umass.edu/massnanotech/scienceQUEST/">ScienceQUEST</a>. Ted, Piers, and myself will presenting MusicNet as part of an effort to stimulate and encourage interest in Computer Science in High School Students (grades 10-12). We will be ambassadors of the School of Computer Science and look forward to impressing the students with our project and presentation.</p> 
-<p>The source code may or may not be committed here.</p>
+
 
 
 <h1>Members</h1>
@@ -243,7 +243,7 @@ We are currently working on migrating our site to a permament server, as we were
 <li>Song chat disabled due to lack of time to fix bugs </li>
 </ul>
 
-3/12/15: VISUALIZER COMMIT
+3/31/15: VISUALIZER COMMIT
 <ul>
 <li>A simple ball visualizer has been implemented into the Song Page</li>
  <ul>
@@ -251,7 +251,8 @@ We are currently working on migrating our site to a permament server, as we were
  <li>The Visualizer currently plays on page load using 30 second Preview_URL provided per track by Spotify.</li>
  <li>CSS of the Visualizer has not been handled yet, but will be in the future.</li>
  </ul>
-<li> Minor CSS fixes. </li>
+<li> Minor CSS fixes and scaling responsiveness. </li>
+<li> Bug Fixes and other improvements. </li>
 </ul>
 
 <h1>TO BE DONE: </h1>
@@ -265,8 +266,6 @@ We are currently working on migrating our site to a permament server, as we were
 <li><del>Song Chat?</del></li>
 <li><del>Fix Admin Shell Output</del></li>
 <li>Fix CSS issues</li>
-<li>Finish CSS and implementation of Visualizer</li>
-<li>Investigate socket.io php branch for reimplementation of Song Chat?</li>
-<li>Investigate lyrics retrival issues and reimplement?</li>
+<li><del>Finish CSS and implementation of Visualizer</del></li>
 <li>Disable Facebook forced log in?</li>
 </ul>
