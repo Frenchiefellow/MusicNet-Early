@@ -248,8 +248,10 @@ We are currently working on migrating our site to a permament server, as we were
 <li>My 3 working visualizers have been implemented into the Song Page</li>
  <ul>
  <li>The Lyrics module has been disabled due to retrieval issues and to facilitate the Visualizer (page real-estate).</li>
- <li>The Visualizers currently play using 30 second Preview_URL provided per track by Spotify.</li>
+ <li>The Visualizers currently play using 30 second Preview_URL MP3 provided per track by Spotify.</li>
  </ul>
+<li> Fixed Facebook Login Button CSS issue by making it the icon version </li>
+<li> New Background for Recommened.php (old one went MIA) </li>
 <li> Minor CSS fixes and scaling responsiveness. </li>
 <li> Bug Fixes and other improvements. </li>
 </ul>
