@@ -245,11 +245,10 @@ We are currently working on migrating our site to a permament server, as we were
 
 3/31/15: VISUALIZER COMMIT
 <ul>
-<li>A simple ball visualizer has been implemented into the Song Page</li>
+<li>My 3 working visualizers have been implemented into the Song Page</li>
  <ul>
  <li>The Lyrics module has been disabled due to retrieval issues and to facilitate the Visualizer (page real-estate).</li>
- <li>The Visualizer currently plays on page load using 30 second Preview_URL provided per track by Spotify.</li>
- <li>CSS of the Visualizer has not been handled yet, but will be in the future.</li>
+ <li>The Visualizers currently play using 30 second Preview_URL provided per track by Spotify.</li>
  </ul>
 <li> Minor CSS fixes and scaling responsiveness. </li>
 <li> Bug Fixes and other improvements. </li>
