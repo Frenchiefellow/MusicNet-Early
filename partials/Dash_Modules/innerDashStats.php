@@ -1,4 +1,4 @@
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style='height: 100%'>
     <h1 class="page-header"><?php if(isset($_GET['user'])){echo $_GET['user'];} else{ echo "undefined";}; ?>: Stats</h1>
 
     <style>
@@ -12,23 +12,23 @@
     </style>
   
     <?php
-    $connection = @new mysqli( "cs445sql", "crpeters", "EL159crp", "clp" );
+   	//DB Connections
 
-    $stmt = $connection->prepare( 'SELECT count( plays ) FROM UserInteraction  WHERE loginacct = ? AND plays > 0' );
+    $stmt = $connection->prepare( 'SELECT count( plays ) FROM UserInteraction WHERE loginacct = ? AND plays > 0' );
 	$stmt->bind_param( 's',  $_GET['user']);
 	$stmt->execute();
 	$stmt->bind_result( $plays );
 	while ($stmt->fetch()){
 			if( $plays != 0 )
-				echo '<div class="stat" style="margin-top: 8.7%"> Songs Played: <strong> ' . $plays . '</strong></div>' ;
+				echo '<div class="stat" style="margin-top: 2%"> Songs Played: <strong> ' . $plays . '</strong></div>' ;
 			else{
-				echo '<div class="stat" style="margin-top: 8.7%">Songs Played: <strong> ' .  0 . '</strong></div>' ;
+				echo '<div class="stat" style="margin-top: 2%">Songs Played: <strong> ' .  0 . '</strong></div>' ;
 			}
 			
 	}
 	$stmt->close();
 
-	$stmt = $connection->prepare( 'SELECT sum(plays) FROM UserInteraction WHERE loginacct = ? AND plays > 0' );
+	$stmt = $connection->prepare( 'SELECT sum( plays ) FROM UserInteraction WHERE loginacct = ? AND plays > 0' );
 	$stmt->bind_param( 's',  $_GET['user']);
 	$stmt->execute();
 	$stmt->bind_result( $plays );
@@ -102,7 +102,7 @@
 	$stmt -> execute();
 	$stmt -> bind_result( $topartist, $artID );
 	while( $stmt-> fetch()){
-		echo "<div class='stat'> Your most popular artist is <strong><a href='http://cs445.cs.umass.edu/php-wrapper/clp/artist.php?id=" . $artID . "'>" . $topartist . "</a></strong>. </div>"; 
+		echo "<div class='stat'> Your most popular artist is <strong><a href='http://avid.cs.umass.edu/projects/course-project/Musicnet/artist.php?id=" . $artID . "'>" . $topartist . "</a></strong>. </div>"; 
 	}
 	$stmt->close();
 

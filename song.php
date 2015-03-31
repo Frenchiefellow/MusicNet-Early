@@ -1,31 +1,41 @@
 
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/Scripts/checkMusic.php'; ?>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/header.php'; ?>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/navbarProfile.php'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/Scripts/checkMusic.php'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/header.php'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/navbarProfile.php'; ?>
 
+<script src= './Scripts/responsive.js'></script>
+<script src="./Scripts/bootstrap-switch-master/dist/js/bootstrap-switch.js"></script>
+
+
+
+<script>
+	$(document).ready(function(){
+		onWindowResizeResp();
+		window.addEventListener('resize', onWindowResizeResp, false);
+	});
+</script>
 
 <style>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/Scripts/bootstrap-switch-master/dist/css/bootstrap3/bootstrap-switch.css'; ?>
 html, body {
 	height: 100%;
 	width: 100%;
-	margin: auto;
+	margin: 0;
 	overflow: auto;
-	min-height: 100%;
 	padding-bottom: 40px;
 	background-image: url('http://www.psdgraphics.com/file/music-equalizer.jpg');
 	background-size:  100%;
 }
 </style>
 
-
-<div style="height: 75%; ">
-<div class="jumbotron" style="position: relative; text-align: center; margin: auto; overflow: hidden; width: 100; height: 240px; background-color: rgba(128, 128, 128, .7);">
-<div style="border: 10px solid black; height: 120px; border-radius: 10px; background-color: black;">
-<div style="height: 134px;">
-<div class="col-sm-2" style="margin: auto; background-color: #FC1501; border-left: 2px solid #eee; border-top: 2px solid #eee; border-bottom: 2px solid #eee; border-radius: 10px 0px 0px 10px; height: 134px;"><br><br>
+<div style="height: 100%; ">
+<div class="jumbotron" style="position: relative; text-align: center; margin: auto; overflow: hidden; width: 100%; height: 50%; background-color: rgba(128, 128, 128, .7); min-height: 200px; max-height: 210px;">
+<div style="position: absolute; top: 17%; border: 10px solid black; height: 60%; width: 95%; border-radius: 10px; background-color: black; min-height: 120px;">
+<div style="height: 115%;">
+<div class="col-sm-2"  id='refHeight' style="margin: auto; background-color: #FC1501; border-left: 2px solid #eee; border-top: 2px solid #eee; border-bottom: 2px solid #eee; border-radius: 10px 0px 0px 10px; height: 100%; width: 16.66%"><br><br>
 <div style="color: white;">Total Plays: </div>
 <div id="res" style="color: white;"><?php 
-		$connection = @new mysqli( /*removed*/ );
+//DB CONNECTION
 		$song = $_GET[ 'id' ];
 		$stmt = $connection->prepare( 'SELECT playcount FROM Song WHERE songid = ?' );
 		$stmt->bind_param( 's',  $song);
@@ -39,7 +49,7 @@ html, body {
 		echo 0;
 		}
 		}
-		?></div><br><br>
+		?></div>
 </div>
 
 
@@ -47,27 +57,27 @@ html, body {
 <?php
 if( isset( $_SESSION[ 'username' ] ) ){
 	$id = $_GET[ 'id' ];
-	echo '<div class="col-sm-2" style="background-color: #FFFF00; border-top: 2px solid #eee; border-bottom: 2px solid #eee; height: 134px">';
-	echo '<a onclick="updatePlaylists(\'' . $id . '\')"><img src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/button.png" style="width=80px; height: 80px;"></a><br>';
+	echo '<div class="col-sm-2" style="background-color: #FFFF00; border-top: 2px solid #eee; border-bottom: 2px solid #eee; height: 100%;  width: 16.66%"><br>';
+	echo '<a onclick="updatePlaylists(\'' . $id . '\')"><img src="http://avid.cs.umass.edu/projects/course-project/Musicnet/resources/images/button.png" style="width=60%; height: 50%; cursor: pointer"></a><br>';
 	echo '<a onclick="updatePlaylists(\'' . $id . '\')" class="btn btn-success">Add to Playlist!</a>'; 
 }
 else{
-	echo '<div class="col-sm-2" style="background-color: #FFFF00; border-top: 2px solid #eee; border-bottom: 2px solid #eee; height: 134px">';
-	echo "<br><br><a href='http://cs445.cs.umass.edu/php-wrapper/clp/splash.php' class='btn btn-warning'>Log In to <br> Add to Playlist!</a><br><br>";
+	echo '<div class="col-sm-2" style="background-color: #FFFF00; border-top: 2px solid #eee; border-bottom: 2px solid #eee; height: 100%">';
+	echo "<br><br><a href='http://avid.cs.umass.edu/projects/course-project/Musicnet/splash.php' class='btn btn-warning'>Log In to <br> Add to Playlist!</a><br><br>";
 }
 ?>
 
 </div>
-<div class="col-sm-4" id="sHold" style="background-color: #4EEE94; padding-bottom: 5px; border-top: 2px solid #eee; border-bottom: 2px solid #eee;">
-<div id="songname"><?php 
-		$connection = @new mysqli( /*removed*/ );
+<div class="col-sm-4" id="sHold" style="background-color: #4EEE94; padding-bottom: 7.5px; border-top: 2px solid #eee; border-bottom: 2px solid #eee; height: 100%;  width: 33.3%">
+<div id="songname" style='height: 15%;'><?php 
+//DB CONNECTION
 		$song = $_GET[ 'id' ];
 		$stmt = $connection->prepare( 'SELECT title FROM Song WHERE songid = ?' );
 		$stmt->bind_param( 's',  $song );
 		$stmt->execute();
 		$stmt->bind_result( $title );
 		while($row = $stmt->fetch()){
-		echo substr( $title, 0 , 50) . " by:  <a href='http://cs445.cs.umass.edu/php-wrapper/clp/artist.php?id="; 
+		echo substr( $title, 0 , 50) . " by:  <a href='http://avid.cs.umass.edu/projects/course-project/Musicnet/artist.php?id="; 
 		}
 		$stmt = $connection->prepare( 'SELECT A.artistname, A.artistid FROM Artist A, Linked_To L WHERE L.songid = ? AND L.artistid = A.artistid' );
 		$stmt->bind_param( 's',  $song );
@@ -79,21 +89,23 @@ else{
 
 
 		?></div>
-<div id='player'>
+<div id='player' style='height: 70%;'>
 </div>
-<div><?php 
-		$stmt = $connection->prepare( 'select A.albumname, A.albumid from Album A, Linked_To L where L.songid = ? and L.albumid = A.albumid' );
+<div id="albumName" style='height: 15%;'><?php 
+		$stmt = $connection->prepare( 'SELECT A.albumname, A.albumid FROM Album A, Linked_To L WHERE L.songid = ? AND L.albumid = A.albumid' );
 		$stmt->bind_param( 's',  $song );
 		$stmt->execute();
 		$stmt->bind_result( $name, $aID );
 		while($row = $stmt->fetch()){
-			if( $name != '' ){
-				echo "<a href='http://cs445.cs.umass.edu/php-wrapper/clp/album.php?id=" . $aID . "'>" . $name . "</a>";
+			if( $name != '' || $name != NULL ){
+				echo "<a href='http://avid.cs.umass.edu/projects/course-project/Musicnet/album.php?id=" . $aID . "'>" . $name . "</a>";
 			}
 			else{
-				echo "<a href='http://cs445.cs.umass.edu/php-wrapper/clp/album.php?id=" . $aID . "'>ALBUM</a>";
+				echo "<a href='http://avid.cs.umass.edu/projects/course-project/Musicnet/album.php?id=" . $aID . "'>ALBUM</a>";
 			}
 		}
+		
+
 
 
 
@@ -109,7 +121,7 @@ else{
 		if( !isset ( $_SESSION[ 'username' ] ) ){
 			$Logged = false;
 		}
-		$stmt = $connection->prepare( 'select rating from UserInteraction where songid = ? and loginacct = ?' );
+		$stmt = $connection->prepare( 'SELECT rating from UserInteraction where songid = ? and loginacct = ?' );
 		$stmt->bind_param( 'ss',  $song, $_SESSION[ 'username' ] );
 		$stmt->execute();
 		$stmt->bind_result( $rating );
@@ -126,7 +138,7 @@ else{
 
 		
 		if ( $Logged === true ){
-		echo '<div class="col-sm-2" style="background-color: #007FFF; height: 134px; border-top: 2px solid #eee; border-bottom: 2px solid #eee; "><br>';
+		echo '<div class="col-sm-2" style="background-color: #007FFF; height: 100%; border-top: 2px solid #eee; border-bottom: 2px solid #eee;  width: 16.66% "><br>';
 		echo '<form method="post" action="' . $_SERVER['REQUEST_URI'] .'">
 		<label for="rating">Rating:</label><br>';
 		if( $prevRate != 0){
@@ -168,8 +180,8 @@ else{
 		 echo '>5</option>';
 		}
 		else{
-			echo '<div class="col-sm-2" style="background-color: #007FFF; height: 134px; border-top: 2px solid #eee; border-bottom: 2px solid #eee; "><br>';
-			echo "<br><a href='http://cs445.cs.umass.edu/php-wrapper/clp/splash.php' class='btn btn-warning'>Log In to Rate!</a>";
+			echo '<div class="col-sm-2" style="background-color: #007FFF; height: 100%; border-top: 2px solid #eee; border-bottom: 2px solid #eee;  width: 16.66%"><br>';
+			echo "<br><a href='http://avid.cs.umass.edu/projects/course-project/Musicnet/splash.php' class='btn btn-warning'>Log In to Rate!</a>";
 		}
 		?>
 	</select>
@@ -177,10 +189,10 @@ else{
 		
 </div>
 
-<div class ='col-sm-2' style="margin: auto; background-color:  #9A32CD; border-top: 2px solid #eee; border-bottom: 2px solid #eee; border-right: 2px solid #eee; border-radius: 0px 10px 10px 0px; height: 134px;"><br><br>
+<div class ='col-sm-2' style="margin: auto; background-color:  #9A32CD; border-top: 2px solid #eee; border-bottom: 2px solid #eee; border-right: 2px solid #eee; border-radius: 0px 10px 10px 0px; height: 100%;  width: 16.66%"><br><br>
 <div style="color: white;">Average Rating: </div>
 <div id="rate" style="color: white;"><?php 
-		$connection = @new mysqli( /*removed*/ );
+		//DB CONNECTION
 		$song = $_GET[ 'id' ];
 		$stmt = $connection->prepare( 'SELECT rating FROM Song WHERE songid = ?' );
 		$stmt->bind_param( 's',  $song);
@@ -200,11 +212,12 @@ else{
 </div>
 </div>
 </div>
+<div style="height: 9%"></div>
 <?php
-	$connection = @new mysqli( /*removed*/ );
+	//DB CONNECTION
 	$stmt = $connection->query( 'SELECT songid FROM Song ORDER BY rand() LIMIT 1' );
 	while( $row = $stmt->fetch_assoc() ){
-		echo '<br><a class="btn btn-danger" style=" margin-top: .3%;" href="http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=' . $row[ 'songid' ] . '">Random Song!</a>';
+		echo '<br><a class="btn btn-danger" style="" href="http://avid.cs.umass.edu/projects/course-project/Musicnet/song.php?id=' . $row[ 'songid' ] . '">Random Song!</a>';
 	}
 	$stmt->close();
 	$connection->close();
@@ -212,19 +225,29 @@ else{
 
 ?>
 </div>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/earth.php'; ?>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/lyrics.php'; ?>
+<div style="height: 5%;"></div>
+ <!-- href="http://webvisualizer.herokuapp.com" title="Click to go to the Visualizer!"-->
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/earth.php'; ?>
+<div id="mid"></div>
+
+<div id='viz'></div>
+<!-- 
+<div id="switchHolder" style="position: relative;">
+	<input type='checkbox' name="my-checkbox" checked>
+</div>
+-->
 </div>
 
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/chat.php'; ?>
 
 
 
 
-<script type="text/javascript">
+<script src="./Scripts/Visualizer.js"></script>
+
+<script>
+
 function fetchSpotify() {
     var songname = $('#songname').text().split(' by: ');
-
 
   
     $.ajax({
@@ -234,7 +257,7 @@ function fetchSpotify() {
 
         },
         success: function (resp) {
-        	console.dir(resp);
+        	//console.dir(resp);
             var title;
             if (songname[1].indexOf(";") > -1) {
                 title = songname[1].substring(1, songname[1].indexOf(';'));
@@ -254,12 +277,31 @@ function fetchSpotify() {
             }
             if (link != null) {
 
+            	var trackParser = link.split(":");
+            	var spotID = trackParser[2];
+            	var previewURL;
+
+            	$.ajax({
+            		type: "GET",
+            		url: "https://api.spotify.com/v1/tracks/" + spotID,
+            		error: function (e){console.log("error time");},
+            		success: function(track){
+            			//console.dir(track);
+            			previewURL = track["preview_url"];
+            			//console.log(previewURL);
+            			IntializeVisualizer(previewURL, 1);
+            		
+            		}
+            	});
+            	
+        
+            	
 
                 var node = document.createElement('iframe');
                 node.id = 'spot';
                 node.setAttribute('style', 'width: 100%;');
-                node.setAttribute('height', '80');
-                node.setAttribute('z-index', '2');
+                node.setAttribute('height', '100%;');
+                
                 node.setAttribute('name', 'spty');
                 node.setAttribute('src', 'https://embed.spotify.com/?uri=' + link);
                 node.setAttribute('frameborder', '0');
@@ -297,12 +339,29 @@ function fetchSpotify() {
                         }
                         if (link != null) {
 
+                        	   	var trackParser = link.split(":");
+            	var spotID = trackParser[2];
+            	var previewURL;
+
+            	$.ajax({
+            		type: "GET",
+            		url: "https://api.spotify.com/v1/tracks/" + spotID,
+            		error: function (e){console.log("error time");},
+            		success: function(track){
+            			//console.dir(track);
+            			previewURL = track["preview_url"];
+            			//console.log(previewURL);
+            			IntializeVisualizer(previewURL, 1);
+            			
+            		}
+            	});
+
 
                             var node = document.createElement('iframe');
                             node.id = 'spot';
                             node.setAttribute('style', 'width: 100%;');
-                            node.setAttribute('height', '80');
-                            node.setAttribute('z-index', '2');
+                            node.setAttribute('height', '100%');
+   
                             node.setAttribute('name', 'spty');
                             node.setAttribute('src', 'https://embed.spotify.com/?uri=' + link);
                             node.setAttribute('frameborder', '0');
@@ -347,12 +406,29 @@ function fetchSpotify() {
                                     }
                                     if (link != null) {
 
+                                    	   	var trackParser = link.split(":");
+            	var spotID = trackParser[2];
+            	var previewURL;
+
+            	$.ajax({
+            		type: "GET",
+            		url: "https://api.spotify.com/v1/tracks/" + spotID,
+            		error: function (e){ console.log("error time");},
+            		success: function(track){
+            			//console.dir(track);
+            			previewURL = track["preview_url"];
+            			//console.log(previewURL);
+            			IntializeVisualizer(previewURL, 1);
+            			
+            		}
+            	});
+
 
                                         var node = document.createElement('iframe');
                                         node.id = 'spot';
                                         node.setAttribute('style', 'width: 100%;');
-                                        node.setAttribute('height', '80');
-                                        node.setAttribute('z-index', '2');
+                                        node.setAttribute('height', '100%');
+                                       
                                         node.setAttribute('name', 'spty');
                                         node.setAttribute('src', 'https://embed.spotify.com/?uri=' + link);
                                         node.setAttribute('frameborder', '0');
@@ -373,7 +449,7 @@ function fetchSpotify() {
                                         node.id = 'music';
                                         node.setAttribute('type', 'audio/mpeg');
                                         node.setAttribute('style', 'width: 100%; height: 60px;');
-                                        node.setAttribute('src', 'http://cs445.cs.umass.edu/groups/clp/www/resources/sounds/nosong.ogg');
+                                        node.setAttribute('src', 'http://avid.cs.umass.edu/projects/course-project/Musicnet/resources/sounds/nosong.ogg');
                                         node.setAttribute('controls', '');
                                         var textnode = document.createTextNode("Your browser does not support this audio format.");
                                         node.appendChild(textnode);
@@ -423,6 +499,7 @@ $(document).ready(function () {
 
 });
 </script>
+
 <script type="text/javascript">
 function incrementPlay() {
 			var songid = window.location.search.substring( 4 );
@@ -449,9 +526,11 @@ function incrementPlay() {
 
 
 
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/bottombar.php'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/bottombar.php'; ?>
 
 <!--SODGVGW12AC9075A8D-->
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src='http://cs445.cs.umass.edu/groups/clp/www/Scripts/updates.js'></script>
+<script type="text/javascript" src='http://avid.cs.umass.edu/projects/course-project/Musicnet/Scripts/updates.js'></script>
+<script src="./Scripts/bootstrap-switch-master/dist/js/bootstrap-switch.js"></script>
+<script src= './Scripts/responsive.js'></script>

@@ -2,7 +2,7 @@
 if ( !isset( $_SESSION ) ) {
 	session_start();
 }
-echo '<form action="http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=' . $_SESSION[ 'username' ] . '" class="navbar-form navbar-right" role="form" method="post">' . '<button type="submit" class="btn btn-success" >Back to Profile</button></form>';
+echo '<form action="http://avid.cs.umass.edu/projects/course-projects/Musicnet/profile.php?user=' . $_SESSION[ 'username' ] . '" class="navbar-form navbar-right" role="form" method="post">' . '<button type="submit" class="btn btn-success" >Back to Profile</button></form>';
 ?>
 
 <form method="post" action="<?php
@@ -40,17 +40,17 @@ if ( isset( $_SESSION ) ) {
 					$text  = $_POST[ 'query' ];
 					$query = mysql_real_escape_string( $text );
 					echo 'Query: ' . $text . "<br>\n";
-					$connection = mysql_connect( /*removed*/ );
+					//DB CONNECTION
 					if ( !$connection ) {
 						die( "Couldn't connect to mysql server!<br>The error was: " . mysql_error() );
 					} else {
 						echo "Connection Status: Successful!<br>\n";
 					}
-					if ( !mysql_select_db( "clp" ) )
+					if ( !mysql_select_db( "Music" ) )
 						die( "Couldn't select a database!<br> Error: " . mysql_error() );
 					else
 						echo "Database Status: Connected!<br><br>\n";
-					$db        = 'clp';
+					$db        = 'Music';
 					$starttime = microtime( true );
 					$result    = mysql_query( $text );
 					$endtime   = microtime( true );
@@ -100,7 +100,7 @@ if ( isset( $_SESSION ) ) {
 		}
 	}
 }
-echo '<form action="http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=' . $_SESSION[ 'username' ] . '" class="navbar-form navbar-right" role="form" method="post">' . '<button type="submit" class="btn btn-success" >Back to Profile</button></form>';
+echo '<form action="http://avid.cs.umass.edu/projects/course-projects/Musicnet/profile.php?user=' . $_SESSION[ 'username' ] . '" class="navbar-form navbar-right" role="form" method="post">' . '<button type="submit" class="btn btn-success" >Back to Profile</button></form>';
 
 
 function contains( $str, array $arr )

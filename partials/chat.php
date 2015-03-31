@@ -15,7 +15,7 @@ echo '<div class="chat_wrapper" style="position: relative; border: 1px solid #ee
     <br>
 	<div class="hold" style="margin: auto; height: 15%;">
 	<form name="message_box" method="post" style="margin-left: 5%">
-		<input type="text" name="message" id="message" placeHolder="Type Message Here" style="width: 30%; "/>
+		<input type="text" name="message" id="messages" placeHolder="Type Message Here" style="width: 30%; "/>
 		<input id="sbutton" type="button" value="Send">
 	</form>
     <br>
@@ -24,21 +24,20 @@ echo '<div class="chat_wrapper" style="position: relative; border: 1px solid #ee
 }
 else{
 echo '<div class="chat_wrapper" style="position: relative; width: 8.1%; margin: auto;">
-	<a href="http://cs445.cs.umass.edu/php-wrapper/clp/splash.php" class="btn btn-warning" style="border: 1px solid #eee; border-radius: 5px;">Log In To View Chat</a>
+	<a href="http://avid.cs.umass.edu/projects/course-project/Musicnet/splash.php" class="btn btn-warning" style="border: 1px solid #eee; border-radius: 5px;">Log In To View Chat</a>
 	</div>';
 }
 
 ?>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
 <script language="javascript" type="text/javascript">  
 $(document).ready(function(){
-	setInterval(loadLog, 100);
+    setInterval(loadLog, 100);
 $( '#sbutton' ).click( function(){ 
- 	var msg = $( '#message' ).val();
+    var msg = $( '#messages' ).val();
     var id = window.location.search.substring( 4 );
 
- 	 $.ajax({
+     $.ajax({
         type: 'POST',
         url: 'Scripts/chatHandler.php',
         data: { text: msg, songID: id }, 
@@ -47,15 +46,17 @@ $( '#sbutton' ).click( function(){
         alert( e );
         },
         success: function( response4 ){
-      	$( '#message' ).attr("value", "");
+       $( '#messages' ).val('');
+
         }
     }); 
 });
- 	 function loadLog(){     
+
+     function loadLog(){     
     
     $.ajax({
-    	type: 'GET',
-        url: "http://cs445.cs.umass.edu/groups/clp/www/Scripts/log.html",
+        type: 'GET',
+        url: "http://avid.cs.umass.edu/projects/course-project/Musicnet/Scripts/log.html",
         datatype: 'jsonp',
         success: function(html){ 
  

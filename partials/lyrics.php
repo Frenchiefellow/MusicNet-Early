@@ -2,7 +2,7 @@
 <h4 style="color: white; text-align: center">Lyrics:</h4>
 <div id="lyBod" ></div>
 <div style="text-align: center">
-<a id="u" class='btn btn-primary'>Read More Lyrics Here!</a></div>
+<!-- <a id="u" class='btn btn-primary'>Read More Lyrics Here!</a></div> -->
 
 </div>
 <script>

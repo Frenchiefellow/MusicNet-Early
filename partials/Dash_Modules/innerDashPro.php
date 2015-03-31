@@ -1,9 +1,9 @@
 
 
-<style><?php include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/profile.css'; ?></style>
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style = "margin-top: -2%;">      
+<style><?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/bs/css/profile.css'; ?></style>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style = "margin-top: -2%; height: 100%">      
 <h1 class="page-header" style="margin-top: 2%;"><?php echo $_GET['user']; ?>: Profile</h1>
-<div class="outline">
+<div class="outline" >
 
     <div class="row desc">
 
@@ -15,7 +15,7 @@
         	$you = $_SESSION[ 'username' ];
         	}
 
-        	$connection = @new mysqli( /*removed*/ );
+        	//DB connection
         	$stmt = $connection->prepare( 'SELECT FBid FROM User WHERE loginacct = ?' );
 			$stmt->bind_param( 's',  $them );
 			$stmt->execute();
@@ -34,7 +34,7 @@
 				echo '<img class="profImg" id="picture" src="https://graph.facebook.com/' . $FB . '/picture?type=large">';
 			}
 			else{
-				echo '<img class="profImg" id="picture" src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/default.png">';
+				echo '<img class="profImg" id="picture" src="http://avid.cs.umass.edu/projects/course-project/Musicnet/resources/images/default.png">';
 			}
 
 			?>
@@ -52,7 +52,7 @@
         	$you = $_SESSION[ 'username' ];
         	}
 		$them = $_GET[ 'user' ];
-	    $connection = @new mysqli( /*removed*/ );
+	    //DB Connections
 		$stmt = $connection->prepare( 'SELECT * FROM Friends WHERE ( loginacct1 = ? AND loginacct2= ? )' );
 		$stmt->bind_param( 'ss',  $you, $them );
 		$stmt->execute();
@@ -106,7 +106,7 @@
 	}
 
 	   else { echo '
-	   <p style="margin-top: 2%; margin-right: 0 auto; margin-left: 0 auto;"><a class="btn btn-danger stupidButton" href="http://cs445.cs.umass.edu/php-wrapper/clp/login.php" role="button">Sign Up!</a></p>';
+	   <p style="margin-top: 2%; margin-right: 0 auto; margin-left: 0 auto;"><a class="btn btn-danger stupidButton" href="http://avid.cs.umass.edu/projects/course-project/Musicnet/login.php" role="button">Sign Up!</a></p>';
 		} 
 	
 	?>
@@ -118,7 +118,7 @@
 	 <h3 class="coltitle">Basic Information:</h3>
 	 <div class="outlineAbout">
 		<p class="colPara"> Name: 	<?php 
-					    	$connection = @new mysqli( /*removed*/ );
+					    	//DB connection
 						$song = $_GET[ 'user' ];
 						$stmt = $connection->prepare( 'SELECT username FROM User WHERE loginacct = ?' );
 						$stmt->bind_param( 's',  $_GET['user']);
@@ -129,7 +129,7 @@
 						}
 						?></p>
 	 	<p class="colPara"> Age:	<?php 
-					    	$connection = @new mysqli( /*removed*/ );
+					    	//DB connection
 						$song = $_GET[ 'user' ];
 						$stmt = $connection->prepare( 'SELECT age FROM User WHERE loginacct = ?' );
 						$stmt->bind_param( 's',  $_GET['user']);
@@ -143,7 +143,7 @@
 						}
 						?></p> </p>
         	<p class="colPara"> Gender: <?php 
-					    	$connection = @new mysqli( /*removed*/ );
+					    	//DB connection
 						$song = $_GET[ 'user' ];
 						$stmt = $connection->prepare( 'SELECT ismale FROM User WHERE loginacct = ?' );
 						$stmt->bind_param( 's',  $_GET['user']);
@@ -162,14 +162,15 @@
 						}
 						?></p> </p>
 	 	<p class="colPara"> Location:<?php 
-					    	$connection = @new mysqli( /*removed*/ );
+					    	//DB connection
 						$song = $_GET[ 'user' ];
 						$stmt = $connection->prepare( 'SELECT userloc FROM User WHERE loginacct = ?' );
 						$stmt->bind_param( 's',  $_GET['user']);
 						$stmt->execute();
 						$stmt->bind_result( $loc );
 						while ($stmt->fetch()){
-						if( $loc != '' )
+						
+						if( $loc != '' && $loc != "[object Object]" )
 						echo ' ' . $loc;
 						else
 						echo ' Not Provided';
@@ -179,7 +180,7 @@
 	<h3 class="coltitle">Music Net Information:</h3>
 	<div class="outlineAbout">
 		<p class="colPara"> Songs Listened to: <?php 
-					    	$connection = @new mysqli( /*removed*/ );
+					    	//DB connection
 						$song = $_GET[ 'user' ];
 						$stmt = $connection->prepare( 'SELECT count( plays ) FROM UserInteraction  WHERE loginacct = ? AND plays > 0' );
 						$stmt->bind_param( 's',  $_GET['user']);
@@ -193,7 +194,7 @@
 						}
 						?></p>
 		<p class="colPara"> Songs Rated: <?php 
-					    	$connection = @new mysqli( /*removed*/ );
+					    	//DB connection
 						$song = $_GET[ 'user' ];
 						$stmt = $connection->prepare( 'SELECT count(rating) FROM UserInteraction WHERE loginacct = ? AND rating > 0' );
 						$stmt->bind_param( 's',  $_GET['user']);
@@ -207,7 +208,7 @@
 						}
 						?></p>
 	 	<p class="colPara"> Playlists Created: <?php 
-					    	$connection = @new mysqli( /*removed*/ );
+					    	//DB connection
 						$song = $_GET[ 'user' ];
 						$stmt = $connection->prepare( 'SELECT count(*) FROM Created WHERE loginacct = ?' );
 						$stmt->bind_param( 's',  $_GET['user']);
@@ -221,7 +222,7 @@
 						}
 						?></p>
 		<p class="colPara"> Followers: <?php 
-					    	$connection = @new mysqli( /*removed*/ );
+					    	//DB connection
 						$song = $_GET[ 'user' ];
 						$stmt = $connection->prepare( 'SELECT count(*) FROM Friends WHERE loginacct2= ?' );
 						$stmt->bind_param( 's',  $_GET['user'] );
@@ -242,8 +243,8 @@
 <h3 class='page-header listen'>Most Listened to </h3>
 
 <div class="row desc">
-	<?
-		$connection = @new mysqli( /*removed*/ );
+	<?php
+		//DB connection
         $user = $_GET[ 'user' ];
         $stmt = $connection->prepare( 'SELECT songid FROM UserInteraction WHERE loginacct = ? and plays > 0 ORDER BY plays LIMIT 6' );
         $stmt->bind_param( 's',  $user );
@@ -268,9 +269,9 @@
                 $stmt->bind_result( $title );
                 while ( $stmt->fetch() ){
                     echo '<div class="col-lg-2 tuxedo">'.
-         				 '<img class="img-circle Cimg" src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/vinyl.png" />' .
+         				 '<img class="img-circle Cimg" src="http://avid.cs.umass.edu/projects/course-project/Musicnet/resources/images/vinyl.png" />' .
          				 '<h2 class="colHeader">' . $title . '</h2>' .
-          				 '<span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=' . $arr[ $i ] . '" role="button">Listen!</a></span>' .
+          				 '<span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="http://avid.cs.umass.edu/projects/course-project/Musicnet/song.php?id=' . $arr[ $i ] . '" role="button">Listen!</a></span>' .
        					 '</div>';
                 }
             }
@@ -294,11 +295,11 @@
 
 <h3 class='page-header listen'>Highest Rated: </h3> 
 
-<div class ="row desc">
+<div class ="row desc tux2">
 	
 	<div class="row desc">
-	<?
-		$connection = @new mysqli( /*removed*/ );
+	<?php
+		//DB connection
         $user = $_GET[ 'user' ];
         $stmt = $connection->prepare( 'SELECT songid FROM UserInteraction WHERE loginacct = ? and rating > 0 ORDER BY rating desc LIMIT 6' );
         $stmt->bind_param( 's',  $user );
@@ -322,9 +323,9 @@
                 $stmt->bind_result( $title );
                 while ( $stmt->fetch() ){
                     echo '<div class="col-lg-2 tuxedo">'.
-         				 '<img class="img-circle Cimg" src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/vinyl.png" />' .
+         				 '<img class="img-circle Cimg" src="http://avid.cs.umass.edu/projects/course-project/Musicnet/resources/images/vinyl.png" />' .
          				 '<h2 class="colHeader">' . $title . '</h2>' .
-          				 '<span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=' . $arr[ $i ] . '" role="button">Listen!</a></span>' .
+          				 '<span style="display:inline;"><a style = "padding:5px; margin:0;" class="btn btn-success" href="http://avid.cs.umass.edu/projects/course-project/Musicnet/song.php?id=' . $arr[ $i ] . '" role="button">Listen!</a></span>' .
        					 '</div>';
                 }
             }
@@ -349,6 +350,10 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
+$(document).ready(function(){
+
+$('.tux2').height($('.tuxedo').height());
+
 $( '#friend' ).click( function(){
 	$.ajax({
                     type: 'POST',
@@ -371,15 +376,7 @@ $( '#friend' ).click( function(){
                     }
                 }); 
 });
-
-
-</script>
-
-<script>
-/*
-var src = 'https://graph.facebook.com/' + localStorage.getItem( 'profID' ) + '/picture?type=large';
-$(document).ready(function(){
-	$('#picture').attr('src', src);
-});*/
+})
 
 </script>
+

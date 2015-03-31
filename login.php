@@ -1,15 +1,15 @@
 <?php
-include '/courses/cs400/cs445/php-dirs/clp/www/partials/headerNoNav.php';
+include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/headerNoNav.php';
 ?>
 <div class="entire">
 <?php
-include '/courses/cs400/cs445/php-dirs/clp/www/partials/navbarPlain.php';
+include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/navbarPlain.php';
 ?>
 
 
 <style>
 <?php
-include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/splash.css';
+include '/nfs/avid/data1/html/projects/course-project/Musicnet/bs/css/splash.css';
 ?>
 </style> 
 <div class="jumbotron" id= "welcome" style="background-color: rgba(128, 128, 128, .85);">
@@ -86,16 +86,16 @@ include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/splash.css';
 <div class = 'holder'>
 <div class = 'imcontainer'>
 <img src='data:image/jpg;base64,<?php
-echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/guitar_2.jpg"));
+echo base64_encode(file_get_contents("/nfs/avid/data1/html/projects/course-project/Musicnet/resources/images/guitar_2.jpg"));
 ?>'>
 <img src='data:image/jpg;base64,<?php
-echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/girl.jpg"));
+echo base64_encode(file_get_contents("/nfs/avid/data1/html/projects/course-project/Musicnet/resources/images/girl.jpg"));
 ?>'>
 <img src='data:image/jpg;base64,<?php
-echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/acordian_2.jpg"));
+echo base64_encode(file_get_contents("/nfs/avid/data1/html/projects/course-project/Musicnet/resources/images/acordian_2.jpg"));
 ?>'>
 <img src='data:image/jpg;base64,<?php
-echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/resources/images/girl2_2.jpg"));
+echo base64_encode(file_get_contents("/nfs/avid/data1/html/projects/course-project/Musicnet/resources/images/girl2_2.jpg"));
 ?>'>
 </div>
 </div>
@@ -105,6 +105,6 @@ echo base64_encode(file_get_contents("/courses/cs400/cs445/php-dirs/clp/www/reso
 
 
 <?php
-include '/courses/cs400/cs445/php-dirs/clp/www/partials/bottombar.php';
+include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/bottombar.php';
 ?> 
 

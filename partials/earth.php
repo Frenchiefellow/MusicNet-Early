@@ -1,18 +1,18 @@
 
 
 <div id='tplays'>
-<h4 style="color: white; text-align: center">Listener's Locations:</h4>
 <div id="map3d" ></div>
 
+
 <?php 
-$connection = @new mysqli( /*removed*/ );
+//DB connection
 $id = $_GET[ 'id' ];
-$stmt = $connection->prepare( 'SELECT userloc, U.loginacct FROM User U, UserInteraction I WHERE U.loginacct = I.loginacct AND I.songid = ? and U.userloc is not NULL AND I.plays > 0 and U.userloc != "UMASS"' );
+$stmt = $connection->prepare( 'SELECT userloc, U.loginacct FROM User U, UserInteraction I WHERE U.loginacct = I.loginacct AND I.songid = ? and U.userloc is not NULL AND I.plays > 0 and U.userloc != "UMASS" LIMIT 50' );
 $stmt->bind_param( 's', $id );
 $stmt->execute();
 $stmt->bind_result( $location, $login);
 while( $stmt->fetch() ){
-echo '<div class="locations" style="display:none">' . $location .  '</div><br>';
+echo '<div class="locations" style="display:none">' . $location .  '</div>';
 }
 $stmt->close();
 $connection->close();
@@ -22,7 +22,7 @@ $connection->close();
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 <script>
-google.load("earth", "1", {"other_params":"sensor=true_or_false"});
+/*google.load("earth", "1", {"other_params":"sensor=true_or_false"});
 
 function init() {
   google.earth.createInstance('map3d', initCB, failureCB);
@@ -77,22 +77,24 @@ function initCB(instance) {
 
 }
 
-function failureCB(errorCode) {
-}
 
 
-google.setOnLoadCallback(init);
+google.setOnLoadCallback(init);*/
 </script>
 
 <script>
-
+$(document).ready(function(){
+	setSizes();
+});
+function setSizes(){
 var plays = document.getElementById( 'res' ).innerHTML;
-if( plays > 0 ){
-	$( '#tplays ').attr("style", "position: relative; border: 1px solid #eee; border-radius: 10px; width: 35%; height: 50%; float: left; margin-top: 2%; background-color: #eee; background-color: rgba(128, 128, 128, .7)" );
-	$( '#map3d' ).attr( "style", "height: 75%; width: 90%; margin: auto; padding-top: 2%;" );
+	if( plays > 0 ){
+		$( '#tplays ').attr("style", "position: relative; width: 33.33%; height: 52%; float: left;" );
+		$( '#map3d' ).attr( "style", "height: 75%; width: 90%; margin: auto; padding-top: 2%;" );
+	}
+	else{
+		$( '#tplays ').attr("style", "position: relative; width:33.34%; height: 52%;  margin: auto;" );
+		$( '#map3d' ).attr( "style", "height: 75%; width: 90%; margin: auto; padding-top: 2%; display:none;" );
 }
-else{
-	$( '#tplays ').attr("style", "position: relative; border: 1px solid #eee; border-radius: 10px; width: 35%; height: 50%;  margin: auto; margin-top: 2%; background-color: #eee; background-color: rgba(128, 128, 128, .7); display:none;" );
-	$( '#map3d' ).attr( "style", "height: 75%; width: 90%; margin: auto; padding-top: 2%; display:none;" );
-}
+};
 </script>

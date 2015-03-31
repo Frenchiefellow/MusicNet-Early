@@ -15,7 +15,7 @@ echo ' <div class="col-sm-3 col-md-2 sidebar">';
 	    <?php 
 	    $name = $_SERVER[ 'REQUEST_URI' ];
 	    if ( strpos( $name, 'discover.php' ) ){ echo '
-	    <li><a class="btn btn-primary" href="'; $url = "http://cs445.cs.umass.edu/php-wrapper/clp/discover.php"; echo $url; echo '">Discover New Music!</a></li>';} ?>
+	    <li><a class="btn btn-primary" href="'; $url = "http://avid.cs.umass.edu/projects/course-project/Musicnet/discover.php"; echo $url; echo '">Discover New Music!</a></li>';} ?>
 
           </ul>
     

@@ -1,18 +1,18 @@
 
 
 <?php
-include '/courses/cs400/cs445/php-dirs/clp/www/partials/headerNoNav.php';
+include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/headerNoNav.php';
 ?>
 
 <?php
-include '/courses/cs400/cs445/php-dirs/clp/www/partials/navbarPlain.php';
+include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/navbarPlain.php';
 ?>
 
 
 <div id="holder" class="jumbotron" style="position: relative; margin-top: 20%;"></div>
 
 <?php
-include '/courses/cs400/cs445/php-dirs/clp/www/partials/bottombar.php';
+include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/bottombar.php';
 ?> 
 
 

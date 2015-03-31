@@ -1,12 +1,12 @@
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/header.php'; ?>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/navbarProfile.php'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/header.php'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/navbarProfile.php'; ?>
 
 <style>
 #jazz, #rain{
   display: none;
 }
 html, body{
-  background-image: url('http://cs445.cs.umass.edu/groups/clp/www/resources/images/fireplace.jpg');
+  background-image: url('http://avid.cs.umass.edu/projects/course-project/Musicnet/resources/images/fireplace.jpg');
   background-size: 100%;
   opacity: .95;
   
@@ -28,8 +28,8 @@ html, body{
   </iframe>
 
   <div>
-  <img src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/rosen.png"  style="position: relative; margin: auto; width: 30%; height: 30%; opacity: .6"/>
+  <img src="http://avid.cs.umass.edu/projects/course-project/Musicnet/resources/images/rosen.png"  style="position: relative; margin: auto; width: 30%; height: 30%; opacity: .6"/>
   </div>
 
 
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/bottombar.php'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/bottombar.php'; ?>

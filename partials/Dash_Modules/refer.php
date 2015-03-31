@@ -1,4 +1,4 @@
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style='height: 100%'>
 <h1 class='page-header'>Refer A Friend!</h1>
 
 <?php
@@ -32,8 +32,7 @@ echo $set2 . ' to become part of something bigger than yourself; become part of 
 '.
 "
 Copy and paste this link into your internet browser and see all that you can become: 
-http://www.cs445.cs.umass.edu/php-wrapper/clp/splash.php
-
+http://avid.cs.umass.edu/projects/course-project/Musicnet/
 
 Join the MusicNet Community and you'll never look back! Hope to see you on the web!
 

@@ -3,7 +3,7 @@ session_start();
 
 //Changes the rating of a song for a user; handles if there is no pre-existing rating too
 if( isset( $_POST[ 'new' ] ) && ( $_POST[ 'content'] != 'norating' )){
-		$connection = @new mysqli( /*removed*/ );
+		//DB connection
 		$song = $_GET[ 'id' ];
 
 		//Grab User's previous rating
@@ -141,7 +141,7 @@ if( isset( $_POST[ 'new' ] ) && ( $_POST[ 'content'] != 'norating' )){
 
 //Checks to see if user has existing playlist
 elseif( isset( $_POST[ 'songid' ] ) ){
-	$connection = @new mysqli( /*removed*/ );
+	//DB connection
 	$song = $_POST[ 'songid' ];
 	$stmt = $connection->prepare( 'SELECT P.playlistname from Playlist P, Created C WHERE C.loginacct = ? AND P.playlistid = C.playlistid' );
 	$stmt->bind_param( 's', $_SESSION[ 'username' ] );
@@ -177,7 +177,7 @@ elseif( isset( $_POST[ 'songid' ] ) ){
 elseif( isset( $_POST[ 'pname' ] ) ){
 
 	$playlist = $_POST[ 'pname' ];
-	$connection = @new mysqli( /*removed*/ );
+	//DB connection
 	$song = $_POST[ 'sid' ];
 
 	//Get the value of the largest playlistID
@@ -229,7 +229,7 @@ elseif( isset( $_POST[ 'playlist' ] ) ){
 
 	$play = $_POST[ 'playlist' ];
 	$title = $_POST[ 's' ];
-	$connection = @new mysqli( /*removed*/ );
+	//DB connection
 	//Turn off foreign key checks to add tuple
 	$noCheck = mysqli_query( $connection, 'SET FOREIGN_KEY_CHECKS=0');
 	//Grab the id of the playlist in question
@@ -270,7 +270,7 @@ elseif( isset( $_POST[ 'songI' ] ) ){
 
 	$ID = $_POST[ 'songI' ];
 	$plays = $_POST[ 'totplays' ];
-	$connection = @new mysqli( /*removed*/ );
+	//DB connection
 
 	//See if the song has plays from this User
 	$stmt = $connection->prepare( 'SELECT plays FROM UserInteraction WHERE songid = ? AND loginacct = ?' );
@@ -364,7 +364,7 @@ elseif( isset( $_POST[ 'songI' ] ) ){
 elseif( isset( $_POST[ 'update' ] ) ){
 
 	$sname = $_GET[ 'id' ];
-	$connection = @new mysqli( /*removed*/ );
+	//DB connection
 
 	//Update Average Rating
 	$stmt = $connection->prepare( 'UPDATE Song set rating = ratecount / totalRatings WHERE songid = ?' );
@@ -389,7 +389,7 @@ elseif( isset( $_POST[ 'newpname' ] ) ){
 	$user = $_POST[ 'user' ];
 	$name = $_POST[ 'newpname'];
 
-	$connection = @new mysqli( /*removed*/ );
+	//DB connection
 
 	//Get the value of the largest playlistID
 	$prevID = 0;
@@ -425,7 +425,7 @@ elseif( isset( $_POST[ 'delete' ] ) ){
 	$name = $_POST[ 'delete' ];
 
 	$id = 0;
-	$connection = @new mysqli( /*removed*/ );
+	//DB connection
 	$stmt = $connection->prepare( 'SELECT playlistid FROM Playlist WHERE playlistname = ?' );
 	$stmt->bind_param( 's', $name );
 	$stmt->execute();
@@ -449,14 +449,14 @@ elseif( isset( $_POST[ 'delete' ] ) ){
 
 	$connection->close();
 
-	$connection = @new mysqli( /*removed*/ );
+	//DB connection
 	$stmt = $connection->prepare( 'DELETE FROM Playlist WHERE playlistid = ?' );
 	$stmt->bind_param( 's', $id );
 	$stmt->execute();
 	$stmt->close();
 	$connection->close();
 
-	$connection = @new mysqli( /*removed*/ );
+	//DB connection
 	$stmt = $connection->prepare( 'DELETE FROM PlayLikes WHERE playlistid = ?' );
 	$stmt->bind_param( 's', $id );
 	$stmt->execute();
@@ -472,7 +472,7 @@ elseif( isset( $_POST[ 'like' ] ) ){
 	$playlist = $_POST[ 'like' ];
 
 	$id = 0;
-	$connection = @new mysqli( /*removed*/ );
+	//DB connection
 	$stmt = $connection->prepare( 'SELECT playlistid FROM Playlist WHERE playlistname = ?' );
 	$stmt->bind_param( 's', $playlist );
 	$stmt->execute();
@@ -498,7 +498,7 @@ elseif( isset( $_POST[ 'unlike' ] ) ){
 	$playlist = $_POST[ 'unlike' ];
 
 	$id = 0;
-	$connection = @new mysqli( /*removed*/ );
+	//DB connection
 	$stmt = $connection->prepare( 'SELECT playlistid FROM Playlist WHERE playlistname = ?' );
 	$stmt->bind_param( 's', $playlist );
 	$stmt->execute();

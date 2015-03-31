@@ -1,6 +1,6 @@
 <?php
 
-$connection = @new mysqli( /*removed*/ );
+//DB connection
 
 if ( !isset( $_SESSION ) ) {
 	session_start();
@@ -10,7 +10,7 @@ $name = $_GET[ 'user' ];
 if ( !$connection ) {
 	die( "Couldn't connect to mysql server!<br>The error was: " . mysql_error() );
 } else {
-	echo "Connection successful!<br>\n";
+	//echo "Connection successful!<br>\n";
 }
 $stmt = $connection->prepare( 'SELECT loginacct FROM User WHERE loginacct = ?' );
 $stmt->bind_param( 's', $name );

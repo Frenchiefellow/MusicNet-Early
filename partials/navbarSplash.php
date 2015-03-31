@@ -8,13 +8,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="http://cs445.cs.umass.edu/php-wrapper/clp/splash.php" style="position:absolute; ">MusicNet</a>
+          <a class="navbar-brand" href="http://avid.cs.umass.edu/projects/course-project/Musicnet/splash.php" style="position:absolute; ">MusicNet</a>
         </div>
          <div id="fb-root"></div>
 	<?php if(!isset($_SESSION['username'])){echo'
         <div class="navbar-collapse collapse">
 		 
-          <form action="http://cs445.cs.umass.edu/php-wrapper/clp/auth.php" class="navbar-form navbar-right" role="form" method="post">
+          <form action="http://avid.cs.umass.edu/projects/course-project/Musicnet/auth.php" class="navbar-form navbar-right" role="form" method="post">
             <div class="form-group">
               <input type="text" placeholder="Login Account" name="username" class="form-control">
             </div>
@@ -23,7 +23,7 @@
             </div>
             <button type="submit" class="btn btn-success" >Sign in</button>
           </form>'; 
-         echo '<div class ="navbar-brand2" style="position: absolute; color: white;"><div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false">Login/Signup</div></div>';
+         echo '<div class ="navbar-brand2" style="position: absolute; color: white;" title="Login/Signup with Facebook!"><div class="fb-login-button" data-max-rows="1" data-size="icon" data-show-faces="false" data-auto-logout-link="false" title="Login/Signup with Facebook!"></div></div>';
          echo '<script>window.localStorage.clear();</script>';
           ?>
 	   <?php if(isset($_GET['err'])){ echo '<div class ="navbar-brand2" style="position: absolute; color: white;">'; if($_GET['err'] == 1){echo '<script type="text/javascript">alert("Incorrect Credentials")</script>';} elseif($_GET['err'] == 2){ echo '<script type="text/javascript">alert("User Not Found!")</script>';} elseif($_GET['err'] == 3){ echo '<script type="text/javascript">alert("Page Not Found!")</script>';} echo '</div>'; } ?>
@@ -32,7 +32,7 @@
 	echo '
 	 <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="'; $url = "http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=" . $_SESSION['username']; echo $url; echo '">Home</a></li>';
+            <li><a href="'; $url = "http://avid.cs.umass.edu/projects/course-project/Musicnet/profile.php?user=" . $_SESSION['username']; echo $url; echo '">Home</a></li>';
         if( strpos( $_SESSION[ 'username' ], '_FB') ){ 
 	     echo '<li><a id="lo" >Log Out</a></li>';
         }
@@ -62,7 +62,7 @@ function onAuthenticated(data) {
         		data: 'fb=' + true  + '&name=' + localStorage.username + '&gender=' + localStorage.gender + '&location=' + localStorage.home + '&fid=' + localStorage.profID, 
         		cache: false,
         		error: function( e ){
-        		alert( e );
+        		//alert( e );
         		},
         		success: function( response ){ 
               window.localStorage.removeItem('localStorage.username');

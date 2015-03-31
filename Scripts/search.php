@@ -12,7 +12,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 	$query3     = strtolower("% " .$_GET[ 'query' ] . " %" );
 	$query2 	= strtolower( $_GET[ 'query' ] . "%" );
 	$query      = strtolower( $_GET[ 'query' ] );
-	$connection = @new mysqli( /*removed*/ );
+	//DB connection
 	if ( !$connection ) {
 		die( "Couldn't connect to mysql server!<br>The error was: " . mysql_error() );
 	}
@@ -52,7 +52,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 		if ( !isset( $_POST[ 'order' ] ) || $_POST[ 'order' ] == 'alpha' ) {
 			echo '<div style="position: relative; height:13%; overflow: auto; background-color: #eee; border: 2px solid;">';
 			while ( $row = $stmt->fetch() ) {
-				$url  = "http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=" . $log;
+				$url  = "http://avid.cs.umass.edu/projects/course-project/Musicnet/profile.php?user=" . $log;
 				$html = '<a href="' . $url . '">';
 				printf( $html . '%s</a></br>', $log );
 			}
@@ -103,7 +103,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 			echo '<div style="font-weight: bold;">Sorting By: ' . $sorter . '</div>';
 			echo '<div style="position: relative; height: 13%; overflow: auto; background-color: #eee; border: 2px solid;">';
 			for ( $i = 0; $i < count( $results ); $i++ ) {
-				$url  = "http://cs445.cs.umass.edu/php-wrapper/clp/profile.php?user=" . $results[ $i ][ 0 ];
+				$url  = "http://avid.cs.umass.edu/projects/course-project/Musicnet/profile.php?user=" . $results[ $i ][ 0 ];
 				$html = '<a href="' . $url . '">';
 				echo $html . $results[ $i ][ 0 ] . "</a> <div style='float: right;'>Probability: " . ( number_format( ( $results[ $i ][ 1 ] * 100 ), 0 ) ) . "%</div><br>";
 				
@@ -146,7 +146,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 			echo '<div style="position: relative; height: 13%; overflow: auto; background-color: #eee; border: 2px solid;">';
 			while ( $row = $stmt->fetch() ) {
 				array_push( $ss, $sID );
-				$url  = "http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=" . $sID;
+				$url  = "http://avid.cs.umass.edu/projects/course-project/Musicnet/song.php?id=" . $sID;
 				$html = '<a href="' . $url . '">' . $title;
 				array_push( $ht, $html );
 
@@ -208,7 +208,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 
 			echo '<div style="position: relative; height: 13%; overflow: auto; background-color: #eee; border: 2px solid;">';
 			for ( $i = 0; $i < count( $results ); $i++ ) {
-				$url  = "http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=" . $results[ $i ][ 2 ];
+				$url  = "http://avid.cs.umass.edu/projects/course-project/Musicnet/song.php?id=" . $results[ $i ][ 2 ];
 				$html = '<a style="float: left; margin-right: 5px;" href="' . $url . '">';
 				echo $html . $results[ $i ][ 0 ] . " </a><span>by: " . $artd[ $i ] . "</span><div style='float: right;'>Probability: " . ( ( ($results[ $i ][ 1 ] * 100 ) % 100 ) )  . "%</div><br>";
 			
@@ -252,7 +252,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 		if ( !isset( $_POST[ 'order2' ] ) || $_POST[ 'order2' ] == 'alpha' ) {
 			echo '<div style="position: relative; height: 13%; overflow: auto; background-color: #eee; border: 2px solid;">';
 			while ( $row = $stmt->fetch() ) {
-				$url  = "http://cs445.cs.umass.edu/php-wrapper/clp/artist.php?id=" . $aID;
+				$url  = "http://avid.cs.umass.edu/projects/course-project/Musicnet/artist.php?id=" . $aID;
 				$html = '<a href="' . $url . '">';
 				printf( $html . '%s</a></br>', $name );
 			}
@@ -282,7 +282,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 			array_multisort( $prob, SORT_DESC, $results );
 			echo '<div style="position: relative; height: 13%; overflow: auto; background-color: #eee; border: 2px solid;">';
 			for ( $i = 0; $i < count( $results ); $i++ ) {
-				$url  = "http://cs445.cs.umass.edu/php-wrapper/clp/artist.php?id=" . $results[ $i ][ 2 ];
+				$url  = "http://avid.cs.umass.edu/projects/course-project/Musicnet/artist.php?id=" . $results[ $i ][ 2 ];
 				$html = '<a href="' . $url . '">';
 				echo $html . $results[ $i ][ 0 ] . "</a> <div style='float: right;'>Probability: " . ( ( ($results[ $i ][ 1 ] * 100 ) % 100 ) ) . "%</div><br>";
 				
@@ -326,7 +326,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 		if ( !isset( $_POST[ 'order3' ] ) || $_POST[ 'order3' ] == 'alpha' ) {
 			echo '<div style="position: relative; height: 13%; overflow: auto; background-color: #eee; border: 2px solid;">';
 			while ( $row = $stmt->fetch() ) {
-				$url  = "http://cs445.cs.umass.edu/php-wrapper/clp/album.php?id=" . $aID;
+				$url  = "http://avid.cs.umass.edu/projects/course-project/Musicnet/album.php?id=" . $aID;
 				$html = '<a href="' . $url . '">';
 				printf( $html . '%s</a></br>', $name );
 			}
@@ -356,7 +356,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 			array_multisort( $prob, SORT_DESC, $results );
 			echo '<div style="position: relative; height: 13%; overflow: auto; background-color: #eee; border: 2px solid;">';
 			for ( $i = 0; $i < count( $results ); $i++ ) {
-				$url  = "http://cs445.cs.umass.edu/php-wrapper/clp/album.php?id=" . $results[ $i ][ 2 ];
+				$url  = "http://avid.cs.umass.edu/projects/course-project/Musicnet/album.php?id=" . $results[ $i ][ 2 ];
 				$html = '<a href="' . $url . '">';
 				echo $html . $results[ $i ][ 0 ] . "</a> <div style='float: right;'>Probability: " . ( ( ($results[ $i ][ 1 ] * 100 ) % 100 ) ) . "%</div><br>";
 				
@@ -395,7 +395,7 @@ if ( isset( $_GET[ 'query' ] ) ) {
 		if ( !isset( $_POST[ 'order1' ] ) || $_POST[ 'order1' ] == 'alpha' ) {
 			echo '<div style="position: relative; height: 80%; overflow: auto; background-color: #eee; border: 2px solid;">';
 			while ( $row = $stmt->fetch() ) {
-				$url  = "http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=" . $sID;
+				$url  = "http://avid.cs.umass.edu/projects/course-project/Musicnet/song.php?id=" . $sID;
 				$html = '<a href="' . $url . '">';
 				printf( $html . '%s</a></br>', $title );
 			}

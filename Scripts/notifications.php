@@ -4,7 +4,7 @@ session_start();
 if( isset( $_POST[ 'name' ] ) ) {
 
 	$name = $_POST[ 'name' ];
-	$connection = @new mysqli( /*removed*/ );
+	//DB connection
 
 	//Echo the array of notifications
 	$stmt = $connection->prepare( 'SELECT content, notid FROM Notifications WHERE Recipient = ?' );

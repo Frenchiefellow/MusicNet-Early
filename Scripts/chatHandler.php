@@ -1,16 +1,17 @@
 <?
 session_start();
 if(isset($_SESSION['username'])){
+
     $text = $_POST['text'];
 
-    $connection = @new mysqli( /*removed*/ );
-    $stmt = $connection->prepare( 'SELECT title FROM Song WHERE songid = ?' );
+    //DB connection
+     $stmt = $connection->prepare( 'SELECT title FROM Song WHERE songid = ?' );
     $stmt->bind_param( 's' , $_POST[ 'songID' ] );
     $stmt->execute();
-	$stmt->bind_result( $name );
-	$song;
-	while ( $row = $stmt->fetch() ) {
-     	$song = $name;
+    $stmt->bind_result( $name );
+    $song;
+    while ( $row = $stmt->fetch() ) {
+        $song = $name;
     }
     $stmt->close();
     $connection->close();

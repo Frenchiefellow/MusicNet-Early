@@ -11,9 +11,9 @@
 	   <?php
 	  	if( isset( $_SESSION[ 'username' ] ) ){
 	    	if($_SESSION['username'] == 'admin'){
-			 	echo '<a class="navbar-brand" href="'; $si = session_id(); $url = "http://cs445.cs.umass.edu/php-wrapper/clp/admin.php?id=" . $si; echo $url; echo '" style="position:absolute;">ADMIN</a>';}}
+			 	echo '<a class="navbar-brand" href="'; $si = session_id(); $url = "http://avid.cs.umass.edu/projects/course-project/Musicnet/admin.php?id=" . $si; echo $url; echo '" style="position:absolute;">ADMIN</a>';}}
 	   	elseif ( !isset( $_SESSION[ 'username' ] ) ){
-	   		echo '<a class="navbar-brand" href="http://cs445.cs.umass.edu/php-wrapper/clp/about.php" style="position:absolute;">About Us</a>';
+	   		echo '<a class="navbar-brand" href="http://avid.cs.umass.edu/projects/course-project/Musicnet/about.php" style="position:absolute;">About Us</a>';
 	   	}
 
 	   		?>

@@ -1,7 +1,5 @@
 <?php
-
-
-$connection = @new mysqli( /*removed*/ );
+//DB CONNECTION
 
 
 if( !isset( $_POST[ 'fb' ]  ) ){

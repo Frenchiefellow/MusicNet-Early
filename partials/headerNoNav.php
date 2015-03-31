@@ -2,15 +2,15 @@
 <html>
 <?php if(!isset($_SESSION)){session_start(); } ?>
 <style>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/bootstrap.min.css'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/bs/css/bootstrap.min.css'; ?>
 </style> 
 
 <style>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/bootstrap.css'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/bs/css/bootstrap.css'; ?>
 </style> 
 
 <style>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/style.css'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/bs/css/style.css'; ?>
 </style> 
 
 

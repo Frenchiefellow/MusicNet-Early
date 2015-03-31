@@ -7,28 +7,38 @@ header("Access-Control-Allow-Origin: *");
 
 
 <style>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/bootstrap.min.css'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/bs/css/bootstrap.min.css'; ?>
 </style> 
 
 <style>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/bootstrap.css'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/bs/css/bootstrap.css'; ?>
 </style> 
 
 <style>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/style.css'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/bs/css/style.css'; ?>
 </style> 
 
 <style>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/bootstrap-responsive.css'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/bs/css/bootstrap-responsive.css'; ?>
 </style> 
 
 <style>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/dash.css'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/bs/css/dash.css'; ?>
 </style> 
+
+<script src="./Scripts/build/three.js"></script>
+<script src="./Scripts/build/CanvasRenderer.js"></script>
+<script src="./Scripts/build/Projector.js"></script>
 
 
 <head>
 <title>MusicNet</title>
 </head>
-
-<body> 
+<?php $url = "$_SERVER[REQUEST_URI]"; 
+if(strpos($url, 'song.php')){
+echo '<body style="overflow: hidden">'; 
+}
+else{
+echo '<body>';	
+}
+?>

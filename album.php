@@ -1,21 +1,21 @@
 <?php session_start(); ?>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/Scripts/checkMusic.php'; ?>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/header.php'; ?>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/navbarProfile.php'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/Scripts/checkMusic.php'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/header.php'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/navbarProfile.php'; ?>
 <style>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/bs/css/cars.css'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/bs/css/cars.css'; ?>
 </style>
 
 <div id="slider" class="carousel slide" style='opacity: .8'> 
   <div class="carousel-inner">
   <div class="item active one">
   <div class="two">
-   <img src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/case.png" class="imgBack" />
+   <img src="http://avid.cs.umass.edu/projects/course-project/Musicnet/resources/images/case.png" class="imgBack" />
    </div>
       <div class="carousel-caption">
         <a class="btn btn-primary">ALBUM: <?php 
 	 	$alID = $_GET[ 'id' ];
-		$connection = @new mysqli( /*removed*/ );
+		//DB CONNECTION
 		$stmt = $connection->prepare( 'SELECT albumname FROM Album WHERE albumid = ?' );
 		$stmt->bind_param( 's',  $alID );
 		$stmt->execute();
@@ -38,7 +38,7 @@
 
 		<?php 
 	 	$alID = $_GET[ 'id' ];
-		$connection = @new mysqli( /*removed*/ );
+		//DB CONNECTION
 		$stmt = $connection->prepare( 'SELECT artistid FROM Linked_To WHERE albumid = ?' );
 		$stmt->bind_param( 's',  $alID );
 		$stmt->execute();
@@ -53,7 +53,7 @@
 		$stmt->execute();
 		$stmt->bind_result( $anames );
 		while( $stmt->fetch() ){
-				echo '<a class="btn btn-warning" href="http://cs445.cs.umass.edu/php-wrapper/clp/artist.php?id=' . $ida . '">BY: ' . $anames . '</a>';
+				echo '<a class="btn btn-warning" href="http://avid.cs.umass.edu/projects/course-project/Musicnet/artist.php?id=' . $ida . '">BY: ' . $anames . '</a>';
 			}
 
 
@@ -77,7 +77,7 @@
 	<div class="songContainerInner" >
 	<?php 
 		$alID = $_GET[ 'id' ];
-		$connection = @new mysqli( /*removed*/ );
+		//DB CONNECTION
 		$stmt = $connection->prepare( 'SELECT songid FROM Linked_To WHERE albumid = ?' );
 		$stmt->bind_param( 's',  $alID);
 		$stmt->execute();
@@ -99,7 +99,7 @@
 			$stmt->execute();
 			$stmt->bind_result( $title );
 			while($row = $stmt->fetch()){
-				echo '<a href="http://cs445.cs.umass.edu/php-wrapper/clp/song.php?id=' . $sIDs[ $i ] . '">' . $title . '</a><br>';
+				echo '<a href="http://avid.cs.umass.edu/projects/course-project/Musicnet/song.php?id=' . $sIDs[ $i ] . '">' . $title . '</a><br>';
 			}
 		}
 
@@ -107,4 +107,4 @@
 	?>
 	</div>
 </div>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/bottombar.php'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/bottombar.php'; ?>

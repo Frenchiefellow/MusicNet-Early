@@ -22,7 +22,6 @@ $age   = $_POST[ 'age' ];
 $loc   = $_POST[ 'location' ];
 $gen   = $_POST[ 'Gender' ];
 
-$connection = @new mysqli( /*removed*/ );
 if ( !$connection ) {
 	die( "Couldn't connect to mysql server!<br>The error was: " . mysql_error() );
 } else {
@@ -35,6 +34,7 @@ $stmt->bind_param( 's', $login );
 $stmt->execute();
 
 $stmt->bind_result( $loginacct );
+
 
 
 

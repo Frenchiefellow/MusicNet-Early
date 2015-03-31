@@ -1,6 +1,6 @@
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/header.php'; ?>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/navbarProfile.php'; ?>
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/aboutside.php'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/header.php'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/navbarProfile.php'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/aboutside.php'; ?>
 <style>
 html, body{
 	height: 100%;
@@ -61,8 +61,8 @@ html, body{
 	<h1 id="dev" class="page-header">Meet the Development Team</h1>
 
 	<div id="chris" class="row" style="border: 2px solid; border-radius: 10px; width: 100%; margin-left: auto; margin-right: auto;">
-	<div class="col-sm-4" style="background-color: #808080">
-	<img src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/ChrisAbout.png"  style="border: 0px solid; border-radius: 10px; width: 90%; height: 225px; "> 
+	<div class="col-sm-4" style="background-color: #808080; border-radius: 10px">
+	<img src="http://avid.cs.umass.edu/projects/course-project/Musicnet/resources/images/ChrisAbout.png"  style="border: 0px solid; border-radius: 10px; width: 90%; height: 225px; "> 
 	</div>
 	<div class="col-sm-8">
 	<h4 style="text-align: center" class="page-header">CHRIS: Frontend Master, Backend Knight</h4>
@@ -75,8 +75,8 @@ html, body{
 	</div>
 
 	<div id="ted" class="row" style="border: 2px solid; margin-top: 1%; border-radius: 10px; width: 100%; margin-left: auto; margin-right: auto;">
-	<div class="col-sm-4" style="background-color: #808080;" >
-	<img src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/TedAbout.png"  style="border: 0px solid; border-radius: 10px;  width: 90%; height: 225px; "> 
+	<div class="col-sm-4" style="background-color: #808080; border-radius: 10px" >
+	<img src="http://avid.cs.umass.edu/projects/course-project/Musicnet/resources/images/TedAbout.png"  style="border: 0px solid; border-radius: 10px;  width: 90%; height: 225px; "> 
 	</div>
 	<div class="col-sm-8">
 	<h4 style="text-align: center" class="page-header">TED: Document Master, Frontend Initiate, Backend Padawan</h4>
@@ -88,8 +88,8 @@ html, body{
 	</div> 
 
 	<div id="piers" class="row" style="border: 2px solid; margin-top: 1%; border-radius: 10px; width: 100%; margin-left: auto; margin-right: auto;">
-	<div class="col-sm-4" style="background-color: #808080">
-	<img src="http://cs445.cs.umass.edu/groups/clp/www/resources/images/PiersAbout.png" style="border: 0px solid; border-radius: 10px;  width: 90%; height: 225px;"> 
+	<div class="col-sm-4" style="background-color: #808080; border-radius: 10px">
+	<img src="http://avid.cs.umass.edu/projects/course-project/Musicnet/resources/images/PiersAbout.png" style="border: 0px solid; border-radius: 10px;  width: 90%; height: 225px;"> 
 	</div>
 	<div class="col-sm-8">
 	<h4 style="text-align: center" class="page-header">PIERS: Backend Sith Lord</h4>
@@ -101,24 +101,9 @@ html, body{
 	</div>
 	</div>
 
-	<div style="background-color: white; border: 0px solid; border-radius: 10px;">
-	<h1 id="serious" class="page-header">In All Seriousness</h1>
-	<p> 
-	We think its pretty clear that we had a fun, albeit a bit frustrating, time designing this website. It was certainly a struggle to finish in time and get everything <i>perfect</i>, but 
-	we are happy with the end result and we hope you will like the all the functionality we actually got programmed into the site. We tried not taking ourselves too seriously (especially in this page),
-	but the website came together better than we all thought possible. </p>
-	<p>
-	Had we more time to continue onward (Chris started the Frontend before Data Loading was complete), we would have liked to implement other features/changes to our website such as: </p>
-	<ul>
-		<li>Allowing Users to upload pictures for there accounts</li>
-		<li>A peer to peer chat client (private messages)</li>
-		<li>Scripts to grab album art, artist pictures, and songs from sources such as Spotify or Google</li>
-		<li>Refactoring of older authentication scripts</li>
-	</ul>
-	</div>
 
 
 </div>
 
 
-<?php include '/courses/cs400/cs445/php-dirs/clp/www/partials/bottombar.php'; ?>
+<?php include '/nfs/avid/data1/html/projects/course-project/Musicnet/partials/bottombar.php'; ?>
